@@ -103,8 +103,8 @@ contactForms.forEach((contactForm) => {
   const submitButton = contactForm.querySelector('button[type="submit"]');
   const isExpansionForm = contactForm.id === "interest-form";
   const readyMessage = isExpansionForm
-    ? "Send your interest form directly to Mobile Cryo Pro. This is an expression of interest, not an offer or commitment."
-    : "Send us a message and we’ll get back to you quickly.";
+    ? "Send an expansion inquiry to Mobile Cryo Pro. This is an expression of interest, not an offer or commitment."
+    : "Send the form and Dan will reply as soon as possible.";
 
   contactForm.action = formspreeEndpoint;
   contactForm.method = "POST";
@@ -164,8 +164,8 @@ contactForms.forEach((contactForm) => {
       contactForm.reset();
       if (status) {
         status.textContent = isExpansionForm
-          ? "Thanks — your interest form was sent to Mobile Cryo Pro."
-          : "Thanks — your message was sent. We’ll get back to you quickly.";
+          ? "Thanks — your expansion inquiry was sent to Mobile Cryo Pro."
+          : "Thanks — your message was sent. Dan will be in touch.";
       }
     } catch (error) {
       if (status) {
