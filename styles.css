@@ -8646,3 +8646,24 @@ body:not(.services-page).about-page .bio-video-frame.has-video::before {
     border-width: 2px;
   }
 }
+
+/* v168: keep mobile scrolling on the document instead of nested page wrappers. */
+@media (max-width: 760px) {
+  html {
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: auto;
+    scroll-behavior: auto;
+  }
+
+  body,
+  .page-shell,
+  .services-page .page-shell,
+  body:not(.services-page) .page-shell,
+  body.home-page .page-shell,
+  .home-page .page-shell {
+    overflow: visible !important;
+    overscroll-behavior-y: auto;
+    touch-action: pan-y pinch-zoom;
+  }
+}
