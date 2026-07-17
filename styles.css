@@ -8725,3 +8725,13 @@ body:not(.services-page).about-page .bio-video-frame.has-video::before {
     margin-left: auto !important;
   }
 }
+
+/* v170: preserve readable headings inside the dark SEO status panel. */
+.seo-faq-band .section-heading .eyebrow {
+  color: #7fd8ee !important;
+}
+
+.seo-faq-band .section-heading h2 {
+  color: #ffffff !important;
+  text-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
+}
