@@ -1,0 +1,47 @@
+.DS_Store
+
+# Internal project records and earlier working drafts
+PROJECT_STATUS.md
+email-media/
+original-attempt/
+tools/
+
+# Client-review logo comparison pages and source/mockup exports
+logo-options.html
+logo-riffs.html
+assets/mobile-cryo-pro-approved-logo-source.png
+assets/mobile-cryo-pro-logo-approved.png
+assets/mobile-cryo-pro-logo-master.png
+assets/mobile-cryo-pro-logo-site-master.png
+assets/mobile-cryo-pro-logo-png-*.png
+assets/mobile-cryo-pro-logo-png-contact-sheet.jpg
+assets/mobile-cryo-pro-logo-reference-riff.png
+assets/mobile-cryo-pro-logo-riff-*.png
+assets/mobile-cryo-pro-logo-riffs-contact-sheet.jpg
+assets/mobile-cryo-pro-logo-riff-ai-concept.png
+assets/mobile-cryo-pro-selected-logo-cutout.png
+assets/mobile-cryo-pro-selected-logo-source.png
+assets/mobile-cryo-pro-site-mockup-selected-logo*.png
+assets/mobile-cryo-pro-site-screenshot-source.png
+
+# Retired homepage image
+assets/sports-medicine-ball.jpg
+
+# Unused working assets not required by the production pages
+assets/client-arm-assessment-male.jpg
+assets/client-knee-consultation-male.jpg
+assets/client-knee-consultation-varied.jpg
+assets/mobile-cryo-pro-app-icon-192.png
+assets/mobile-cryo-pro-app-icon-512.png
+assets/mobile-cryo-pro-favicon-48.png
+assets/mobile-cryo-pro-hero-setup.png
+assets/mobile-cryo-pro-hero-warm.png
+assets/mobile-cryo-pro-icon-transparent-512.png
+assets/mobile-cryo-pro-logo.webp
+assets/recovery-shoulder-cryo-close.jpg
+assets/snowflake-ornate-a.svg
+assets/snowflake-ornate-b.svg
+assets/snowflake-ornate-c.svg
+assets/sports-physical-therapy.jpg
+assets/sports-recovery-stretch.jpg
+assets/sports-therapy-band.jpg
