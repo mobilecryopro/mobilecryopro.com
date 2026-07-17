@@ -2649,8 +2649,8 @@ main > .page-link-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   grid-template-areas:
-    "links links"
-    "copyright payments";
+    "payments links"
+    "copyright copyright";
   align-items: center;
   gap: 18px 24px;
   padding-top: 22px;
@@ -2803,9 +2803,9 @@ main > .page-link-grid {
   .footer-bar {
     grid-template-columns: 1fr;
     grid-template-areas:
+      "payments"
       "links"
-      "copyright"
-      "payments";
+      "copyright";
   }
 
   .footer-links {
