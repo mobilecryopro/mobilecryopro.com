@@ -8667,3 +8667,61 @@ body:not(.services-page).about-page .bio-video-frame.has-video::before {
     touch-action: pan-y pinch-zoom;
   }
 }
+
+/* v169: stable Android scrolling and a consistent two-line mobile menu icon. */
+@media (max-width: 760px) {
+  .nav-toggle,
+  .home-page .nav-toggle,
+  .services-page .nav-toggle,
+  body:not(.services-page) .nav-toggle {
+    flex-direction: column !important;
+    gap: 6px !important;
+  }
+
+  .nav-toggle span,
+  .home-page .nav-toggle span,
+  .services-page .nav-toggle span,
+  body:not(.services-page) .nav-toggle span {
+    flex: 0 0 2px;
+    width: 24px !important;
+    height: 2px !important;
+    margin: 0 !important;
+    transform: none;
+    transform-origin: center;
+    transition: transform 180ms ease;
+  }
+
+  .site-header.nav-open .nav-toggle span:first-child {
+    transform: translateY(4px) rotate(45deg);
+  }
+
+  .site-header.nav-open .nav-toggle span:last-child {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+
+  body.services-page,
+  .services-page .page-shell,
+  .services-page #main-content {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    overscroll-behavior: auto !important;
+    touch-action: pan-y pinch-zoom !important;
+  }
+
+  .services-page .site-header,
+  .services-page .services-hero,
+  .services-page .menu-jump-panel,
+  .services-page .services-menu-board,
+  .services-page .services-showcase,
+  .services-page .services-story-band,
+  .services-page .services-pricing-section,
+  .services-page .services-area-band,
+  .services-page .service-detail-grid,
+  .services-page .services-final-cta {
+    width: calc(100% - 24px) !important;
+    max-width: calc(100% - 24px) !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+}
