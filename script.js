@@ -170,7 +170,7 @@ contactForms.forEach((contactForm) => {
     } catch (error) {
       if (status) {
         status.textContent =
-          "We couldn’t send that message. Please call or text (707) 867-6101, or email info@mobilecryopro.com.";
+          "We couldn’t send that message. Please call or text (707) 413-9366, or email info@mobilecryopro.com.";
       }
       console.error("Form submission failed", error);
     } finally {
