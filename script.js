@@ -6,7 +6,7 @@ const slides = Array.from(document.querySelectorAll("[data-slide]"));
 const dots = Array.from(document.querySelectorAll("[data-dot]"));
 const contactForms = document.querySelectorAll("[data-contact-form]");
 const formspreeEndpoint = "https://formspree.io/f/mnjeppkn";
-const bookingDepositPage = "book.html";
+const bookingDepositPage = "https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00";
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 if (header) {
@@ -114,13 +114,15 @@ contactForms.forEach((contactForm) => {
     status.setAttribute("aria-live", "polite");
   }
 
-  if (!isExpansionForm) {
+  if (!isExpansionForm && !contactForm.querySelector(".booking-deposit-link")) {
     const depositPrompt = document.createElement("p");
     const depositLink = document.createElement("a");
 
     depositPrompt.className = "booking-deposit-link";
     depositPrompt.append("Already scheduled? ");
     depositLink.href = bookingDepositPage;
+    depositLink.target = "_blank";
+    depositLink.rel = "noopener noreferrer";
     depositLink.textContent = "Pay the $50 booking deposit";
     depositPrompt.append(depositLink);
     contactForm.append(depositPrompt);
