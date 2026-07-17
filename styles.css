@@ -8620,6 +8620,11 @@ body:not(.services-page).about-page .bio-video-frame.has-video::before {
   }
 }
 
+/* v166: keep the first content panel the same distance below the nav on every page. */
+.page-shell > #main-content > :first-child {
+  margin-top: 0 !important;
+}
+
 .home-page .home-flagship-hero .hero-avatar-stack .hero-avatar img {
   display: block;
   width: 100%;
