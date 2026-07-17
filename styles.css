@@ -2663,7 +2663,7 @@ main > .page-link-grid {
   grid-area: links;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 18px;
 }
 
@@ -2672,6 +2672,7 @@ main > .page-link-grid {
   display: flex;
   flex: 0 0 auto;
   align-items: center;
+  justify-content: flex-end;
   gap: 6px;
   margin-inline: 0;
 }
@@ -2698,6 +2699,7 @@ main > .page-link-grid {
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1;
+  text-decoration: none;
   white-space: nowrap;
 }
 
