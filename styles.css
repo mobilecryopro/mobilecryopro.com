@@ -8429,3 +8429,43 @@ body:not(.services-page).about-page .bio-video-frame.has-video::before {
     transform: translate3d(2%, 0, 0) scale(1.04);
   }
 }
+
+/* v158: replace the awkward photo-crop avatar stack with a clear cryotherapy trust mark. */
+.home-page .home-flagship-hero .hero-trust-row {
+  gap: clamp(12px, 1vw, 16px);
+}
+
+.home-page .home-flagship-hero .hero-trust-mark {
+  display: grid;
+  flex: 0 0 auto;
+  width: clamp(44px, 3.5vw, 52px);
+  height: clamp(44px, 3.5vw, 52px);
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  border-radius: 16px;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 28% 24%, rgba(91, 195, 225, 0.42), transparent 42%),
+    linear-gradient(145deg, #123c67 0%, #08223f 72%);
+  box-shadow:
+    0 12px 24px rgba(8, 34, 63, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.home-page .home-flagship-hero .hero-trust-mark svg {
+  width: 62%;
+  height: 62%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (max-width: 760px) {
+  .home-page .home-flagship-hero .hero-trust-mark {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+  }
+}
