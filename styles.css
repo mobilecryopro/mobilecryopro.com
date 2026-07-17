@@ -2649,7 +2649,7 @@ main > .page-link-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   grid-template-areas:
-    "payments links"
+    "links payments"
     "copyright copyright";
   align-items: center;
   gap: 18px 24px;
@@ -2803,8 +2803,8 @@ main > .page-link-grid {
   .footer-bar {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "payments"
       "links"
+      "payments"
       "copyright";
   }
 
