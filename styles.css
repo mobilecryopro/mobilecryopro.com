@@ -8590,26 +8590,31 @@ body:not(.services-page).about-page .bio-video-frame.has-video::before {
   }
 }
 
-/* v159: keep the testimonial-face stack, but give every circle a deliberate portrait crop. */
-.home-page .home-flagship-hero .hero-avatar-stack span {
-  background-color: #d9eef4;
-  background-repeat: no-repeat;
+/* v164: use dedicated square portraits so every testimonial face stays complete. */
+.home-page .home-flagship-hero .hero-avatar-stack .hero-avatar {
+  flex: 0 0 auto;
+  overflow: hidden;
+  background: #d9eef4;
 }
 
-.home-page .home-flagship-hero .hero-avatar-stack .hero-avatar-woman {
-  background-image: url("assets/recovery-knee-consultation.jpg");
-  background-position: 35% 14%;
-  background-size: 220px auto;
+.home-page .home-flagship-hero .hero-avatar-stack .hero-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
-.home-page .home-flagship-hero .hero-avatar-stack .hero-avatar-man {
-  background-image: url("assets/recovery-shoulder-assessment.jpg");
-  background-position: 48% 14%;
-  background-size: 240px auto;
-}
+@media (max-width: 760px) {
+  .home-page .home-flagship-hero .hero-trust-row {
+    gap: 10px;
+  }
 
-.home-page .home-flagship-hero .hero-avatar-stack .hero-avatar-young-man {
-  background-image: url("assets/client-arm-assessment.jpg");
-  background-position: 40% 29%;
-  background-size: 240px auto;
+  .home-page .home-flagship-hero .hero-avatar-stack .hero-avatar {
+    box-sizing: border-box;
+    width: 28px;
+    height: 28px;
+    margin-left: -10px;
+    border-width: 2px;
+  }
 }
