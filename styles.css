@@ -2646,9 +2646,13 @@ main > .page-link-grid {
 }
 
 .footer-bar {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "links links"
+    "copyright payments";
+  align-items: center;
+  gap: 18px 24px;
   padding-top: 22px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   color: rgba(255, 255, 255, 0.68);
@@ -2656,9 +2660,163 @@ main > .page-link-grid {
 }
 
 .footer-links {
+  grid-area: links;
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 18px;
+}
+
+.footer-payment-methods {
+  grid-area: payments;
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 6px;
+  margin-inline: 0;
+}
+
+.footer-bar > p {
+  grid-area: copyright;
+}
+
+.payment-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 26px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: #111820;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+  font-family: Inter, Arial, sans-serif;
+  font-size: 0.56rem;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.payment-mark-visa {
+  color: #17357e;
+  font-size: 0.68rem;
+  font-style: italic;
+  letter-spacing: -0.08em;
+}
+
+.payment-mark-mastercard {
+  position: relative;
+}
+
+.payment-mark-mastercard::before,
+.payment-mark-mastercard::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 999px;
+}
+
+.payment-mark-mastercard::before {
+  left: 8px;
+  background: #eb001b;
+}
+
+.payment-mark-mastercard::after {
+  right: 8px;
+  background: rgba(247, 158, 27, 0.92);
+}
+
+.payment-mark-amex {
+  color: #ffffff;
+  background: #2d79b8;
+  font-size: 0.54rem;
+  letter-spacing: -0.06em;
+}
+
+.payment-mark-discover {
+  position: relative;
+  width: 48px;
+  padding-bottom: 2px;
+  font-size: 0.45rem;
+  letter-spacing: -0.04em;
+}
+
+.payment-mark-discover::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  width: 13px;
+  height: 3px;
+  border-radius: 999px;
+  background: #f58220;
+}
+
+.payment-mark-apple {
+  width: 50px;
+  color: #ffffff;
+  background: #050505;
+  font-size: 0.56rem;
+  letter-spacing: -0.05em;
+}
+
+.payment-mark-link {
+  width: 44px;
+  color: #071426;
+  background: #58d77c;
+  font-size: 0.62rem;
+  letter-spacing: -0.06em;
+}
+
+.payment-mark-klarna {
+  width: 49px;
+  background: #f7a9cf;
+  font-size: 0.57rem;
+}
+
+.payment-mark-amazon {
+  width: 57px;
+  background: #ffd84d;
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+}
+
+.payment-mark-cash {
+  width: 47px;
+  color: #ffffff;
+  background: #00c244;
+  font-size: 0.54rem;
+}
+
+.payment-mark-bank {
+  width: 48px;
+  color: #0c3157;
+  font-size: 0.52rem;
+}
+
+@media (max-width: 760px) {
+  .footer-bar {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "links"
+      "copyright"
+      "payments";
+  }
+
+  .footer-links {
+    justify-content: flex-start;
+  }
+
+  .footer-payment-methods {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 7px;
+  }
 }
 
 .sr-only {
