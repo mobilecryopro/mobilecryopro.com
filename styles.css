@@ -6467,7 +6467,7 @@ body:not(.home-page):not(.services-page):not(.about-page):not(.faq-page) .hero-s
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 0.34fr);
   gap: clamp(24px, 4vw, 64px);
-  width: min(calc(100% - 36px), 1380px);
+  width: min(calc(100% - 36px), var(--services-max, 1760px));
   margin: 22px auto 34px;
   padding: clamp(30px, 4vw, 56px);
   overflow: hidden;
