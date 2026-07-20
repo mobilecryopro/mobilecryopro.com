@@ -23,14 +23,14 @@
   --radius-lg: 12px;
   --radius-md: 12px;
   --max-width: 1760px;
-  --hero-image: url("assets/recovery-shoulder-assessment.jpg");
+  --hero-image: url("../assets/recovery-shoulder-assessment.jpg");
   --services-max: 1760px;
   --mockup-red: #bb202d;
   --mockup-red-dark: #941923;
   --mockup-blue: #0d5797;
   --mockup-blue-dark: #05345f;
   --mockup-ice: #44b9dd;
-  --services-hero-image: url("assets/recovery-shoulder-cryo-home.jpg");
+  --services-hero-image: url("../assets/recovery-shoulder-cryo-home.jpg");
   --icon-appointment: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.35' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2v4M16 2v4M4 8h16'/%3E%3Cpath d='M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z'/%3E%3Cpath d='m8.8 14 2.2 2.2 4.4-5'/%3E%3C/svg%3E");
 }
 
@@ -2846,7 +2846,7 @@ main > .page-link-grid {
   --mockup-blue: #0d5797;
   --mockup-blue-dark: #05345f;
   --mockup-ice: #44b9dd;
-  --services-hero-image: url("assets/recovery-shoulder-cryo-home.jpg");
+  --services-hero-image: url("../assets/recovery-shoulder-cryo-home.jpg");
   background:
     radial-gradient(ellipse at 50% 0%, rgba(77, 174, 214, 0.12), transparent 34%),
     linear-gradient(180deg, #f9fcff 0%, #eef5fb 44%, #fbfcfd 100%);
@@ -3409,7 +3409,7 @@ main > .page-link-grid {
 
 .proof-icon-snow::before {
   inset: 9px;
-  background: url("assets/snowflake-outline-d.svg") center / contain no-repeat;
+  background: url("../assets/snowflake-outline-d.svg") center / contain no-repeat;
   filter: brightness(0) invert(1);
 }
 
@@ -5589,7 +5589,7 @@ body:not(.services-page) .site-header {
 
 /* Homepage hero pass: match the mockup hero without touching the rest of the page. */
 .home-page {
-  --home-hero-image: url("assets/recovery-shoulder-cryo-home.jpg");
+  --home-hero-image: url("../assets/recovery-shoulder-cryo-home.jpg");
 }
 
 .home-page .site-header {
@@ -7040,7 +7040,7 @@ body.home-page .site-header {
     linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0 48%, rgba(255, 255, 255, 0.18) 68%, rgba(7, 20, 38, 0.1) 100%),
     radial-gradient(ellipse at 22% 66%, transparent 0 48%, rgba(13, 87, 151, 0.08) 48.4%, transparent 49.2%),
     radial-gradient(ellipse at 22% 66%, transparent 0 61%, rgba(187, 32, 45, 0.045) 61.4%, transparent 62.2%),
-    url("assets/sports-marathon-runner.jpg") 72% 30% / cover no-repeat;
+    url("../assets/sports-marathon-runner.jpg") 72% 30% / cover no-repeat;
   box-shadow:
     0 28px 66px rgba(8, 23, 41, 0.14),
     inset 0 1px 0 rgba(255, 255, 255, 0.92);
@@ -7397,7 +7397,7 @@ body.home-page .site-header {
     background:
       linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 64%, rgba(255, 255, 255, 0.34) 100%),
       radial-gradient(ellipse at 22% 66%, transparent 0 48%, rgba(13, 87, 151, 0.08) 48.4%, transparent 49.2%),
-      url("assets/sports-marathon-runner.jpg") 68% center / cover no-repeat;
+      url("../assets/sports-marathon-runner.jpg") 68% center / cover no-repeat;
   }
 
   .blog-hero-card {
@@ -7425,7 +7425,7 @@ body.home-page .site-header {
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 56%, rgba(255, 255, 255, 0.38) 100%),
       radial-gradient(ellipse at 22% 66%, transparent 0 48%, rgba(13, 87, 151, 0.08) 48.4%, transparent 49.2%),
-      url("assets/sports-marathon-runner.jpg") center bottom / cover no-repeat;
+      url("../assets/sports-marathon-runner.jpg") center bottom / cover no-repeat;
   }
 
   .blog-hero-copy {
@@ -7864,7 +7864,7 @@ body:not(.home-page):not(.services-page):not(.about-page):not(.faq-page) .hero-s
 .blog-page .blog-hero-panel {
   background:
     linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0 48%, rgba(255, 255, 255, 0.18) 68%, rgba(7, 20, 38, 0.1) 100%),
-    url("assets/sports-marathon-runner.jpg") 72% 30% / cover no-repeat !important;
+    url("../assets/sports-marathon-runner.jpg") 72% 30% / cover no-repeat !important;
 }
 
 @media (max-width: 1024px) {
@@ -7878,7 +7878,7 @@ body:not(.home-page):not(.services-page):not(.about-page):not(.faq-page) .hero-s
   .blog-page .blog-hero-panel {
     background:
       linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 64%, rgba(255, 255, 255, 0.34) 100%),
-      url("assets/sports-marathon-runner.jpg") 68% center / cover no-repeat !important;
+      url("../assets/sports-marathon-runner.jpg") 68% center / cover no-repeat !important;
   }
 }
 
@@ -7892,7 +7892,7 @@ body:not(.home-page):not(.services-page):not(.about-page):not(.faq-page) .hero-s
   .blog-page .blog-hero-panel {
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 56%, rgba(255, 255, 255, 0.38) 100%),
-      url("assets/sports-marathon-runner.jpg") center bottom / cover no-repeat !important;
+      url("../assets/sports-marathon-runner.jpg") center bottom / cover no-repeat !important;
   }
 }
 
@@ -8601,14 +8601,14 @@ body:not(.services-page).about-page .bio-video-frame.has-video::before {
 .blog-coming-soon-page .blog-hero-panel {
   background:
     linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0 48%, rgba(255, 255, 255, 0.18) 68%, rgba(7, 20, 38, 0.1) 100%),
-    url("assets/recovery-shoulder-assessment.jpg") 76% center / cover no-repeat !important;
+    url("../assets/recovery-shoulder-assessment.jpg") 76% center / cover no-repeat !important;
 }
 
 @media (max-width: 980px) {
   .blog-coming-soon-page .blog-hero-panel {
     background:
       linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 64%, rgba(255, 255, 255, 0.34) 100%),
-      url("assets/recovery-shoulder-assessment.jpg") 68% center / cover no-repeat !important;
+      url("../assets/recovery-shoulder-assessment.jpg") 68% center / cover no-repeat !important;
   }
 }
 
@@ -8616,7 +8616,7 @@ body:not(.services-page).about-page .bio-video-frame.has-video::before {
   .blog-coming-soon-page .blog-hero-panel {
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 56%, rgba(255, 255, 255, 0.38) 100%),
-      url("assets/recovery-shoulder-assessment.jpg") 68% center / cover no-repeat !important;
+      url("../assets/recovery-shoulder-assessment.jpg") 68% center / cover no-repeat !important;
   }
 }
 
@@ -8734,4 +8734,566 @@ body:not(.services-page).about-page .bio-video-frame.has-video::before {
 .seo-faq-band .section-heading h2 {
   color: #ffffff !important;
   text-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
+}
+
+/* v171: approval-gated Google reviews and before/after case studies. */
+.home-reviews-band[hidden],
+.home-results-band[hidden],
+[data-google-profile-link][hidden] {
+  display: none !important;
+}
+
+.home-reviews-band,
+.home-results-band {
+  position: relative;
+  overflow: hidden;
+}
+
+.home-reviews-band {
+  background:
+    radial-gradient(circle at 92% 10%, rgba(68, 185, 221, 0.16), transparent 32%),
+    linear-gradient(145deg, #f9fdff 0%, #eef7fb 100%);
+}
+
+.proof-section-heading,
+.proof-section-footer {
+  display: flex;
+  gap: 24px;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.proof-section-actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 10px;
+}
+
+.proof-scroll-button {
+  display: inline-grid;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(13, 87, 151, 0.18);
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--accent-strong);
+  box-shadow: 0 10px 24px rgba(12, 33, 55, 0.1);
+  cursor: pointer;
+  font: inherit;
+  font-size: 1.35rem;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.proof-scroll-button:hover:not(:disabled),
+.proof-scroll-button:focus-visible {
+  border-color: rgba(13, 87, 151, 0.48);
+  box-shadow: 0 14px 30px rgba(12, 33, 55, 0.16);
+  transform: translateY(-2px);
+}
+
+.proof-scroll-button:focus-visible,
+.review-carousel:focus-visible,
+.review-source-link:focus-visible,
+.review-profile-link:focus-visible {
+  outline: 3px solid rgba(68, 185, 221, 0.46);
+  outline-offset: 3px;
+}
+
+.proof-scroll-button:disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+
+.review-carousel {
+  max-width: 100%;
+  margin-top: 30px;
+  padding: 4px 4px 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scroll-behavior: smooth;
+  scroll-padding-inline: 4px;
+  scroll-snap-type: x mandatory;
+  scrollbar-color: var(--accent-strong) rgba(13, 87, 151, 0.12);
+  scrollbar-width: thin;
+  touch-action: pan-x pan-y;
+}
+
+.review-carousel::-webkit-scrollbar {
+  height: 10px;
+}
+
+.review-carousel::-webkit-scrollbar-track {
+  border-radius: 999px;
+  background: rgba(13, 87, 151, 0.1);
+}
+
+.review-carousel::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: var(--accent-strong);
+  background-clip: padding-box;
+}
+
+.review-carousel-track {
+  display: grid;
+  grid-auto-columns: minmax(310px, calc((100% - 36px) / 3));
+  grid-auto-flow: column;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.review-card {
+  display: flex;
+  min-height: 330px;
+  padding: 28px;
+  flex-direction: column;
+  border: 1px solid rgba(15, 45, 72, 0.1);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 38px rgba(12, 33, 55, 0.1);
+  scroll-snap-align: start;
+}
+
+.review-card-rating {
+  min-height: 1.5em;
+  color: #b86a00;
+  font-size: 1.15rem;
+  letter-spacing: 0.14em;
+}
+
+.review-card-quote {
+  margin: 22px 0 26px;
+  color: var(--ink);
+  font-size: clamp(1.04rem, 1.2vw, 1.18rem);
+  line-height: 1.7;
+}
+
+.review-card-quote p {
+  margin: 0;
+}
+
+.review-card-footer {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: auto;
+}
+
+.review-card-avatar {
+  display: inline-grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--accent-strong), #082f57);
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.review-card-footer cite {
+  color: #102036;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.review-card-meta {
+  display: flex;
+  gap: 8px;
+  margin: 3px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+}
+
+.review-card-meta > * + *::before {
+  margin-right: 8px;
+  content: "·";
+}
+
+.review-source-link,
+.review-profile-link {
+  color: var(--accent-strong);
+  font-weight: 800;
+  text-underline-offset: 3px;
+}
+
+.review-source-link {
+  align-self: flex-start;
+  margin-top: 18px;
+  font-size: 0.88rem;
+}
+
+.proof-section-footer {
+  align-items: center;
+  margin-top: 14px;
+}
+
+.review-carousel-status {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.home-results-band {
+  background:
+    radial-gradient(circle at 8% 0%, rgba(187, 32, 45, 0.09), transparent 30%),
+    linear-gradient(145deg, #ffffff 0%, #f8fbfd 100%);
+}
+
+.before-after-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.before-after-card {
+  padding: 24px;
+  border: 1px solid rgba(15, 45, 72, 0.1);
+  border-radius: var(--radius-lg);
+  background: #ffffff;
+  box-shadow: 0 18px 40px rgba(12, 33, 55, 0.1);
+}
+
+.before-after-card-header {
+  margin-bottom: 18px;
+}
+
+.before-after-card-header h3 {
+  margin: 6px 0 0;
+  color: #102036;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(1.55rem, 2.2vw, 2.1rem);
+  line-height: 1;
+}
+
+.before-after-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.before-after-frame {
+  min-width: 0;
+  margin: 0;
+}
+
+.before-after-image-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-md);
+  background: var(--page-bg-strong);
+}
+
+.before-after-image-wrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.before-after-label {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(7, 20, 38, 0.86);
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.before-after-frame figcaption {
+  margin-top: 8px;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.before-after-metadata {
+  display: flex;
+  gap: 24px;
+  margin: 20px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.before-after-metadata div {
+  display: grid;
+  gap: 3px;
+}
+
+.before-after-metadata dt {
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.before-after-metadata dd {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.before-after-caption {
+  margin: 18px 0 0;
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+.before-after-disclaimer {
+  margin: 12px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 980px) {
+  .review-carousel-track {
+    grid-auto-columns: minmax(300px, calc((100% - 18px) / 2));
+  }
+
+  .before-after-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .proof-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .proof-section-actions {
+    align-self: flex-end;
+  }
+
+  .review-carousel {
+    margin-inline: -4px;
+  }
+
+  .review-carousel-track {
+    grid-auto-columns: minmax(272px, calc(100% - 22px));
+    gap: 14px;
+  }
+
+  .review-card {
+    min-height: 310px;
+    padding: 22px;
+  }
+
+  .proof-section-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .before-after-card {
+    padding: 18px;
+  }
+
+  .before-after-pair {
+    gap: 8px;
+  }
+
+  .before-after-label {
+    right: 7px;
+    bottom: 7px;
+    padding: 5px 8px;
+    font-size: 0.68rem;
+  }
+
+  .before-after-metadata {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review-carousel {
+    scroll-behavior: auto;
+  }
+
+  .proof-scroll-button {
+    transition: none;
+  }
+}
+
+/* Sandbox-only review presentation. These rules never load on production pages. */
+.sandbox-banner {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 9999;
+  display: grid;
+  gap: 0.2rem;
+  width: min(34rem, calc(100% - 2rem));
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(14, 79, 92, 0.25);
+  border-radius: 0.85rem;
+  background: rgba(244, 252, 253, 0.97);
+  box-shadow: 0 0.75rem 2rem rgba(5, 37, 44, 0.18);
+  color: #123d46;
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.sandbox-banner strong {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.sandbox-preview-note {
+  padding: 0.7rem 0.85rem;
+  border-left: 0.25rem solid var(--color-accent, #37b7c8);
+  background: rgba(55, 183, 200, 0.09);
+  color: #234f58;
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.is-sandbox-placeholder {
+  border-style: dashed;
+}
+
+.is-sandbox-placeholder .review-card-rating {
+  color: #4b6870;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.sandbox-image-placeholder {
+  display: grid;
+  min-height: 16rem;
+  place-items: center;
+  padding: 1rem;
+  background:
+    linear-gradient(135deg, rgba(34, 85, 96, 0.08) 25%, transparent 25%) 0 0 / 1.25rem 1.25rem,
+    linear-gradient(315deg, rgba(34, 85, 96, 0.08) 25%, transparent 25%) 0 0 / 1.25rem 1.25rem,
+    #e8f0f2;
+  color: #3d626a;
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+a[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.home-map-layout.home-map-contact-layout {
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  align-items: stretch;
+  gap: 28px;
+}
+
+.home-map-contact-layout .home-service-map-card {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.home-map-contact-layout .home-service-map-card .service-map {
+  height: 100%;
+  min-height: 42rem;
+}
+
+.home-map-contact-panel {
+  display: grid;
+  align-content: start;
+  gap: 24px;
+  padding: clamp(24px, 3vw, 34px);
+  border: 1px solid rgba(171, 208, 220, 0.18);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(135deg, rgba(57, 191, 214, 0.09), transparent 32%),
+    linear-gradient(180deg, #15202b 0%, #0e1620 100%);
+  box-shadow: var(--shadow);
+  color: #ffffff;
+}
+
+.home-map-contact-panel .footer-copy {
+  max-width: none;
+}
+
+.home-map-contact-panel .contact-form {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.sandbox-footer-compact {
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+.sandbox-footer-compact .footer-contact {
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+  align-items: start;
+}
+
+.sandbox-footer-compact .footer-contact-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.home-page .site-footer {
+  margin-top: 0;
+}
+
+@media (max-width: 1024px) {
+  .home-map-layout.home-map-contact-layout,
+  .sandbox-footer-compact .footer-contact {
+    grid-template-columns: 1fr;
+  }
+
+  .home-map-contact-layout .home-service-map-card .service-map {
+    min-height: 30rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .sandbox-banner {
+    right: 0.65rem;
+    bottom: 0.65rem;
+    width: calc(100% - 1.3rem);
+  }
+
+  .sandbox-image-placeholder {
+    min-height: 11rem;
+  }
+
+  .home-map-contact-panel {
+    padding: 22px;
+  }
+
+  .home-map-contact-layout .home-service-map-card .service-map {
+    min-height: 22rem;
+  }
+
+  .sandbox-footer-compact .footer-contact-list {
+    grid-template-columns: 1fr;
+  }
 }
