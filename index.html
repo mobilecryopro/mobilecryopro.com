@@ -32,7 +32,7 @@
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin=""
     />
-    <link rel="stylesheet" href="styles.css?v=170" />
+    <link rel="stylesheet" href="styles.css?v=171" />
     <link rel="icon" href="favicon.ico?v=9" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/mobile-cryo-pro-favicon-32.png?v=9" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/mobile-cryo-pro-apple-touch-icon.png?v=9" />
@@ -292,6 +292,93 @@
           </div>
         </section>
 
+        <section
+          class="section-band home-reviews-band"
+          id="google-reviews"
+          aria-labelledby="google-reviews-title"
+          data-google-reviews
+          hidden
+        >
+          <div class="proof-section-heading">
+            <div class="section-heading narrow">
+              <p class="eyebrow">Client feedback</p>
+              <h2 id="google-reviews-title">What clients share on Google</h2>
+              <p>
+                Verified feedback from the Mobile Cryo Pro Google Business Profile.
+              </p>
+            </div>
+            <div class="proof-section-actions" role="group" aria-label="Review carousel controls">
+              <button
+                class="proof-scroll-button"
+                type="button"
+                aria-label="Show previous review"
+                data-review-previous
+                disabled
+              >
+                <span aria-hidden="true">&larr;</span>
+              </button>
+              <button
+                class="proof-scroll-button"
+                type="button"
+                aria-label="Show next review"
+                data-review-next
+                disabled
+              >
+                <span aria-hidden="true">&rarr;</span>
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="review-carousel"
+            role="group"
+            aria-roledescription="carousel"
+            aria-label="Google client reviews"
+            tabindex="0"
+            data-review-carousel
+          >
+            <div class="review-carousel-track" data-review-track></div>
+          </div>
+
+          <div class="proof-section-footer">
+            <p class="review-carousel-status" aria-live="polite" data-review-status></p>
+            <a
+              class="review-profile-link"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-google-profile-link
+              hidden
+            >Read all reviews on Google</a>
+          </div>
+        </section>
+
+        <template id="google-review-card-template">
+          <article class="review-card" role="group">
+            <div class="review-card-rating" data-review-rating></div>
+            <blockquote class="review-card-quote">
+              <p data-review-text></p>
+            </blockquote>
+            <footer class="review-card-footer">
+              <span class="review-card-avatar" aria-hidden="true" data-review-initial></span>
+              <div>
+                <cite data-reviewer-name></cite>
+                <p class="review-card-meta">
+                  <time data-review-date></time>
+                  <span data-review-local-guide></span>
+                </p>
+              </div>
+            </footer>
+            <a
+              class="review-source-link"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-review-source
+            >View original review on Google</a>
+          </article>
+        </template>
+
         <section class="section-band home-services-pricing-band" id="services">
           <div class="section-heading narrow">
             <p class="eyebrow">Services &amp; pricing</p>
@@ -355,6 +442,52 @@
             </div>
           </aside>
         </section>
+
+        <section
+          class="section-band home-results-band"
+          id="before-after-gallery"
+          aria-labelledby="before-after-title"
+          data-before-after-gallery
+          hidden
+        >
+          <div class="section-heading narrow">
+            <p class="eyebrow">Client case studies</p>
+            <h2 id="before-after-title">Before and after</h2>
+            <p>
+              Approved image pairs shown with their service details and timing.
+              Individual experiences and results vary.
+            </p>
+          </div>
+          <div class="before-after-grid" data-before-after-grid></div>
+        </section>
+
+        <template id="before-after-card-template">
+          <article class="before-after-card">
+            <header class="before-after-card-header">
+              <p class="panel-label" data-case-service></p>
+              <h3 data-case-title><span class="sr-only">Approved client case study</span></h3>
+            </header>
+            <div class="before-after-pair">
+              <figure class="before-after-frame">
+                <div class="before-after-image-wrap">
+                  <span data-before-image-slot></span>
+                  <span class="before-after-label" data-before-label></span>
+                </div>
+                <figcaption data-before-caption></figcaption>
+              </figure>
+              <figure class="before-after-frame">
+                <div class="before-after-image-wrap">
+                  <span data-after-image-slot></span>
+                  <span class="before-after-label" data-after-label></span>
+                </div>
+                <figcaption data-after-caption></figcaption>
+              </figure>
+            </div>
+            <dl class="before-after-metadata" data-case-metadata></dl>
+            <p class="before-after-caption" data-case-caption></p>
+            <p class="before-after-disclaimer" data-case-disclaimer></p>
+          </article>
+        </template>
 
         <section class="section-band home-context-band" id="service-area">
           <div class="section-heading narrow">
@@ -530,7 +663,8 @@
       </footer>
     </div>
 
-    <script src="script.js?v=22"></script>
+    <script src="content-data.js?v=1"></script>
+    <script src="script.js?v=23"></script>
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
