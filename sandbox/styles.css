@@ -9337,7 +9337,7 @@ body.home-page .section-band.home-context-band > .section-heading > p:last-child
   gap: 18px;
 }
 
-.home-page .site-footer {
+body.home-page .site-footer {
   margin-top: 0;
 }
 
