@@ -1,8 +1,12 @@
-(function initServiceMap() {
-  var mapEls = Array.prototype.slice.call(document.querySelectorAll(".service-map"));
-  if (!mapEls.length || !window.L) return;
+(function exposeServiceMap() {
+  function initServiceMaps(root) {
+    var mapRoot = root || document;
+    var mapEls = Array.prototype.slice.call(
+      mapRoot.querySelectorAll(".service-map:not([data-map-initialized])"),
+    );
+    if (!mapEls.length || !window.L) return;
 
-  var primary = [
+    var primary = [
     ["Cloverdale", 38.8055, -123.0172],
     ["Healdsburg", 38.6102, -122.8694],
     ["Windsor", 38.5471, -122.8164],
@@ -27,7 +31,7 @@
     ["Sausalito", 37.859, -122.4852],
   ];
 
-  var byRequest = [
+    var byRequest = [
     ["Calistoga", 38.5788, -122.5797],
     ["St. Helena", 38.5052, -122.4704],
     ["Yountville", 38.4016, -122.3608],
@@ -43,7 +47,7 @@
     ["San Francisco", 37.7749, -122.4194],
   ];
 
-  var primaryStyle = {
+    var primaryStyle = {
     radius: 7,
     fillColor: "#1B6E86",
     color: "#ffffff",
@@ -51,7 +55,7 @@
     fillOpacity: 1,
   };
 
-  var requestStyle = {
+    var requestStyle = {
     radius: 7,
     fillColor: "#ffffff",
     color: "#1B6E86",
@@ -60,7 +64,8 @@
     dashArray: "3 3",
   };
 
-  mapEls.forEach(function (el) {
+    mapEls.forEach(function (el) {
+      el.setAttribute("data-map-initialized", "true");
     var fallback = el.querySelector(".map-fallback");
     if (fallback) {
       fallback.remove();
@@ -106,5 +111,9 @@
         maxZoom: 9,
       });
     }
-  });
+    });
+  }
+
+  window.initServiceMaps = initServiceMaps;
+  initServiceMaps(document);
 })();

@@ -10029,3 +10029,189 @@ body.home-page .site-footer .footer-bar {
     grid-template-columns: 1fr;
   }
 }
+.site-footer-unified {
+  overflow: clip;
+  margin-top: 74px;
+  padding: 0;
+  border-top: 0;
+  background: #112331;
+}
+
+.site-footer-unified .footer-map-contact {
+  scroll-margin-top: 112px;
+  padding: clamp(52px, 7vw, 84px) 0 clamp(54px, 7vw, 78px);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(57, 191, 214, 0.1), transparent 32%),
+    #112331;
+}
+
+.footer-section-heading {
+  display: grid;
+  gap: 12px;
+  max-width: 760px;
+  margin-bottom: clamp(30px, 4vw, 46px);
+}
+
+.footer-section-heading .eyebrow {
+  color: #8ee8fa;
+}
+
+.footer-section-heading h2,
+.footer-form-panel .footer-copy h2 {
+  color: #f7fbff;
+}
+
+.footer-section-heading h2 {
+  max-width: 18ch;
+  font-size: clamp(2rem, 3.4vw, 3.8rem);
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.footer-section-heading > p:not(.eyebrow),
+.footer-form-panel .footer-copy p {
+  color: rgba(247, 251, 255, 0.76);
+}
+
+.footer-map-contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  align-items: stretch;
+  gap: clamp(28px, 4vw, 52px);
+}
+
+.site-footer-unified .footer-service-map-card,
+.site-footer-unified .footer-service-map-card:hover {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 14px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+.site-footer-unified .footer-service-map-card .service-map {
+  height: 100%;
+  min-height: 42rem;
+  border: 1px solid rgba(191, 238, 255, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.24);
+}
+
+.site-footer-unified .footer-service-map-card figcaption {
+  padding: 0 3px;
+  color: rgba(247, 251, 255, 0.68);
+  text-align: left;
+}
+
+.footer-form-panel {
+  display: grid;
+  align-content: start;
+  gap: 25px;
+}
+
+.footer-form-panel .footer-copy {
+  max-width: none;
+}
+
+.site-footer-unified .footer-form-panel .contact-form {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.site-footer-unified .footer-form-panel .contact-form input,
+.site-footer-unified .footer-form-panel .contact-form select,
+.site-footer-unified .footer-form-panel .contact-form textarea {
+  border-color: rgba(223, 245, 255, 0.22);
+  background: rgba(255, 255, 255, 0.065);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.16);
+}
+
+.site-footer-unified .footer-form-panel .contact-form input:focus-visible,
+.site-footer-unified .footer-form-panel .contact-form select:focus-visible,
+.site-footer-unified .footer-form-panel .contact-form textarea:focus-visible {
+  border-color: #57d2ee;
+  box-shadow: 0 0 0 4px rgba(68, 185, 221, 0.18);
+}
+
+.site-footer-unified .contact-form-note,
+.site-footer-unified .booking-deposit-link {
+  color: rgba(247, 251, 255, 0.72);
+}
+
+.site-footer-unified .footer-secondary {
+  padding: clamp(34px, 4vw, 48px) 0 28px;
+  background: #071019;
+}
+
+.footer-contact-compact {
+  grid-template-columns: minmax(220px, 0.62fr) minmax(0, 1.38fr);
+  align-items: start;
+  gap: clamp(28px, 4vw, 52px);
+  padding-bottom: 34px;
+}
+
+.footer-contact-compact .footer-contact-list {
+  grid-template-columns: minmax(170px, 0.85fr) minmax(280px, 1.15fr) minmax(220px, 1fr);
+  gap: 20px;
+}
+
+.footer-contact-compact .footer-contact-item a {
+  font-size: clamp(1.2rem, 1.8vw, 1.65rem);
+  overflow-wrap: anywhere;
+}
+
+.footer-contact-compact .footer-contact-item a[href^="mailto:"] {
+  font-size: clamp(1.08rem, 1.55vw, 1.4rem);
+}
+
+.site-footer-unified .footer-contact-item {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.site-footer-unified .footer-bar {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1024px) {
+  .footer-map-contact-layout,
+  .footer-contact-compact {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer-unified .footer-service-map-card .service-map {
+    min-height: 30rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .footer-contact-compact .footer-contact-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-footer-unified .footer-map-contact {
+    padding-top: 44px;
+  }
+
+  .footer-map-contact-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .site-footer-unified .footer-service-map-card .service-map {
+    min-height: 22rem;
+  }
+
+  .site-footer-unified .footer-form-panel .contact-form .button {
+    width: 100%;
+  }
+}

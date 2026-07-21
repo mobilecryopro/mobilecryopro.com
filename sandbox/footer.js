@@ -1,0 +1,125 @@
+(function installSandboxSiteFooter() {
+  var pageShell = document.querySelector(".page-shell");
+  if (!pageShell) return;
+
+  var existingFooter = pageShell.querySelector(".site-footer");
+  var existingServiceArea = pageShell.querySelector("main #service-area");
+  var footer = existingFooter || document.createElement("footer");
+
+  if (existingServiceArea) existingServiceArea.remove();
+  footer.className = "site-footer site-footer-unified";
+  footer.innerHTML = `
+    <section class="footer-map-contact" id="service-area" aria-labelledby="footer-service-title">
+      <div class="footer-shell">
+        <div class="footer-section-heading">
+          <p class="eyebrow">Mobile across the North Bay</p>
+          <h2 id="footer-service-title">See the service area. Tell Dan what you need.</h2>
+          <p>Sonoma and Marin are home base. Napa, Solano, and San Francisco are available by request.</p>
+        </div>
+        <div class="footer-map-contact-layout">
+          <figure class="service-map-card footer-service-map-card">
+            <div class="service-map" role="application" aria-label="Interactive map of Mobile Cryo Pro's North Bay service area">
+              <p class="map-fallback">North Bay service area map.</p>
+            </div>
+            <figcaption>Primary service throughout Sonoma and Marin, with additional North Bay and San Francisco appointments by request.</figcaption>
+          </figure>
+          <div class="footer-form-panel">
+            <div class="footer-copy">
+              <h2>Request a mobile visit.</h2>
+              <p>Share the service or goal, your location, and the timing you have in mind.</p>
+            </div>
+            <form class="contact-form" id="contact-form" data-contact-form>
+              <div class="form-grid">
+                <label class="form-field"><span>Name</span><input type="text" name="name" autocomplete="name" required /></label>
+                <label class="form-field"><span>Email</span><input type="email" name="email" autocomplete="email" spellcheck="false" required /></label>
+                <label class="form-field form-field-full"><span>Phone <em>(optional)</em></span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" /></label>
+                <label class="form-field form-field-full"><span>Message</span><textarea name="message" placeholder="Service or goal, location, and preferred date or time." required></textarea></label>
+              </div>
+              <button class="button button-primary" type="submit">Disabled in sandbox preview</button>
+              <p class="contact-form-note" aria-live="polite">Preview only. This form cannot send from the sandbox.</p>
+              <p class="booking-deposit-link">Already scheduled? <a aria-disabled="true" title="Disabled in sandbox preview">Pay the $50 booking deposit</a></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="footer-secondary">
+      <div class="footer-shell">
+        <div class="footer-contact footer-contact-compact">
+          <a class="footer-brand" href="index.html" aria-label="Mobile Cryo Pro sandbox home">
+            <img class="footer-logo" src="../assets/mobile-cryo-pro-logo.png?v=9" alt="Mobile Cryo Pro" width="1100" height="360" loading="lazy" />
+          </a>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item"><span>Call or text</span><a href="tel:+17074139366">(707) 413-9366</a></div>
+            <div class="footer-contact-item"><span>Email</span><a href="mailto:info@mobilecryopro.com">info@mobilecryopro.com</a></div>
+            <div class="footer-contact-item"><span>Service area</span><p>Sonoma, Marin, and the wider North Bay. SF and Napa by request.</p></div>
+          </div>
+        </div>
+        <div class="footer-bar">
+          <p>&copy; Mobile Cryo Pro &middot; Sandbox review build</p>
+          <div class="footer-payment-methods" aria-label="Payment methods shown for preview only">
+            <a class="payment-mark payment-mark-visa" aria-disabled="true">VISA</a><a class="payment-mark payment-mark-mastercard" aria-disabled="true"></a><a class="payment-mark payment-mark-amex" aria-disabled="true">AMEX</a><a class="payment-mark payment-mark-discover" aria-disabled="true">DISCOVER</a><a class="payment-mark payment-mark-apple" aria-disabled="true">Apple Pay</a><a class="payment-mark payment-mark-link" aria-disabled="true">● link</a><a class="payment-mark payment-mark-klarna" aria-disabled="true">Klarna</a><a class="payment-mark payment-mark-amazon" aria-disabled="true">amazon pay</a><a class="payment-mark payment-mark-cash" aria-disabled="true">$ Cash</a><a class="payment-mark payment-mark-bank" aria-disabled="true">▥ Bank</a>
+          </div>
+          <div class="footer-links"><a href="../about.html">About</a><a href="../services.html">Services</a><a href="blog.html">Blog</a><a href="../faq.html">FAQ</a><a href="../service-areas.html">Service Areas</a><a href="../expansion-opportunities.html">Expansion</a></div>
+        </div>
+      </div>
+    </div>`;
+
+  if (!existingFooter) pageShell.append(footer);
+
+  var mapElement = footer.querySelector(".service-map");
+  if (!mapElement) return;
+
+  var loadMapScript = function () {
+    if (typeof window.initServiceMaps === "function") {
+      window.initServiceMaps(footer);
+      return;
+    }
+    var existing = document.querySelector('script[src$="map.js?v=5"]');
+    if (existing) {
+      existing.addEventListener("load", function () { window.initServiceMaps && window.initServiceMaps(footer); }, { once: true });
+      return;
+    }
+    var script = document.createElement("script");
+    script.src = "../map.js?v=5";
+    script.addEventListener("load", function () { window.initServiceMaps && window.initServiceMaps(footer); }, { once: true });
+    document.body.append(script);
+  };
+
+  var loadLeaflet = function () {
+    if (!document.querySelector('link[href*="leaflet.css"]')) {
+      var styles = document.createElement("link");
+      styles.rel = "stylesheet";
+      styles.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+      styles.integrity = "sha256-p4NxAoJBhIINfQ3yn+RytqVNVXLT+XTIuQbMZojtk+o=";
+      styles.crossOrigin = "";
+      document.head.append(styles);
+    }
+    if (window.L) {
+      loadMapScript();
+      return;
+    }
+    var existing = document.querySelector('script[src*="leaflet.js"]');
+    if (existing) {
+      existing.addEventListener("load", loadMapScript, { once: true });
+      return;
+    }
+    var script = document.createElement("script");
+    script.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+    script.integrity = "sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=";
+    script.crossOrigin = "";
+    script.addEventListener("load", loadMapScript, { once: true });
+    document.body.append(script);
+  };
+
+  if (!("IntersectionObserver" in window)) {
+    loadLeaflet();
+    return;
+  }
+  var observer = new IntersectionObserver(function (entries) {
+    if (!entries.some(function (entry) { return entry.isIntersecting; })) return;
+    observer.disconnect();
+    loadLeaflet();
+  }, { rootMargin: "600px 0px" });
+  observer.observe(mapElement);
+})();
