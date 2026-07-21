@@ -428,6 +428,7 @@ const serviceAreaMap = serviceAreaSection?.querySelector(".home-service-map-card
 const footerContact = document.querySelector(".footer-contact");
 const footerCopy = footerContact?.querySelector(".footer-copy");
 const footerGrid = document.querySelector(".footer-grid");
+const siteFooter = document.querySelector(".site-footer");
 const homepageContactForm = document.querySelector("#contact-form");
 
 if (serviceAreaLayout && serviceAreaMap && footerCopy && homepageContactForm) {
@@ -448,12 +449,21 @@ if (homepageMain) {
     testimonialVideoSection,
     beforeAfterSection,
     googleReviewsSection,
-    serviceAreaSection,
   ].forEach((section) => {
     if (section) {
       homepageMain.append(section);
     }
   });
+}
+
+// The service-area map and contact form are one continuous footer region in
+// the sandbox preview. Production markup and styles remain untouched.
+if (serviceAreaSection) {
+  if (siteFooter) {
+    siteFooter.prepend(serviceAreaSection);
+  } else {
+    homepageMain?.append(serviceAreaSection);
+  }
 }
 
 contactForms.forEach((contactForm) => {
