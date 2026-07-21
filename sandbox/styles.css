@@ -10051,3 +10051,36 @@ body.home-page .site-footer .footer-bar {
     grid-template-columns: 1fr;
   }
 }
+
+/* v183: keep the homepage light until the unified contact/footer treatment. */
+body.home-page .home-video-band,
+body.home-page .section-band.home-video-band {
+  border-color: rgba(15, 45, 72, 0.1) !important;
+  background:
+    radial-gradient(circle at 8% 18%, rgba(68, 185, 221, 0.11), transparent 30%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.99), rgba(242, 248, 252, 0.98)) !important;
+  color: #17344c !important;
+  box-shadow:
+    0 22px 50px rgba(12, 33, 55, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92) !important;
+}
+
+body.home-page .home-video-band .eyebrow {
+  color: #0d5797 !important;
+}
+
+body.home-page .home-video-band .section-heading h2 {
+  color: #071426 !important;
+  text-shadow: none !important;
+}
+
+body.home-page .home-video-band .section-heading > p:not(.eyebrow) {
+  color: #52616f !important;
+}
+
+body.home-page .home-video-band .bio-video-frame {
+  border-color: rgba(15, 45, 72, 0.16) !important;
+  box-shadow:
+    0 24px 54px rgba(7, 20, 38, 0.18),
+    -10px 14px 0 rgba(68, 185, 221, 0.08) !important;
+}
