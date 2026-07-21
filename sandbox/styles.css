@@ -9325,21 +9325,26 @@ body.home-page .home-map-contact-layout .home-service-map-card:hover {
 
 body.home-page .site-footer {
   margin-top: 44px;
-  padding-top: clamp(46px, 5vw, 68px);
+  padding-top: 0;
   border-top: 0;
-  background: #081523;
+  background: #040c16;
 }
 
 body.home-page .site-footer > .home-context-band {
   width: min(calc(100% - 32px), var(--max-width));
   margin: 0 auto;
-  padding: 0 52px clamp(48px, 5vw, 72px);
+  padding: clamp(46px, 5vw, 68px) 52px 44px;
   overflow: visible;
   border: 0;
   border-radius: 0;
-  background: transparent;
-  box-shadow: none;
+  background: #081523;
+  box-shadow: 0 0 0 100vmax #081523;
+  clip-path: inset(0 -100vmax);
   color: #ffffff;
+}
+
+body.home-page .site-footer > .footer-shell {
+  padding-top: 36px;
 }
 
 body.home-page .site-footer > .home-context-band .section-heading .eyebrow {
@@ -9405,7 +9410,11 @@ body.home-page .site-footer .footer-bar {
 
   body.home-page .site-footer > .home-context-band {
     width: calc(100% - 20px);
-    padding: 0 10px 42px;
+    padding: 36px 10px 34px;
+  }
+
+  body.home-page .site-footer > .footer-shell {
+    padding-top: 32px;
   }
 
   .home-map-contact-layout .home-service-map-card .service-map {
