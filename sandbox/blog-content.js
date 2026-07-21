@@ -37,10 +37,10 @@
         "Ask what device and exposure you will receive before applying research to a service."
       ],
       sections: [
-        { heading: "Cryotherapy means several different things", body: `<p>In research and everyday use, <em>cryotherapy</em> can describe an ice pack, cold-water immersion, a cooling sleeve, a localized stream of cold air or gas, or a chamber that exposes most of the body to very cold air. These methods differ in temperature, duration, tissue area, depth of cooling, and risk. They should not be treated as interchangeable.</p><p>Mobile Cryo Pro offers localized cryotherapy. Because the public site does not identify the exact device model or validated tissue-temperature profile, this guide does not claim that results from ice, immersion, or whole-body chambers prove an effect for the company's service.</p>` },
+        { heading: "Cryotherapy means several different things", body: `<p>In research and everyday use, <em>cryotherapy</em> can describe an ice pack, cold-water immersion, a cooling sleeve, a localized stream of cold air or gas, or a chamber that exposes most of the body to very cold air. These methods differ in temperature, duration, tissue area, depth of cooling, and risk. They should not be treated as interchangeable.</p><p>Mobile Cryo Pro offers localized cryotherapy. Research involving ice, immersion, or whole-body chambers should not be assumed to establish outcomes for a localized service unless the device, protocol, population, and measured result are meaningfully comparable.</p>` },
         { heading: "What cooling can do inside the body", body: `<p>Cooling can lower skin and underlying tissue temperature. Depending on dose and location, it can alter local blood flow, metabolism, and nerve conduction. A small controlled study of ankle cooling found slower nerve conduction and higher pain thresholds, which helps explain temporary numbing effects.<sup><a href="#source-algafly">1</a></sup> Reviews of cooling physiology describe similar pathways but stress that response depends on the method and protocol.<sup><a href="#source-whiteWells">2</a></sup></p><div class="article-callout"><strong>Mechanism is not outcome</strong><p>A measurable change in temperature, circulation, or nerve conduction does not prove that tissue heals faster, swelling resolves, or a medical condition improves.</p></div>` },
         { heading: "What benefits are reasonably discussable", body: `<p>The most defensible language is narrow: certain forms of cold exposure may temporarily change pain perception or post-exercise soreness in some settings. Even there, results vary. A Cochrane review found insufficient, very low-quality evidence for whole-body cryotherapy after exercise,<sup><a href="#source-cochrane">3</a></sup> while broader reviews describe mixed, time- and modality-dependent findings.<sup><a href="#source-allan">4</a></sup></p><p>That does not support promises of faster healing, disease treatment, "detoxification," immune enhancement, permanent pain relief, or superior athletic performance.</p>` },
-        { heading: "What a localized visit should clarify", body: `<p>Before exposure, a provider should identify the exact modality, treatment area, expected sensation, planned duration, protective barriers, stop procedure, and relevant safety screen. The client should be able to stop immediately. Mobile Cryo Pro's current site says Dan reviews goals and relevant health history before treatment; Dan still needs to verify the exact device and operating description before this draft can move to production.</p>` },
+        { heading: "What a localized visit should clarify", body: `<p>Before exposure, a provider should identify the exact modality, treatment area, expected sensation, planned duration, protective barriers, stop procedure, and relevant safety screen. You should understand what will happen during the appointment and be able to stop the session immediately.</p>` },
         { heading: "Who should seek medical guidance first", body: `<p>Cold can cause skin or nerve injury when exposure is excessive or sensation and circulation are impaired. Published cases document peripheral nerve injury after cryotherapy,<sup><a href="#source-nerveCases">5</a></sup> and the FDA warns that people with circulation or sensation problems may face higher injury risk with hot/cold therapy devices.<sup><a href="#source-fda">6</a></sup> Cold urticaria and Raynaud phenomenon also require special caution because cold can provoke reactions.<sup><a href="#source-urticaria">7</a></sup><sup><a href="#source-raynaud">8</a></sup></p><p>This educational guide cannot determine individual eligibility. People with a diagnosed condition, unexplained symptoms, impaired sensation or circulation, pregnancy-related questions, or medication concerns should consult an appropriately licensed healthcare professional.</p>` },
         { heading: "The practical bottom line", body: `<p>Cryotherapy is best understood as a family of cooling methods with established short-term physiological effects and a much less uniform record for meaningful health outcomes. A credible provider should describe the method precisely, avoid guarantees, screen conservatively, and distinguish comfort or temporary symptom changes from treatment of disease.</p>` }
       ],
@@ -49,7 +49,7 @@
     {
       slug: "how-cryotherapy-works",
       order: "02",
-      category: "Mechanisms",
+      category: "How it works",
       title: "How Cryotherapy Works: What Happens Inside Your Body",
       displayTitle: "How cryotherapy works inside the body.",
       description: "A clear separation of tissue cooling, blood-flow changes, nerve conduction, pain perception, and unproven outcome claims.",
@@ -86,7 +86,7 @@
         { heading: "Circulation and sensation matter", body: `<p>The FDA's guidance for circulating hot/cold devices says people with diabetes, neuropathy, poor circulation, or reduced ability to feel temperature may be at higher risk and should discuss use with a healthcare professional.<sup><a href="#source-fda">3</a></sup> The FDA page applies to those devices specifically, but the safety principle is relevant: if someone cannot reliably feel or respond to excessive cold, ordinary warning sensations may not protect them.</p>` },
         { heading: "Cold-triggered conditions need special caution", body: `<p>Cold urticaria can cause hives and, in some affected people, systemic reactions including anaphylaxis. A systematic review estimated anaphylaxis in roughly one-fifth of patients studied with cold urticaria, though estimates varied and apply only to people with that disorder.<sup><a href="#source-urticaria">4</a></sup> Raynaud phenomenon is characterized by cold-triggered vasospasm and color changes in digits.<sup><a href="#source-raynaud">5</a></sup> These are reasons to seek medical guidance, not conditions for a nonmedical provider to diagnose.</p>` },
         { heading: "Stop signs during or after exposure", body: `<p>Stop immediately and seek appropriate help for intense or increasing pain, burning, marked numbness, unusual skin discoloration, welts, blistering, swelling, breathing difficulty, faintness, or symptoms that persist or worsen. The FDA specifically lists numbness, pain, burning, blisters, welts, swelling, and color change as reasons to stop device use and contact a clinician.<sup><a href="#source-fda">6</a></sup></p>` },
-        { heading: "Questions a provider should answer", body: `<ul class="article-check-list"><li>What exact device and exposure method will be used?</li><li>What health conditions, medications, or skin findings change eligibility?</li><li>How are duration and distance controlled?</li><li>How can I stop the session immediately?</li><li>What training and emergency procedures are in place?</li><li>What aftercare or delayed symptoms should I watch for?</li></ul><div class="article-callout"><strong>Editorial caution</strong><p>This draft cannot verify Mobile Cryo Pro's complete contraindication list, device instructions, or emergency protocol. Those operational details require Dan's confirmation before publication.</p></div>` }
+        { heading: "Questions a provider should answer", body: `<ul class="article-check-list"><li>What exact device and exposure method will be used?</li><li>What health conditions, medications, or skin findings change eligibility?</li><li>How are duration and distance controlled?</li><li>How can I stop the session immediately?</li><li>What training and emergency procedures are in place?</li><li>What aftercare or delayed symptoms should I watch for?</li></ul><div class="article-callout"><strong>Ask before booking</strong><p>Confirm the exact device, contraindications, safety instructions, and stop procedure with the provider before beginning a session.</p></div>` }
       ],
       refs: ["nerveCases", "nerveSafety", "fda", "urticaria", "raynaud"]
     },
@@ -115,7 +115,7 @@
     {
       slug: "cold-therapy-pain-inflammation",
       order: "05",
-      category: "Evidence check",
+      category: "Pain & recovery",
       title: "How Cold Therapy Reduces Pain and Inflammation",
       displayTitle: "Cold therapy, pain and inflammation.",
       description: "What research supports about short-term sensory effects—and why broad anti-inflammatory or healing claims go too far.",
@@ -125,7 +125,7 @@
       grade: "Title reframed: outcomes are not uniformly established",
       takeaways: ["Cooling can slow local nerve conduction and temporarily alter pain perception.", "Blood-flow and biomarker changes do not automatically improve healing.", "Pain and inflammation claims must name the condition, modality, and time frame."],
       sections: [
-        { heading: "Why the original headline needs qualification", body: `<p>“How cold therapy reduces pain and inflammation” sounds universal. The evidence is not. Cold can produce mechanisms associated with temporary analgesia and can alter perfusion or laboratory markers, but clinical outcomes vary by diagnosis, protocol, and modality. This guide keeps Dan's requested topic while correcting the implied certainty.</p>` },
+        { heading: "Why the details matter", body: `<p>“How cold therapy reduces pain and inflammation” can sound universal, but the research is more specific. Cold can produce mechanisms associated with temporary analgesia and can alter perfusion or laboratory markers, while clinical outcomes vary by diagnosis, protocol, and modality.</p>` },
         { heading: "A plausible short-term pain mechanism", body: `<p>Local cooling can slow sensory nerve conduction and raise pain threshold. In one small controlled experiment, cooling the ankle to a skin temperature of 10°C reduced nerve-conduction velocity and increased pain threshold and tolerance.<sup><a href="#source-algafly">1</a></sup> That helps explain temporary numbing. It does not establish durable relief or correction of the cause of pain.</p>` },
         { heading: "Inflammation is not one simple target", body: `<p>Inflammation is part of the body's response to injury and training. Cooling may reduce local perfusion and influence metabolic or inflammatory signals,<sup><a href="#source-whiteWells">2</a></sup> but lower blood flow or a changed biomarker is not automatically a better clinical outcome. The important outcomes are how a person feels and functions, whether tissue recovers, and whether harms occur.</p>` },
         { heading: "What clinical reviews find", body: `<p>Evidence depends heavily on context. A 2026 review of cryotherapy after musculoskeletal surgery reported small average pain improvements that did not reach the authors' threshold for a clinically important difference, and found no substantial improvement in swelling or function.<sup><a href="#source-postop">3</a></sup> A Cochrane review of whole-body cryotherapy for post-exercise soreness found very low-quality, insufficient evidence.<sup><a href="#source-cochrane">4</a></sup></p><p>These findings should not be transferred directly to a localized mobile service. They demonstrate why “reduces pain and inflammation” needs a defined setting and outcome.</p>` },
@@ -152,7 +152,7 @@
         { heading: "Whole-body recovery evidence is uncertain", body: `<p>A Cochrane review located only four small eligible whole-body trials involving 64 participants, mostly young men, and rated the evidence very low quality. It concluded that evidence was insufficient to support whole-body cryotherapy for preventing or treating muscle soreness after exercise.<sup><a href="#source-cochrane">3</a></sup> In a marathon study, whole-body cryotherapy was not superior to cold-water immersion and expectancy effects may have influenced perceived recovery.<sup><a href="#source-marathon">4</a></sup></p>` },
         { heading: "What this means for localized providers", body: `<p>A localized provider cannot cite chamber studies as direct proof of better recovery, lower inflammation, or improved performance. Localized claims need studies that match the device, treatment area, dose, population, and meaningful outcome. Mechanistic research can explain possibilities, but should be labeled indirect.</p>` },
         { heading: "Operational and safety questions differ", body: `<div class="comparison-table-wrap"><table class="comparison-table"><thead><tr><th>Dimension</th><th>Localized</th><th>Whole-body</th></tr></thead><tbody><tr><th scope="row">Area</th><td>Selected body region</td><td>Most of the body</td></tr><tr><th scope="row">Systemic exposure</th><td>Usually lower, but device-dependent</td><td>Central to the procedure</td></tr><tr><th scope="row">Evidence needed</th><td>Exact local device, area, protocol, and outcome</td><td>Exact chamber protocol, population, and outcome</td></tr><tr><th scope="row">Safety review</th><td>Skin, sensation, circulation, local anatomy, device use</td><td>Whole-body exposure plus chamber-specific operational risks</td></tr></tbody></table></div>` },
-        { heading: "Bottom line", body: `<p>“Cryotherapy” is too broad to function as evidence. Name the method first, then ask whether the study actually matches it. Mobile Cryo Pro should market its localized service on accurate service features—not outcomes borrowed from whole-body chamber research.</p>` }
+        { heading: "Bottom line", body: `<p>“Cryotherapy” is too broad to function as evidence. Name the method first, then ask whether the research actually matches it. Choose a provider based on accurate service information rather than outcomes borrowed from a different form of cold exposure.</p>` }
       ],
       refs: ["temperatures", "allan", "cochrane", "marathon"]
     },
@@ -175,7 +175,7 @@
         { heading: "3. Verify training without confusing it with licensure", body: `<p>Ask what training the operator completed, who provided it, whether it is current, and what it covers. A manufacturer certificate is not the same as a medical license. The provider should describe its scope accurately and refer medical questions, diagnosis, and concerning symptoms to licensed clinicians.</p>` },
         { heading: "4. Inspect sanitation and privacy", body: `<p>For mobile visits, ask how equipment and contact surfaces are cleaned between clients, how clean and used items are separated, what space or power is required, and how private health information is handled in homes, hotels, gyms, or events.</p>` },
         { heading: "5. Pressure-test the claims", body: `<p>Health claims should match competent and reliable scientific evidence. The FTC warns that the overall message matters: testimonials, images, and before/after presentations can imply typical or objective results even when fine print is present.<sup><a href="#source-ftc">4</a></sup> Be cautious with guarantees, cure language, dramatic systemic claims, or studies from a different modality.</p>` },
-        { heading: "6. Understand price, cancellation, and follow-up", body: `<p>Confirm the full cost, deposits, travel charges, session length, cancellation terms, package expiration, and how concerns are handled afterward. A professional provider should be comfortable giving you time to decide.</p><div class="article-callout"><strong>Mobile Cryo Pro review item</strong><p>Before production, Dan should verify the exact device model, training description, contraindication protocol, sanitation procedure, and emergency process so this checklist can link to accurate local details.</p></div>` }
+        { heading: "6. Understand price, cancellation, and follow-up", body: `<p>Confirm the full cost, deposits, travel charges, session length, cancellation terms, package expiration, and how concerns are handled afterward. A professional provider should be comfortable giving you time to decide.</p><div class="article-callout"><strong>Before you book</strong><p>Ask the provider to explain the equipment, training, contraindications, sanitation practices, and emergency process in clear terms.</p></div>` }
       ],
       refs: ["temperatures", "nerveCases", "fda", "ftc"]
     },
@@ -215,7 +215,6 @@
         <div class="blog-meta-row"><span>${escapeHtml(article.category)}</span><span>${escapeHtml(article.readTime)}</span></div>
         <h3><a href="article.html?guide=${encodeURIComponent(article.slug)}">${escapeHtml(article.title)}</a></h3>
         <p>${escapeHtml(article.description)}</p>
-        <span class="evidence-grade evidence-grade-limited">${escapeHtml(article.grade)}</span>
         <a class="text-link" href="article.html?guide=${encodeURIComponent(article.slug)}">Read the guide</a>
       </div>
     </article>`;
@@ -230,13 +229,13 @@
   const article = articles.find((entry) => entry.slug === slug);
   if (!article) return;
 
-  document.title = `${article.title} | Mobile Cryo Pro Sandbox`;
+  document.title = `${article.title} | Mobile Cryo Pro Blog`;
   const description = document.querySelector('meta[name="description"]');
   if (description) description.content = article.description;
 
   const referenceItems = article.refs.map((key, index) => {
     const source = sources[key];
-    return `<li id="source-${key}"><a href="${source.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}</a><span class="source-type">Primary or authoritative source ${index + 1}</span></li>`;
+    return `<li id="source-${key}"><a href="${source.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}</a><span class="source-type">Source ${index + 1}</span></li>`;
   }).join("");
 
   const articleIndex = articles.findIndex((entry) => entry.slug === article.slug);
@@ -246,27 +245,25 @@
     <article class="article-shell evidence-article-shell">
       <header class="article-hero evidence-article-hero">
         <div class="article-hero-copy">
-          <a class="blog-back-link" href="blog.html">All evidence guides</a>
+          <a class="blog-back-link" href="blog.html">Back to blog</a>
           <p class="eyebrow">${escapeHtml(article.category)} · Guide ${article.order} of 08</p>
           <h1>${escapeHtml(article.displayTitle)}</h1>
           <p>${escapeHtml(article.description)}</p>
-          <div class="blog-meta-row"><span>Evidence reviewed July 21, 2026</span><span>${escapeHtml(article.readTime)}</span></div>
-          <span class="evidence-grade evidence-grade-limited">${escapeHtml(article.grade)}</span>
+          <div class="blog-meta-row"><span>Last reviewed July 21, 2026</span><span>${escapeHtml(article.readTime)}</span></div>
         </div>
         <figure class="article-hero-media"><img src="${article.image}" alt="${escapeHtml(article.imageAlt)}" width="1600" height="1067" /></figure>
       </header>
       <div class="article-layout">
         <aside class="article-sidebar evidence-sidebar">
-          <p class="panel-label">Evidence note</p>
-          <p>Educational information, not diagnosis, medical advice, or a promise of results. The exact localized device and protocol still require Dan's verification.</p>
+          <p class="panel-label">Important</p>
+          <p>This article provides general educational information, not medical advice, diagnosis, or a promise of results. Ask a qualified healthcare professional about personal medical concerns.</p>
           <nav aria-label="On this page"><strong>In this guide</strong><ol>${article.sections.map((section, index) => `<li><a href="#section-${index + 1}">${escapeHtml(section.heading)}</a></li>`).join("")}</ol></nav>
-          <a class="button button-secondary" href="evidence.html">Evidence standard</a>
+          <a class="button button-secondary" href="../services.html">View services</a>
         </aside>
         <div class="article-content evidence-article-content">
-          <section class="key-takeaways" aria-labelledby="takeaways-heading"><p class="panel-label">Key takeaways</p><h2 id="takeaways-heading">What the evidence supports</h2><ul>${article.takeaways.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul></section>
+          <section class="key-takeaways" aria-labelledby="takeaways-heading"><p class="panel-label">Key takeaways</p><h2 id="takeaways-heading">What to know</h2><ul>${article.takeaways.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul></section>
           ${article.sections.map((section, index) => `<section id="section-${index + 1}" class="article-section"><h2>${escapeHtml(section.heading)}</h2>${section.body}</section>`).join("")}
-          <section class="article-sources" aria-labelledby="sources-heading"><p class="eyebrow">Sources</p><h2 id="sources-heading">Research used in this guide</h2><ol class="reference-list">${referenceItems}</ol><p class="source-disclosure">Selection priority: human research, systematic reviews, PubMed-indexed papers, and authoritative safety or advertising guidance. Source inclusion does not mean a paper studied Mobile Cryo Pro's exact device.</p></section>
-          <section class="article-review-status"><strong>Production status: held for review</strong><p>Source scope has been checked. Practitioner confirmation of device, protocol, safety screening, and operational statements is still required. This page remains noindex in the sandbox.</p></section>
+          <section class="article-sources" aria-labelledby="sources-heading"><p class="eyebrow">Sources</p><h2 id="sources-heading">Research and further reading</h2><ol class="reference-list">${referenceItems}</ol><p class="source-disclosure">Research may examine different forms of cold therapy, populations, and protocols. Each source is described in context and should not be treated as proof for every device or use.</p></section>
         </div>
       </div>
     </article>
