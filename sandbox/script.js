@@ -109,19 +109,22 @@ const isSecureWebUrl = (value) => {
 };
 
 const isGoogleUrl = (value) => {
-  if (!isSecureWebUrl(value)) {
+  try {
+    const url = new URL(value);
+    const hostname = url.hostname.toLowerCase();
+
+    return (
+      url.protocol === "https:" &&
+      (hostname === "google.com" ||
+        hostname.endsWith(".google.com") ||
+        hostname === "goo.gl" ||
+        hostname.endsWith(".goo.gl") ||
+        hostname === "g.page" ||
+        hostname.endsWith(".g.page"))
+    );
+  } catch {
     return false;
   }
-
-  const hostname = new URL(value).hostname.toLowerCase();
-  return (
-    hostname === "google.com" ||
-    hostname.endsWith(".google.com") ||
-    hostname === "goo.gl" ||
-    hostname.endsWith(".goo.gl") ||
-    hostname === "g.page" ||
-    hostname.endsWith(".g.page")
-  );
 };
 
 const isApprovedImageUrl = (value) => {
