@@ -57,7 +57,7 @@ const installUnifiedSiteFooter = () => {
                 </label>
               </div>
               <button class="button button-primary" type="submit">Send Message</button>
-              <p class="contact-form-note" aria-live="polite">Send the form and Dan will reply as soon as possible.</p>
+              <p class="contact-form-note" aria-live="polite" hidden></p>
               <p class="booking-deposit-link">Already scheduled? <a href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer">Pay the $50 booking deposit</a></p>
             </form>
           </div>
@@ -316,9 +316,12 @@ contactForms.forEach((contactForm) => {
   const status = contactForm.querySelector(".contact-form-note");
   const submitButton = contactForm.querySelector('button[type="submit"]');
   const isExpansionForm = contactForm.id === "interest-form";
+  const isUnifiedFooterForm = Boolean(contactForm.closest(".site-footer-unified"));
   const readyMessage = isExpansionForm
     ? "Send an expansion inquiry to Mobile Cryo Pro. This is an expression of interest, not an offer or commitment."
-    : "Send the form and Dan will reply as soon as possible.";
+    : isUnifiedFooterForm
+      ? ""
+      : "Send the form and Dan will reply as soon as possible.";
 
   contactForm.action = formspreeEndpoint;
   contactForm.method = "POST";
@@ -326,6 +329,7 @@ contactForms.forEach((contactForm) => {
   if (status) {
     status.textContent = readyMessage;
     status.setAttribute("aria-live", "polite");
+    status.hidden = !readyMessage;
   }
 
   if (!isExpansionForm && !contactForm.querySelector(".booking-deposit-link")) {
@@ -361,6 +365,7 @@ contactForms.forEach((contactForm) => {
       submitButton.disabled = true;
     }
     if (status) {
+      status.hidden = false;
       status.textContent = "Sending…";
     }
 
