@@ -122,7 +122,7 @@
       styles = document.createElement("link");
       styles.rel = "stylesheet";
       styles.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
-      styles.integrity = "sha256-p4NxAoJBhIINfQ3yn+RytqVNVXLT+XTIuQbMZojtk+o=";
+      styles.integrity = "sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=";
       styles.crossOrigin = "";
       document.head.append(styles);
     }

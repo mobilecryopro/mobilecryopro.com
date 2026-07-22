@@ -7,7 +7,7 @@ const sandboxDir = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.dirname(sandboxDir);
 const guideDir = path.join(sandboxDir, "guides");
 const failures = [];
-const leafletIntegrity = "sha256-p4NxAoJBhIINfQ3yn+RytqVNVXLT+XTIuQbMZojtk+o=";
+const leafletIntegrity = "sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=";
 const context = { window: {}, document: { querySelector: () => null }, URLSearchParams };
 vm.createContext(context);
 for (const file of ["blog-content.js", "blog-extra-content.js"]) {

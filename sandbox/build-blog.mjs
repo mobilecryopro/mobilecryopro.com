@@ -44,7 +44,7 @@ const esc = (value) => clean(value).replace(/[&<>\"]/g, (character) => ({ "&": "
 const asset = (value) => clean(value).replace(/^\.\.\/assets\//, "/assets/");
 const guideUrl = (slug) => `/sandbox/guides/${slug}.html`;
 const rootUrl = (slug) => `https://mobilecryopro.com/sandbox/guides/${slug}.html`;
-const leafletStylesheet = '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3yn+RytqVNVXLT+XTIuQbMZojtk+o=" crossorigin="" />';
+const leafletStylesheet = '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />';
 const readingTime = (article) => {
   const text = [article.description, ...article.takeaways, ...article.sections.map((section) => `${section.heading} ${section.body.replace(/<[^>]+>/g, " ")}`)].join(" ");
   const words = clean(text).trim().split(/\s+/).filter(Boolean).length;
