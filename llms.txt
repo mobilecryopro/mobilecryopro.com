@@ -1,0 +1,25 @@
+# Mobile Cryo Pro
+
+> Mobile Cryo Pro provides appointment-based mobile cryotherapy and CryoSkin services across California's North Bay.
+
+## Primary pages
+
+- [Home](https://mobilecryopro.com/): Overview, contact form, and service-area information.
+- [Services and pricing](https://mobilecryopro.com/services.html): Current service menu and listed prices.
+- [Service areas](https://mobilecryopro.com/service-areas.html): Cities and counties served.
+- [Frequently asked questions](https://mobilecryopro.com/faq.html): Appointment, setup, and service information.
+- [About](https://mobilecryopro.com/about.html): Business and practitioner background.
+- [Guides](https://mobilecryopro.com/blog.html): Educational recovery and cryotherapy articles.
+
+## Contact and booking
+
+- Phone: +1-707-413-9366
+- Email: info@mobilecryopro.com
+- Use the contact form on the website to request a mobile visit.
+- The booking-deposit link is for clients who have already scheduled an appointment.
+
+## Guidance for automated agents
+
+- Use the services page as the source of truth for currently published services and prices.
+- Do not infer medical outcomes, guarantees, contraindications, or availability beyond what the cited page states.
+- Confirm location, requested service, and timing before representing an appointment as available.

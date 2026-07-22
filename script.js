@@ -24,7 +24,7 @@ const installUnifiedSiteFooter = () => {
           <figure class="service-map-card footer-service-map-card">
             <div
               class="service-map"
-              role="application"
+              role="region"
               aria-label="Interactive map of Mobile Cryo Pro's North Bay service area"
             >
               <p class="map-fallback">North Bay service area map.</p>
@@ -69,7 +69,7 @@ const installUnifiedSiteFooter = () => {
       <div class="footer-shell">
         <div class="footer-contact footer-contact-compact">
           <a class="footer-brand" href="index.html" aria-label="Mobile Cryo Pro home">
-            <img class="footer-logo" src="assets/mobile-cryo-pro-logo.png?v=9" alt="Mobile Cryo Pro" width="1100" height="360" loading="lazy" />
+            <img class="footer-logo" src="assets/mobile-cryo-pro-logo-640.webp" alt="Mobile Cryo Pro" width="639" height="209" loading="lazy" decoding="async" />
           </a>
           <div class="footer-contact-list">
             <div class="footer-contact-item">
@@ -133,27 +133,27 @@ const bookingDepositPage = "https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00";
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 const initializeFooterMap = () => {
-  const mapElement = document.querySelector(".site-footer .service-map");
+  const mapElements = Array.from(document.querySelectorAll(".service-map"));
 
-  if (!mapElement) {
+  if (!mapElements.length) {
     return;
   }
 
   const loadMapScript = () => {
     if (typeof window.initServiceMaps === "function") {
-      window.initServiceMaps(document.querySelector(".site-footer"));
+      window.initServiceMaps(document);
       return;
     }
 
     const existingMapScript = document.querySelector('script[src^="map.js"]');
     if (existingMapScript) {
-      existingMapScript.addEventListener("load", () => window.initServiceMaps?.(document.querySelector(".site-footer")), { once: true });
+      existingMapScript.addEventListener("load", () => window.initServiceMaps?.(document), { once: true });
       return;
     }
 
     const mapScript = document.createElement("script");
     mapScript.src = "map.js?v=5";
-    mapScript.addEventListener("load", () => window.initServiceMaps?.(document.querySelector(".site-footer")), { once: true });
+    mapScript.addEventListener("load", () => window.initServiceMaps?.(document), { once: true });
     document.body.append(mapScript);
   };
 
@@ -188,8 +188,10 @@ const initializeFooterMap = () => {
 
     leafletStyles.addEventListener("load", loadLeafletScript, { once: true });
     leafletStyles.addEventListener("error", () => {
-      mapElement.classList.add("service-map-load-error");
-      mapElement.innerHTML = '<p class="map-fallback">The service-area map is temporarily unavailable. Please include your city or ZIP code with your message.</p>';
+      mapElements.forEach((mapElement) => {
+        mapElement.classList.add("service-map-load-error");
+        mapElement.innerHTML = '<p class="map-fallback">The service-area map is temporarily unavailable. Please include your city or ZIP code with your message.</p>';
+      });
     }, { once: true });
 
     if (!existingLeafletStyles) {
@@ -218,7 +220,7 @@ const initializeFooterMap = () => {
     { rootMargin: "600px 0px" },
   );
 
-  mapObserver.observe(mapElement);
+  mapElements.forEach((mapElement) => mapObserver.observe(mapElement));
 };
 
 initializeFooterMap();
