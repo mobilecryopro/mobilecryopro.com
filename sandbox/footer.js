@@ -21,7 +21,7 @@
             <div class="service-map" role="application" aria-label="Interactive map of Mobile Cryo Pro's North Bay service area">
               <p class="map-fallback">North Bay service area map.</p>
             </div>
-            <figcaption>Primary service throughout Sonoma and Marin, with additional North Bay and San Francisco appointments by request.</figcaption>
+            <figcaption>Not sure whether your address is covered? Include your city or ZIP code in the message.</figcaption>
           </figure>
           <div class="footer-form-panel">
             <div class="footer-copy">
