@@ -29,7 +29,6 @@ const installUnifiedSiteFooter = () => {
             >
               <p class="map-fallback">North Bay service area map.</p>
             </div>
-            <figcaption>Primary service throughout Sonoma and Marin, with additional North Bay and San Francisco appointments by request.</figcaption>
           </figure>
 
           <div class="footer-form-panel">
