@@ -8346,8 +8346,9 @@ body.home-page .site-header.is-scrolled,
     position: relative !important;
     inset: auto !important;
     min-height: 286px !important;
-    margin-top: -8px !important;
-    clip-path: polygon(0 20px, 100% 0, 100% 100%, 0 100%) !important;
+    margin-top: 0 !important;
+    border-radius: 14px !important;
+    clip-path: none !important;
   }
 
   .home-hero-media-slide {
