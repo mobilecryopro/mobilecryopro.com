@@ -46,13 +46,13 @@
     <div class="footer-secondary">
       <div class="footer-shell">
         <div class="footer-contact footer-contact-compact">
-          <a class="footer-brand" href="index.html" aria-label="Mobile Cryo Pro sandbox home">
-            <img class="footer-logo" src="../assets/mobile-cryo-pro-logo.png?v=9" alt="Mobile Cryo Pro" width="1100" height="360" loading="lazy" />
+          <a class="footer-brand" href="/sandbox/index.html" aria-label="Mobile Cryo Pro sandbox home">
+            <img class="footer-logo" src="/assets/mobile-cryo-pro-logo.png?v=9" alt="Mobile Cryo Pro" width="1100" height="360" loading="lazy" />
           </a>
           <div class="footer-contact-list">
             <div class="footer-contact-item"><span>Call or text</span><a href="tel:+17074139366">(707) 413-9366</a></div>
             <div class="footer-contact-item"><span>Email</span><a href="mailto:info@mobilecryopro.com">info@mobilecryopro.com</a></div>
-            <div class="footer-contact-item"><span>Service area</span><p>Sonoma, Marin, and the wider North Bay. SF and Napa by request.</p></div>
+            <div class="footer-contact-item"><span>Service area</span><p>Sonoma and Marin. Napa, Solano, and San Francisco by request.</p></div>
           </div>
         </div>
         <div class="footer-bar">
@@ -60,7 +60,7 @@
           <div class="footer-payment-methods" aria-label="Payment methods shown for preview only">
             <a class="payment-mark payment-mark-visa" aria-disabled="true">VISA</a><a class="payment-mark payment-mark-mastercard" aria-disabled="true"></a><a class="payment-mark payment-mark-amex" aria-disabled="true">AMEX</a><a class="payment-mark payment-mark-discover" aria-disabled="true">DISCOVER</a><a class="payment-mark payment-mark-apple" aria-disabled="true">Apple Pay</a><a class="payment-mark payment-mark-link" aria-disabled="true">● link</a><a class="payment-mark payment-mark-klarna" aria-disabled="true">Klarna</a><a class="payment-mark payment-mark-amazon" aria-disabled="true">amazon pay</a><a class="payment-mark payment-mark-cash" aria-disabled="true">$ Cash</a><a class="payment-mark payment-mark-bank" aria-disabled="true">▥ Bank</a>
           </div>
-          <div class="footer-links"><a href="../about.html">About</a><a href="../services.html">Services</a><a href="blog.html">Blog</a><a href="../faq.html">FAQ</a><a href="../service-areas.html">Service Areas</a><a href="../expansion-opportunities.html">Expansion</a></div>
+          <div class="footer-links"><a href="/about.html">About</a><a href="/services.html">Services</a><a href="/sandbox/blog.html">Blog</a><a href="/faq.html">FAQ</a><a href="/service-areas.html">Service Areas</a><a href="/expansion-opportunities.html">Expansion</a></div>
         </div>
       </div>
     </div>`;
@@ -81,7 +81,7 @@
       return;
     }
     var script = document.createElement("script");
-    script.src = "../map.js?v=5";
+    script.src = "/map.js?v=5";
     script.addEventListener("load", function () { window.initServiceMaps && window.initServiceMaps(footer); }, { once: true });
     document.body.append(script);
   };

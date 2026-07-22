@@ -24,9 +24,9 @@
       slug: "complete-guide",
       order: "01",
       category: "Foundation",
-      title: "The Complete Guide to Cryotherapy: Benefits, Uses & What to Expect",
-      displayTitle: "The complete guide to cryotherapy.",
-      description: "A modality-by-modality guide to cold therapy, its plausible effects, evidence limits, safety questions, and what a localized appointment may involve.",
+      title: "Localized Cryotherapy: What It Is & What to Expect",
+      displayTitle: "Localized cryotherapy: what it is and what to expect.",
+      description: "What localized cryotherapy is, how it differs from other cold methods, what a visit may involve, and what the research actually supports.",
       readTime: "9 min read",
       image: "../assets/recovery-shoulder-cryo-home.jpg",
       imageAlt: "Practitioner positioning localized cryotherapy equipment near a client's shoulder",
@@ -34,15 +34,15 @@
       takeaways: [
         "Cryotherapy is an umbrella term, not one uniform treatment.",
         "Cooling physiology is established; many health and recovery outcomes remain uncertain or condition-specific.",
-        "Ask what device and exposure you will receive before applying research to a service."
+        "Ask what equipment and cooling method a provider uses before applying research to a service."
       ],
       sections: [
         { heading: "Cryotherapy means several different things", body: `<p>In research and everyday use, <em>cryotherapy</em> can describe an ice pack, cold-water immersion, a cooling sleeve, a localized stream of cold air or gas, or a chamber that exposes most of the body to very cold air. These methods differ in temperature, duration, tissue area, depth of cooling, and risk. They should not be treated as interchangeable.</p><p>Mobile Cryo Pro offers localized cryotherapy. Research involving ice, immersion, or whole-body chambers should not be assumed to establish outcomes for a localized service unless the device, protocol, population, and measured result are meaningfully comparable.</p>` },
         { heading: "What cooling can do inside the body", body: `<p>Cooling can lower skin and underlying tissue temperature. Depending on dose and location, it can alter local blood flow, metabolism, and nerve conduction. A small controlled study of ankle cooling found slower nerve conduction and higher pain thresholds, which helps explain temporary numbing effects.<sup><a href="#source-algafly">1</a></sup> Reviews of cooling physiology describe similar pathways but stress that response depends on the method and protocol.<sup><a href="#source-whiteWells">2</a></sup></p><div class="article-callout"><strong>Mechanism is not outcome</strong><p>A measurable change in temperature, circulation, or nerve conduction does not prove that tissue heals faster, swelling resolves, or a medical condition improves.</p></div>` },
-        { heading: "What benefits are reasonably discussable", body: `<p>The most defensible language is narrow: certain forms of cold exposure may temporarily change pain perception or post-exercise soreness in some settings. Even there, results vary. A Cochrane review found insufficient, very low-quality evidence for whole-body cryotherapy after exercise,<sup><a href="#source-cochrane">3</a></sup> while broader reviews describe mixed, time- and modality-dependent findings.<sup><a href="#source-allan">4</a></sup></p><p>That does not support promises of faster healing, disease treatment, "detoxification," immune enhancement, permanent pain relief, or superior athletic performance.</p>` },
+        { heading: "Where cold may fit", body: `<p>Some people use cold because it can briefly change how an area feels, and some research reports short-term changes in perceived soreness after exercise. Results vary. A Cochrane review found insufficient, very low-quality evidence for whole-body cryotherapy after exercise,<sup><a href="#source-cochrane">3</a></sup> while broader reviews describe mixed findings that depend on the method and timing.<sup><a href="#source-allan">4</a></sup></p><p>That is a reason to keep expectations specific—not to promise faster healing, disease treatment, “detoxification,” immune enhancement, permanent pain relief, or better athletic performance.</p>` },
         { heading: "What a localized visit should clarify", body: `<p>Before exposure, a provider should identify the exact modality, treatment area, expected sensation, planned duration, protective barriers, stop procedure, and relevant safety screen. You should understand what will happen during the appointment and be able to stop the session immediately.</p>` },
         { heading: "Who should seek medical guidance first", body: `<p>Cold can cause skin or nerve injury when exposure is excessive or sensation and circulation are impaired. Published cases document peripheral nerve injury after cryotherapy,<sup><a href="#source-nerveCases">5</a></sup> and the FDA warns that people with circulation or sensation problems may face higher injury risk with hot/cold therapy devices.<sup><a href="#source-fda">6</a></sup> Cold urticaria and Raynaud phenomenon also require special caution because cold can provoke reactions.<sup><a href="#source-urticaria">7</a></sup><sup><a href="#source-raynaud">8</a></sup></p><p>This educational guide cannot determine individual eligibility. People with a diagnosed condition, unexplained symptoms, impaired sensation or circulation, pregnancy-related questions, or medication concerns should consult an appropriately licensed healthcare professional.</p>` },
-        { heading: "The practical bottom line", body: `<p>Cryotherapy is best understood as a family of cooling methods with established short-term physiological effects and a much less uniform record for meaningful health outcomes. A credible provider should describe the method precisely, avoid guarantees, screen conservatively, and distinguish comfort or temporary symptom changes from treatment of disease.</p>` }
+        { heading: "The practical bottom line", body: `<p>“Cryotherapy” covers several very different ways of using cold. The short-term effects of cooling are easier to show than meaningful long-term health results. A trustworthy provider should explain the exact method, avoid guarantees, screen carefully, and never present a temporary change in sensation as treatment of a disease.</p>` }
       ],
       refs: ["algafly", "whiteWells", "cochrane", "allan", "nerveCases", "fda", "urticaria", "raynaud"]
     },
@@ -52,7 +52,7 @@
       category: "How it works",
       title: "How Cryotherapy Works: What Happens Inside Your Body",
       displayTitle: "How cryotherapy works inside the body.",
-      description: "A clear separation of tissue cooling, blood-flow changes, nerve conduction, pain perception, and unproven outcome claims.",
+      description: "A plain-English look at cooling, circulation, nerve signals, temporary changes in sensation, and where the science stops.",
       readTime: "7 min read",
       image: "../assets/client-shoulder-assessment.jpg",
       imageAlt: "Practitioner assessing a client's shoulder before a service",
@@ -60,11 +60,11 @@
       takeaways: ["Dose and modality determine how much tissue cools.", "Nerve and blood-flow effects can help explain temporary sensations.", "Physiology alone does not establish healing or disease treatment."],
       sections: [
         { heading: "First, the tissue has to cool", body: `<p>Heat moves from warmer tissue toward the colder application. The amount and depth of cooling depend on the temperature difference, duration, body area, tissue composition, contact method, and whether the exposure is wet, dry, compressed, or moving. That is why a chamber, an ice pack, immersion, and a localized device can create different temperature profiles.<sup><a href="#source-temperatures">1</a></sup></p>` },
-        { heading: "Local blood flow changes", body: `<p>Cooling generally produces local vasoconstriction and reduced cutaneous perfusion during and after exposure. One study comparing several cooling devices found depressed skin blood flow after treatment, with the response varying by device.<sup><a href="#source-perfusion">2</a></sup> Reduced skin blood flow is a physiological observation—not proof that an injury is healing or that all inflammation should be suppressed.</p>` },
+        { heading: "Local blood flow changes", body: `<p>Cooling usually narrows nearby blood vessels and reduces blood flow at the skin for a time. One study comparing several cooling devices found that the size of this change varied by device.<sup><a href="#source-perfusion">2</a></sup> A blood-flow change is something researchers can measure; by itself, it does not show that an injury is healing.</p>` },
         { heading: "Nerve conduction and pain perception", body: `<p>Nerves conduct signals more slowly as local temperature drops. In a small study of 23 male sports participants, ankle cooling to a skin temperature of 10°C reduced measured nerve-conduction velocity and increased pain threshold and tolerance.<sup><a href="#source-algafly">3</a></sup> This supports a temporary sensory mechanism. It does not establish long-term pain relief or treatment of a diagnosed pain condition.</p>` },
-        { heading: "Metabolism and inflammatory signaling", body: `<p>Cooling can reduce local metabolic demand and alter biochemical signaling in experimental settings. Reviews describe these mechanisms as plausible contributors to recovery responses, while also noting that tissue temperature, timing, and exposure method matter.<sup><a href="#source-whiteWells">4</a></sup> Laboratory markers are surrogate outcomes: a change in a marker is not automatically a meaningful improvement in pain, function, or healing.</p>` },
+        { heading: "Changes researchers can measure", body: `<p>Cooling can change how much energy local tissue uses and can affect chemical signals in experimental settings. Reviews describe these as possible pieces of a recovery response, while emphasizing that temperature, timing, and method matter.<sup><a href="#source-whiteWells">4</a></sup> A lab marker can move without a person feeling better, moving better, or healing faster.</p>` },
         { heading: "Rewarming is part of the response", body: `<p>When the exposure ends, tissues rewarm at different rates. Deeper tissues generally cool and rewarm differently from skin. Claims about a dramatic "rush" of circulation or whole-body systemic reset should not be made without direct measurements for the exact protocol.</p>` },
-        { heading: "What the mechanism can—and cannot—tell you", body: `<div class="evidence-two-column"><div><strong class="evidence-grade evidence-grade-supported">Reasonable</strong><ul><li>Cold can lower tissue temperature.</li><li>It can affect local perfusion and nerve conduction.</li><li>Those effects depend on the exposure.</li></ul></div><div><strong class="evidence-grade evidence-grade-unsupported">Not established by mechanism alone</strong><ul><li>Faster tissue repair.</li><li>Treatment of arthritis or injury.</li><li>Better performance or permanent pain relief.</li></ul></div></div>` }
+        { heading: "What those changes can—and cannot—tell you", body: `<div class="evidence-two-column"><div><strong class="evidence-grade evidence-grade-supported">What we know</strong><ul><li>Cold can lower tissue temperature.</li><li>It can affect local blood flow and nerve signals.</li><li>The result depends on how the cold is applied.</li></ul></div><div><strong class="evidence-grade evidence-grade-unsupported">What that does not prove</strong><ul><li>Faster tissue repair.</li><li>Treatment of arthritis or injury.</li><li>Better performance or permanent pain relief.</li></ul></div></div>` }
       ],
       refs: ["temperatures", "perfusion", "algafly", "whiteWells"]
     },
@@ -105,7 +105,7 @@
       sections: [
         { heading: "The short answer", body: `<p>Research does not establish one universal winner. An ice pack is a conductive, contact-based application. "Cryotherapy" may refer to many different systems, including localized air or gas exposure. Which is more appropriate depends on the goal, treatment area, desired tissue cooling, time, safety factors, and evidence for the exact protocol.</p>` },
         { heading: "Why dose matters more than the label", body: `<p>Temperature alone does not describe exposure. Contact, compression, moisture, duration, tissue thickness, and device distance influence cooling. Comparative research shows that even cold-water immersion and whole-body air exposure produce different skin, muscle, and core temperature responses.<sup><a href="#source-temperatures">1</a></sup> It is therefore not valid to assume a localized device reproduces ice-pack evidence.</p>` },
-        { heading: "What the ice literature can say", body: `<p>A systematic review of ice for acute soft-tissue injury found the evidence base limited and heterogeneous. It could not establish an optimal mode, duration, or frequency.<sup><a href="#source-bleakley">2</a></sup> More recent postoperative reviews find some short-term statistical effects in selected settings, but clinical importance and certainty can be modest, with no consistent advantage for swelling or function.<sup><a href="#source-postop">3</a></sup></p>` },
+        { heading: "What ice research can tell us", body: `<p>A systematic review of ice for recent soft-tissue injuries found too little consistent research to identify one best method, duration, or schedule.<sup><a href="#source-bleakley">2</a></sup> More recent reviews after surgery find some small short-term changes in selected settings, but no consistent advantage for swelling or function.<sup><a href="#source-postop">3</a></sup></p>` },
         { heading: "What a localized service may change", body: `<p>A supervised localized service may offer controlled timing, access to hard-to-wrap areas, and a provider who monitors the exposure. Those are operational differences, not proof of greater clinical effectiveness. To claim better pain relief, recovery, or healing, Mobile Cryo Pro would need relevant head-to-head evidence for its exact device and protocol.</p>` },
         { heading: "A fair comparison checklist", body: `<div class="comparison-table-wrap"><table class="comparison-table"><thead><tr><th>Question</th><th>Ice pack</th><th>Localized service</th></tr></thead><tbody><tr><th scope="row">Exposure</th><td>Direct conductive contact, usually through a barrier</td><td>Depends on the device; verify air, gas, contact, distance, and temperature</td></tr><tr><th scope="row">Supervision</th><td>Often self-administered</td><td>Provider-monitored during an appointment</td></tr><tr><th scope="row">Evidence</th><td>Condition- and protocol-specific, with important limitations</td><td>Requires device- and protocol-specific evidence</td></tr><tr><th scope="row">Risk</th><td>Burn, skin, or nerve injury if misused</td><td>Risk depends on device, duration, area, screening, and operation</td></tr></tbody></table></div>` },
         { heading: "Bottom line", body: `<p>Choose based on a clearly defined purpose, an appropriate safety screen, and evidence that actually matches the method. If a provider says its technology "works better than ice," ask for a direct comparison involving that exact system and a meaningful patient outcome.</p>` }
@@ -116,8 +116,8 @@
       slug: "cold-therapy-pain-inflammation",
       order: "05",
       category: "Pain & recovery",
-      title: "How Cold Therapy Reduces Pain and Inflammation",
-      displayTitle: "Cold therapy, pain and inflammation.",
+      title: "How Cold Therapy Affects Pain and Inflammation",
+      displayTitle: "How cold therapy affects pain and inflammation.",
       description: "What research supports about short-term sensory effects—and why broad anti-inflammatory or healing claims go too far.",
       readTime: "8 min read",
       image: "../assets/client-knee-consultation.jpg",
@@ -125,11 +125,11 @@
       grade: "Title reframed: outcomes are not uniformly established",
       takeaways: ["Cooling can slow local nerve conduction and temporarily alter pain perception.", "Blood-flow and biomarker changes do not automatically improve healing.", "Pain and inflammation claims must name the condition, modality, and time frame."],
       sections: [
-        { heading: "Why the details matter", body: `<p>“How cold therapy reduces pain and inflammation” can sound universal, but the research is more specific. Cold can produce mechanisms associated with temporary analgesia and can alter perfusion or laboratory markers, while clinical outcomes vary by diagnosis, protocol, and modality.</p>` },
+        { heading: "Why the details matter", body: `<p>It is easy to hear “cold reduces pain and inflammation” as a universal promise. The research is narrower. Cold can temporarily change sensation, blood flow, and some lab measurements, while results that matter day to day vary by the condition, cooling method, and timing.</p>` },
         { heading: "A plausible short-term pain mechanism", body: `<p>Local cooling can slow sensory nerve conduction and raise pain threshold. In one small controlled experiment, cooling the ankle to a skin temperature of 10°C reduced nerve-conduction velocity and increased pain threshold and tolerance.<sup><a href="#source-algafly">1</a></sup> That helps explain temporary numbing. It does not establish durable relief or correction of the cause of pain.</p>` },
         { heading: "Inflammation is not one simple target", body: `<p>Inflammation is part of the body's response to injury and training. Cooling may reduce local perfusion and influence metabolic or inflammatory signals,<sup><a href="#source-whiteWells">2</a></sup> but lower blood flow or a changed biomarker is not automatically a better clinical outcome. The important outcomes are how a person feels and functions, whether tissue recovers, and whether harms occur.</p>` },
         { heading: "What clinical reviews find", body: `<p>Evidence depends heavily on context. A 2026 review of cryotherapy after musculoskeletal surgery reported small average pain improvements that did not reach the authors' threshold for a clinically important difference, and found no substantial improvement in swelling or function.<sup><a href="#source-postop">3</a></sup> A Cochrane review of whole-body cryotherapy for post-exercise soreness found very low-quality, insufficient evidence.<sup><a href="#source-cochrane">4</a></sup></p><p>These findings should not be transferred directly to a localized mobile service. They demonstrate why “reduces pain and inflammation” needs a defined setting and outcome.</p>` },
-        { heading: "Safe language for a provider", body: `<div class="evidence-two-column"><div><strong class="evidence-grade evidence-grade-supported">Defensible</strong><ul><li>Cold can temporarily affect sensation.</li><li>Response varies by person and exposure.</li><li>Evidence differs across modalities and uses.</li></ul></div><div><strong class="evidence-grade evidence-grade-unsupported">Avoid</strong><ul><li>“Flushes inflammation.”</li><li>“Accelerates healing.”</li><li>“Treats chronic pain” without direct, condition-specific evidence.</li></ul></div></div>` },
+        { heading: "A useful way to talk about it", body: `<div class="evidence-two-column"><div><strong class="evidence-grade evidence-grade-supported">Reasonable</strong><ul><li>Cold can temporarily affect sensation.</li><li>Response varies by person and method.</li><li>Different cold services have different evidence.</li></ul></div><div><strong class="evidence-grade evidence-grade-unsupported">Too broad</strong><ul><li>“Flushes inflammation.”</li><li>“Accelerates healing.”</li><li>“Treats chronic pain” without direct evidence for that use.</li></ul></div></div>` },
         { heading: "When pain needs evaluation", body: `<p>Cold can mask pain temporarily. New, severe, unexplained, worsening, or persistent pain—and pain with weakness, numbness, major swelling, deformity, fever, or loss of function—needs appropriate clinical evaluation rather than a wellness treatment.</p>` }
       ],
       refs: ["algafly", "whiteWells", "postop", "cochrane"]
@@ -140,7 +140,7 @@
       category: "Comparison",
       title: "Localized Cryotherapy vs Whole Body Cryotherapy",
       displayTitle: "Localized vs whole-body cryotherapy.",
-      description: "A practical comparison of exposure area, temperature response, evidence, safety, and the claims each modality can support.",
+      description: "How a targeted mobile service differs from a whole-body chamber—and why research about one should not be used to sell the other.",
       readTime: "7 min read",
       image: "../assets/recovery-shoulder-assessment.jpg",
       imageAlt: "A focused shoulder assessment before localized treatment",
@@ -185,7 +185,7 @@
       category: "Booking guide",
       title: "What Questions Should You Ask Before Booking Cryotherapy?",
       displayTitle: "Questions to ask before booking cryotherapy.",
-      description: "A saveable list covering treatment goals, exact modality, eligibility, evidence, risks, cost, consent, and follow-up.",
+      description: "A saveable checklist for comparing the service, safety process, realistic expectations, total cost, and practical details before booking.",
       readTime: "6 min read",
       image: "../assets/recovery-knee-consultation.jpg",
       imageAlt: "Client and practitioner discussing a planned localized service",
@@ -205,17 +205,19 @@
 
   const escapeHtml = (value) => String(value).replace(/[&<>"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[character]);
 
+  window.mobileCryoBlogCatalog = { sources, articles };
+
   const renderCard = (article) => `
     <article class="blog-card evidence-card">
-      <a class="blog-card-image" href="article.html?guide=${encodeURIComponent(article.slug)}" aria-label="Read ${escapeHtml(article.title)}">
+      <a class="blog-card-image" href="guides/${encodeURIComponent(article.slug)}.html" aria-label="Read ${escapeHtml(article.title)}">
         <img src="${article.image}" alt="${escapeHtml(article.imageAlt)}" width="1600" height="1067" loading="lazy" />
         <span class="evidence-card-number" aria-hidden="true">${article.order}</span>
       </a>
       <div class="blog-card-copy">
         <div class="blog-meta-row"><span>${escapeHtml(article.category)}</span><span>${escapeHtml(article.readTime)}</span></div>
-        <h3><a href="article.html?guide=${encodeURIComponent(article.slug)}">${escapeHtml(article.title)}</a></h3>
+        <h3><a href="guides/${encodeURIComponent(article.slug)}.html">${escapeHtml(article.title)}</a></h3>
         <p>${escapeHtml(article.description)}</p>
-        <a class="text-link" href="article.html?guide=${encodeURIComponent(article.slug)}">Read the guide</a>
+        <a class="text-link" href="guides/${encodeURIComponent(article.slug)}.html">Explore this guide</a>
       </div>
     </article>`;
 
