@@ -7,6 +7,7 @@ const sandboxDir = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.dirname(sandboxDir);
 const guideDir = path.join(sandboxDir, "guides");
 const failures = [];
+const leafletIntegrity = "sha256-p4NxAoJBhIINfQ3yn+RytqVNVXLT+XTIuQbMZojtk+o=";
 const context = { window: {}, document: { querySelector: () => null }, URLSearchParams };
 vm.createContext(context);
 for (const file of ["blog-content.js", "blog-extra-content.js"]) {
@@ -39,6 +40,7 @@ for (const file of htmlFiles) {
   check(!html.includes("Guide not found"), `${relative}: false progressive-enhancement error remains`);
   check(!html.includes("Editorial status"), `${relative}: internal editorial status is exposed`);
   check(!html.includes("Editorial Team"), `${relative}: invented editorial-team label remains`);
+  check(html.includes(`integrity="${leafletIntegrity}"`), `${relative}: correct Leaflet stylesheet integrity is missing`);
   check(!html.includes("â€”") && !html.includes("Â"), `${relative}: mojibake sequence found`);
 
   for (const block of html.matchAll(/<script type="application\/ld\+json">([^<]+)<\/script>/gi)) {
@@ -64,6 +66,12 @@ check(hub.includes("Cryotherapy, explained for real life."), "Hub consumer-first
 check(!hub.includes("Editorial status"), "Internal editorial status is exposed to readers");
 check(!hub.includes("Useful first. Accurate always."), "Internal standards promo remains on the marketing hub");
 check(hub.includes("blog-filter.js"), "Hub filter script is missing");
+
+for (const file of [path.join(siteRoot, "index.html"), path.join(sandboxDir, "index.html")]) {
+  const relative = path.relative(siteRoot, file).replaceAll("\\", "/");
+  const html = fs.readFileSync(file, "utf8");
+  check(html.includes(`integrity="${leafletIntegrity}"`), `${relative}: correct Leaflet stylesheet integrity is missing`);
+}
 
 const css = fs.readFileSync(path.join(sandboxDir, "styles.css"), "utf8").replace(/\/\*[\s\S]*?\*\//g, "");
 check((css.match(/{/g) || []).length === (css.match(/}/g) || []).length, "CSS braces are unbalanced");

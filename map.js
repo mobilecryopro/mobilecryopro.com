@@ -1,4 +1,44 @@
 (function exposeServiceMap() {
+  function keepMapSized(map, element) {
+    var animationFrame = 0;
+    var lastWidth = 0;
+    var lastHeight = 0;
+
+    var refresh = function () {
+      if (!document.documentElement.contains(element)) return;
+
+      if (animationFrame) {
+        window.cancelAnimationFrame(animationFrame);
+      }
+
+      animationFrame = window.requestAnimationFrame(function () {
+        animationFrame = 0;
+        map.invalidateSize({ pan: false, debounceMoveend: true });
+      });
+    };
+
+    // The sandbox footer is injected before its final grid height is known.
+    // Re-measure after layout settles so Leaflet fills the complete map panel.
+    refresh();
+    window.setTimeout(refresh, 150);
+    window.setTimeout(refresh, 600);
+    window.addEventListener("resize", refresh, { passive: true });
+
+    if ("ResizeObserver" in window) {
+      var observer = new ResizeObserver(function (entries) {
+        var bounds = entries[0] && entries[0].contentRect;
+        if (!bounds || (bounds.width === lastWidth && bounds.height === lastHeight)) return;
+
+        lastWidth = bounds.width;
+        lastHeight = bounds.height;
+        refresh();
+      });
+
+      observer.observe(element);
+      element._serviceMapResizeObserver = observer;
+    }
+  }
+
   function initServiceMaps(root) {
     var mapRoot = root || document;
     var mapEls = Array.prototype.slice.call(
@@ -111,6 +151,8 @@
         maxZoom: 9,
       });
     }
+
+    keepMapSized(map, el);
     });
   }
 

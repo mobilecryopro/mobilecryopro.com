@@ -75,41 +75,66 @@
       window.initServiceMaps(footer);
       return;
     }
-    var existing = document.querySelector('script[src$="map.js?v=5"]');
+    var existing = document.querySelector('script[src$="map.js?v=6"]');
     if (existing) {
       existing.addEventListener("load", function () { window.initServiceMaps && window.initServiceMaps(footer); }, { once: true });
       return;
     }
     var script = document.createElement("script");
-    script.src = "/map.js?v=5";
+    script.src = "/map.js?v=6";
     script.addEventListener("load", function () { window.initServiceMaps && window.initServiceMaps(footer); }, { once: true });
     document.body.append(script);
   };
 
   var loadLeaflet = function () {
-    if (!document.querySelector('link[href*="leaflet.css"]')) {
-      var styles = document.createElement("link");
+    var stylesReady = false;
+    var styles = document.querySelector('link[href*="leaflet.css"]');
+
+    var showMapFallback = function () {
+      if (stylesReady) return;
+      mapElement.removeAttribute("role");
+      mapElement.setAttribute("aria-label", "North Bay service area map unavailable");
+      mapElement.innerHTML = '<p class="map-fallback">The interactive map is temporarily unavailable. Primary service is throughout Sonoma and Marin, with additional areas available by request.</p>';
+    };
+
+    var startLeaflet = function () {
+      if (stylesReady) return;
+      stylesReady = true;
+
+      if (window.L) {
+        loadMapScript();
+        return;
+      }
+      var existing = document.querySelector('script[src*="leaflet.js"]');
+      if (existing) {
+        existing.addEventListener("load", loadMapScript, { once: true });
+        return;
+      }
+      var script = document.createElement("script");
+      script.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+      script.integrity = "sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=";
+      script.crossOrigin = "";
+      script.addEventListener("load", loadMapScript, { once: true });
+      document.body.append(script);
+    };
+
+    if (!styles) {
+      styles = document.createElement("link");
       styles.rel = "stylesheet";
       styles.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
       styles.integrity = "sha256-p4NxAoJBhIINfQ3yn+RytqVNVXLT+XTIuQbMZojtk+o=";
       styles.crossOrigin = "";
       document.head.append(styles);
     }
-    if (window.L) {
-      loadMapScript();
+
+    if (styles.sheet) {
+      startLeaflet();
       return;
     }
-    var existing = document.querySelector('script[src*="leaflet.js"]');
-    if (existing) {
-      existing.addEventListener("load", loadMapScript, { once: true });
-      return;
-    }
-    var script = document.createElement("script");
-    script.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
-    script.integrity = "sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=";
-    script.crossOrigin = "";
-    script.addEventListener("load", loadMapScript, { once: true });
-    document.body.append(script);
+
+    styles.addEventListener("load", startLeaflet, { once: true });
+    styles.addEventListener("error", showMapFallback, { once: true });
+    window.setTimeout(showMapFallback, 8000);
   };
 
   if (!("IntersectionObserver" in window)) {
