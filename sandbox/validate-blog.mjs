@@ -37,6 +37,8 @@ for (const file of htmlFiles) {
   check(html.includes('name="robots" content="noindex, nofollow, noarchive"'), `${relative}: sandbox noindex is missing`);
   check(!html.includes("article.html?guide="), `${relative}: legacy query-string article link remains`);
   check(!html.includes("Guide not found"), `${relative}: false progressive-enhancement error remains`);
+  check(!html.includes("Editorial status"), `${relative}: internal editorial status is exposed`);
+  check(!html.includes("Editorial Team"), `${relative}: invented editorial-team label remains`);
   check(!html.includes("â€”") && !html.includes("Â"), `${relative}: mojibake sequence found`);
 
   for (const block of html.matchAll(/<script type="application\/ld\+json">([^<]+)<\/script>/gi)) {
@@ -58,7 +60,9 @@ check(unique(canonicals), "Generated canonical URLs are not unique");
 
 const hub = fs.readFileSync(path.join(sandboxDir, "blog.html"), "utf8");
 check((hub.match(/data-guide-card/g) || []).length === 14, "Hub does not contain 14 server-rendered guide cards");
-check(hub.includes("Clear answers. Better questions. No hype."), "Hub consumer-first headline is missing");
+check(hub.includes("Cryotherapy, explained for real life."), "Hub consumer-first headline is missing");
+check(!hub.includes("Editorial status"), "Internal editorial status is exposed to readers");
+check(!hub.includes("Useful first. Accurate always."), "Internal standards promo remains on the marketing hub");
 check(hub.includes("blog-filter.js"), "Hub filter script is missing");
 
 const css = fs.readFileSync(path.join(sandboxDir, "styles.css"), "utf8").replace(/\/\*[\s\S]*?\*\//g, "");
