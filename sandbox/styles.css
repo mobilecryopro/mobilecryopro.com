@@ -9196,6 +9196,11 @@ a[aria-disabled="true"] {
   opacity: 0.55;
 }
 
+.footer-payment-methods .payment-mark[aria-disabled="true"] {
+  cursor: default;
+  opacity: 1;
+}
+
 .home-map-layout.home-map-contact-layout {
   grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
   align-items: stretch;
