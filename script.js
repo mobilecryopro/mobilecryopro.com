@@ -159,32 +159,47 @@ const initializeFooterMap = () => {
   };
 
   const loadLeaflet = () => {
-    if (!document.querySelector('link[href*="leaflet.css"]')) {
-      const leafletStyles = document.createElement("link");
+    const loadLeafletScript = () => {
+      if (window.L) {
+        loadMapScript();
+        return;
+      }
+
+      const existingLeafletScript = document.querySelector('script[src*="leaflet.js"]');
+      if (existingLeafletScript) {
+        existingLeafletScript.addEventListener("load", loadMapScript, { once: true });
+        return;
+      }
+
+      const leafletScript = document.createElement("script");
+      leafletScript.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+      leafletScript.integrity = "sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=";
+      leafletScript.crossOrigin = "";
+      leafletScript.addEventListener("load", loadMapScript, { once: true });
+      document.body.append(leafletScript);
+    };
+
+    const existingLeafletStyles = document.querySelector('link[href*="leaflet.css"]');
+    const leafletStyles = existingLeafletStyles || document.createElement("link");
+
+    if (leafletStyles.sheet) {
+      loadLeafletScript();
+      return;
+    }
+
+    leafletStyles.addEventListener("load", loadLeafletScript, { once: true });
+    leafletStyles.addEventListener("error", () => {
+      mapElement.classList.add("service-map-load-error");
+      mapElement.innerHTML = '<p class="map-fallback">The service-area map is temporarily unavailable. Please include your city or ZIP code with your message.</p>';
+    }, { once: true });
+
+    if (!existingLeafletStyles) {
       leafletStyles.rel = "stylesheet";
       leafletStyles.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
-      leafletStyles.integrity = "sha256-p4NxAoJBhIINfQ3yn+RytqVNVXLT+XTIuQbMZojtk+o=";
+      leafletStyles.integrity = "sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=";
       leafletStyles.crossOrigin = "";
       document.head.append(leafletStyles);
     }
-
-    if (window.L) {
-      loadMapScript();
-      return;
-    }
-
-    const existingLeafletScript = document.querySelector('script[src*="leaflet.js"]');
-    if (existingLeafletScript) {
-      existingLeafletScript.addEventListener("load", loadMapScript, { once: true });
-      return;
-    }
-
-    const leafletScript = document.createElement("script");
-    leafletScript.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
-    leafletScript.integrity = "sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=";
-    leafletScript.crossOrigin = "";
-    leafletScript.addEventListener("load", loadMapScript, { once: true });
-    document.body.append(leafletScript);
   };
 
   if (!("IntersectionObserver" in window)) {
