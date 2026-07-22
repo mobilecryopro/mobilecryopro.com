@@ -8306,26 +8306,29 @@ body.home-page .site-header.is-scrolled,
   background-position: center center, center center, 50% 34%;
   background-size: cover;
   opacity: 0;
-  animation: homeHeroPhotoFade 12s infinite ease-in-out;
 }
 
 .home-hero-media-slide:nth-child(1) {
   opacity: 1;
-  animation-delay: 0s;
   background-position: center center, center center, 50% 25%;
 }
 
 .home-hero-media-slide:nth-child(2) {
-  animation-delay: 6s;
+  will-change: opacity;
+  animation: homeHeroPhotoOverlay 12s infinite ease-in-out;
 }
 
-@keyframes homeHeroPhotoFade {
+@keyframes homeHeroPhotoOverlay {
   0%,
   45% {
-    opacity: 1;
+    opacity: 0;
   }
 
   55%,
+  90% {
+    opacity: 1;
+  }
+
   100% {
     opacity: 0;
   }
@@ -8426,16 +8429,16 @@ body:not(.services-page).about-page .bio-video-frame.has-video::before {
   }
 
   body.home-page .home-hero-media-slide {
-    will-change: opacity;
-    animation: homeHeroPhotoFade 12s infinite ease-in-out;
+    animation: none;
   }
 
   body.home-page .home-hero-media-slide:nth-child(1) {
-    animation-delay: 0s;
+    opacity: 1;
   }
 
   body.home-page .home-hero-media-slide:nth-child(2) {
-    animation-delay: 6s;
+    will-change: opacity;
+    animation: homeHeroPhotoOverlay 12s infinite ease-in-out;
   }
 
   body.home-page .hero-divider-ice::after,
