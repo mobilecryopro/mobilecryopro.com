@@ -8758,7 +8758,7 @@ body:not(.services-page).about-page .bio-video-frame.has-video::before {
   margin-bottom: clamp(30px, 4vw, 46px);
 }
 
-.footer-section-heading .eyebrow {
+body .site-footer-unified .footer-section-heading .eyebrow {
   color: #8ee8fa;
 }
 
