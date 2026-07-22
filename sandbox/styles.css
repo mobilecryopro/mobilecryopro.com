@@ -9957,7 +9957,7 @@ body.home-page .site-footer > .footer-shell {
 }
 
 body.home-page .site-footer > .home-context-band .section-heading .eyebrow {
-  color: #8ee8fa;
+  color: #f7fbff;
 }
 
 body.home-page .site-footer > .home-context-band .section-heading h2 {
@@ -10058,7 +10058,7 @@ body.home-page .site-footer .footer-bar {
 }
 
 .footer-section-heading .eyebrow {
-  color: #8ee8fa;
+  color: #f7fbff;
 }
 
 .footer-section-heading h2,
@@ -10422,7 +10422,7 @@ body.home-page .site-footer .footer-bar {
 
 .blog-trust-strip .text-link {
   flex: 0 0 auto;
-  color: #8ee8fa;
+  color: #fff;
 }
 
 .article-breadcrumbs {
@@ -10480,7 +10480,7 @@ body.home-page .site-footer .footer-bar {
 }
 
 .article-conversion .eyebrow {
-  color: #b9f1ff;
+  color: #fff;
 }
 
 .article-conversion .button-secondary {
