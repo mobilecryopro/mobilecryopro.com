@@ -71,7 +71,7 @@ check(hub.includes("blog-filter.js"), "Hub filter script is missing");
 check(!hub.includes(">Blog<") && !hub.includes("/sandbox/blog.html"), "Legacy Blog framing remains on the Guides hub");
 
 const legacyRedirect = fs.readFileSync(path.join(sandboxDir, "blog.html"), "utf8");
-check(legacyRedirect.includes('http-equiv="refresh" content="0; url=/sandbox/guides/"'), "Legacy Blog URL does not redirect to the Guides hub");
+check(legacyRedirect.includes('http-equiv="refresh" content="0; url=/sandbox/guides/index.html"'), "Legacy Blog URL does not redirect to the Guides hub");
 check(legacyRedirect.includes('name="robots" content="noindex, nofollow, noarchive"'), "Legacy Blog redirect is missing noindex");
 
 for (const file of [path.join(siteRoot, "index.html"), path.join(sandboxDir, "index.html")]) {

@@ -57,11 +57,11 @@ const header = (current = "guides") => `
   <header class="site-header">
     <a class="brand" href="/sandbox/index.html" aria-label="Mobile Cryo Pro sandbox home"><img class="brand-logo" src="/assets/mobile-cryo-pro-logo.png?v=9" alt="Mobile Cryo Pro" width="1100" height="360" /></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation"><span></span><span></span></button>
-    <nav class="site-nav" id="site-nav"><a href="/sandbox/index.html">Home</a><a href="/about.html">About</a><a href="/services.html">Services</a><a href="/sandbox/index.html#service-area">Service Area</a><a href="/sandbox/guides/"${current === "guides" ? ' aria-current="page"' : ""}>Guides</a><a href="/faq.html">FAQ</a><a class="nav-call" href="tel:+17074139366">(707) 413-9366</a><a class="nav-cta" href="/sandbox/index.html#contact-form">Check Availability</a></nav>
+    <nav class="site-nav" id="site-nav"><a href="/sandbox/index.html">Home</a><a href="/about.html">About</a><a href="/services.html">Services</a><a href="/sandbox/index.html#service-area">Service Area</a><a href="/sandbox/guides/index.html"${current === "guides" ? ' aria-current="page"' : ""}>Guides</a><a href="/faq.html">FAQ</a><a class="nav-call" href="tel:+17074139366">(707) 413-9366</a><a class="nav-cta" href="/sandbox/index.html#contact-form">Check Availability</a></nav>
   </header>`;
 
 const fallbackFooter = `
-  <footer class="site-footer"><div class="footer-shell"><div class="footer-bar"><p>Mobile Cryo Pro sandbox preview</p><div class="footer-links"><a href="/sandbox/index.html">Home</a><a href="/services.html">Services</a><a href="/sandbox/guides/">Guides</a><a href="/faq.html">FAQ</a></div></div></div></footer>`;
+  <footer class="site-footer"><div class="footer-shell"><div class="footer-bar"><p>Mobile Cryo Pro sandbox preview</p><div class="footer-links"><a href="/sandbox/index.html">Home</a><a href="/services.html">Services</a><a href="/sandbox/guides/index.html">Guides</a><a href="/faq.html">FAQ</a></div></div></div></footer>`;
 
 const card = (article, compact = false) => `
   <article class="blog-card evidence-card${compact ? " blog-card-compact" : ""}" data-guide-card data-topic="${esc(article.topic)}" data-search="${esc(`${article.title} ${article.description} ${article.topic}`.toLowerCase())}">
@@ -99,7 +99,7 @@ const articlePage = (article) => {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://mobilecryopro.com/sandbox/" },
-      { "@type": "ListItem", position: 2, name: "Guides", item: "https://mobilecryopro.com/sandbox/guides/" },
+      { "@type": "ListItem", position: 2, name: "Guides", item: "https://mobilecryopro.com/sandbox/guides/index.html" },
       { "@type": "ListItem", position: 3, name: article.title, item: rootUrl(article.slug) }
     ]
   };
@@ -116,7 +116,7 @@ const articlePage = (article) => {
   ${header()}
   <aside class="sandbox-banner" role="status"><strong>Sandbox preview</strong><span>This guide is an unpublished draft for review.</span></aside>
   <main id="main-content" tabindex="-1"><article class="article-shell evidence-article-shell">
-    <nav class="article-breadcrumbs" aria-label="Breadcrumb"><a href="/sandbox/guides/">Guides</a><span aria-hidden="true">/</span><a href="/sandbox/guides/?topic=${encodeURIComponent(article.topic)}">${esc(article.topic)}</a></nav>
+    <nav class="article-breadcrumbs" aria-label="Breadcrumb"><a href="/sandbox/guides/index.html">Guides</a><span aria-hidden="true">/</span><a href="/sandbox/guides/index.html?topic=${encodeURIComponent(article.topic)}">${esc(article.topic)}</a></nav>
     <header class="article-hero evidence-article-hero"><div class="article-hero-copy"><p class="eyebrow">${esc(article.topic)}</p><h1>${esc(article.displayTitle)}</h1><p>${esc(article.description)}</p><div class="article-byline"><span>By Mobile Cryo Pro</span><span>Draft updated July 21, 2026</span><span>${esc(article.readTime)}</span></div></div><figure class="article-hero-media"><img src="${asset(article.image)}" alt="${esc(article.imageAlt)}" width="1200" height="800" /></figure></header>
     <div class="article-layout"><aside class="article-sidebar evidence-sidebar"><p class="panel-label">Quick note</p><p>General education, not medical advice or a promise of results. Personal concerns belong with an appropriately licensed professional.</p><nav aria-label="On this page"><strong>In this guide</strong><ol>${article.sections.map((section, index) => `<li><a href="#section-${index + 1}">${esc(section.heading)}</a></li>`).join("")}</ol></nav><a class="button button-secondary" href="/services.html">See services & pricing</a></aside>
       <div class="article-content evidence-article-content"><section class="key-takeaways" aria-labelledby="takeaways-heading"><p class="panel-label">The short version</p><h2 id="takeaways-heading">What to know</h2><ul>${article.takeaways.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></section>
@@ -142,7 +142,7 @@ const hub = clean(`<!doctype html>
 
 const guidesHub = hub
   .replace("Cryotherapy Guides | Mobile Cryo Pro Blog", "Cryotherapy Guides | Mobile Cryo Pro")
-  .replaceAll("https://mobilecryopro.com/sandbox/blog.html", "https://mobilecryopro.com/sandbox/guides/")
+  .replaceAll("https://mobilecryopro.com/sandbox/blog.html", "https://mobilecryopro.com/sandbox/guides/index.html")
   .replace("These blog drafts are not published or indexed.", "These guides are unpublished and not indexed.")
   .replace("Cryotherapy, explained for real life.", "Cryotherapy guides for real life.");
 
@@ -150,5 +150,5 @@ fs.mkdirSync(guideDir, { recursive: true });
 for (const article of articles) fs.writeFileSync(path.join(guideDir, `${article.slug}.html`), articlePage(article));
 fs.writeFileSync(path.join(guideDir, "index.html"), guidesHub);
 fs.writeFileSync(path.join(sandboxDir, "blog.html"), clean(`<!doctype html>
-<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="robots" content="noindex, nofollow, noarchive" /><meta http-equiv="refresh" content="0; url=/sandbox/guides/" /><link rel="canonical" href="https://mobilecryopro.com/sandbox/guides/" /><title>Cryotherapy Guides | Mobile Cryo Pro</title></head><body><main><h1>Cryotherapy Guides</h1><p>This review library has moved to <a href="/sandbox/guides/">Mobile Cryo Pro Guides</a>.</p></main></body></html>`));
+<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="robots" content="noindex, nofollow, noarchive" /><meta http-equiv="refresh" content="0; url=/sandbox/guides/index.html" /><link rel="canonical" href="https://mobilecryopro.com/sandbox/guides/index.html" /><title>Cryotherapy Guides | Mobile Cryo Pro</title></head><body><main><h1>Cryotherapy Guides</h1><p>This review library has moved to <a href="/sandbox/guides/index.html">Mobile Cryo Pro Guides</a>.</p></main></body></html>`));
 console.log(`Built ${articles.length} static sandbox guides, the Guides hub, and the legacy Blog redirect.`);

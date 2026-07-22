@@ -247,7 +247,7 @@
     <article class="article-shell evidence-article-shell">
       <header class="article-hero evidence-article-hero">
         <div class="article-hero-copy">
-          <a class="blog-back-link" href="guides/">Back to guides</a>
+          <a class="blog-back-link" href="guides/index.html">Back to guides</a>
           <p class="eyebrow">${escapeHtml(article.category)} · Guide ${article.order} of 08</p>
           <h1>${escapeHtml(article.displayTitle)}</h1>
           <p>${escapeHtml(article.description)}</p>

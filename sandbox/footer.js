@@ -60,7 +60,7 @@
           <div class="footer-payment-methods" aria-label="Payment methods shown for preview only">
             <a class="payment-mark payment-mark-visa" aria-disabled="true">VISA</a><a class="payment-mark payment-mark-mastercard" aria-disabled="true"></a><a class="payment-mark payment-mark-amex" aria-disabled="true">AMEX</a><a class="payment-mark payment-mark-discover" aria-disabled="true">DISCOVER</a><a class="payment-mark payment-mark-apple" aria-disabled="true">Apple Pay</a><a class="payment-mark payment-mark-link" aria-disabled="true">● link</a><a class="payment-mark payment-mark-klarna" aria-disabled="true">Klarna</a><a class="payment-mark payment-mark-amazon" aria-disabled="true">amazon pay</a><a class="payment-mark payment-mark-cash" aria-disabled="true">$ Cash</a><a class="payment-mark payment-mark-bank" aria-disabled="true">▥ Bank</a>
           </div>
-          <div class="footer-links"><a href="/about.html">About</a><a href="/services.html">Services</a><a href="/sandbox/guides/">Guides</a><a href="/faq.html">FAQ</a><a href="/service-areas.html">Service Areas</a><a href="/expansion-opportunities.html">Expansion</a></div>
+          <div class="footer-links"><a href="/about.html">About</a><a href="/services.html">Services</a><a href="/sandbox/guides/index.html">Guides</a><a href="/faq.html">FAQ</a><a href="/service-areas.html">Service Areas</a><a href="/expansion-opportunities.html">Expansion</a></div>
         </div>
       </div>
     </div>`;
