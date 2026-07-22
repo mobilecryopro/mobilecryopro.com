@@ -231,7 +231,7 @@
   const article = articles.find((entry) => entry.slug === slug);
   if (!article) return;
 
-  document.title = `${article.title} | Mobile Cryo Pro Blog`;
+  document.title = `${article.title} | Mobile Cryo Pro`;
   const description = document.querySelector('meta[name="description"]');
   if (description) description.content = article.description;
 
@@ -247,7 +247,7 @@
     <article class="article-shell evidence-article-shell">
       <header class="article-hero evidence-article-hero">
         <div class="article-hero-copy">
-          <a class="blog-back-link" href="blog.html">Back to blog</a>
+          <a class="blog-back-link" href="guides/">Back to guides</a>
           <p class="eyebrow">${escapeHtml(article.category)} · Guide ${article.order} of 08</p>
           <h1>${escapeHtml(article.displayTitle)}</h1>
           <p>${escapeHtml(article.description)}</p>

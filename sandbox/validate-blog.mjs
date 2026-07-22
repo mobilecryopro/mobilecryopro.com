@@ -14,7 +14,9 @@ for (const file of ["blog-content.js", "blog-extra-content.js"]) {
   vm.runInContext(fs.readFileSync(path.join(sandboxDir, file), "utf8"), context, { filename: file });
 }
 const { articles } = context.window.mobileCryoBlogCatalog;
-const htmlFiles = [path.join(sandboxDir, "blog.html"), ...fs.readdirSync(guideDir).filter((file) => file.endsWith(".html")).map((file) => path.join(guideDir, file))];
+const hubPath = path.join(guideDir, "index.html");
+const guideFiles = fs.readdirSync(guideDir).filter((file) => file.endsWith(".html") && file !== "index.html").map((file) => path.join(guideDir, file));
+const htmlFiles = [hubPath, ...guideFiles];
 
 const check = (condition, message) => { if (!condition) failures.push(message); };
 const unique = (values) => new Set(values).size === values.length;
@@ -60,12 +62,17 @@ for (const file of htmlFiles) {
 check(unique(titles), "Generated page titles are not unique");
 check(unique(canonicals), "Generated canonical URLs are not unique");
 
-const hub = fs.readFileSync(path.join(sandboxDir, "blog.html"), "utf8");
+const hub = fs.readFileSync(hubPath, "utf8");
 check((hub.match(/data-guide-card/g) || []).length === 14, "Hub does not contain 14 server-rendered guide cards");
-check(hub.includes("Cryotherapy, explained for real life."), "Hub consumer-first headline is missing");
+check(hub.includes("Cryotherapy guides for real life."), "Hub consumer-first headline is missing");
 check(!hub.includes("Editorial status"), "Internal editorial status is exposed to readers");
 check(!hub.includes("Useful first. Accurate always."), "Internal standards promo remains on the marketing hub");
 check(hub.includes("blog-filter.js"), "Hub filter script is missing");
+check(!hub.includes(">Blog<") && !hub.includes("/sandbox/blog.html"), "Legacy Blog framing remains on the Guides hub");
+
+const legacyRedirect = fs.readFileSync(path.join(sandboxDir, "blog.html"), "utf8");
+check(legacyRedirect.includes('http-equiv="refresh" content="0; url=/sandbox/guides/"'), "Legacy Blog URL does not redirect to the Guides hub");
+check(legacyRedirect.includes('name="robots" content="noindex, nofollow, noarchive"'), "Legacy Blog redirect is missing noindex");
 
 for (const file of [path.join(siteRoot, "index.html"), path.join(sandboxDir, "index.html")]) {
   const relative = path.relative(siteRoot, file).replaceAll("\\", "/");
