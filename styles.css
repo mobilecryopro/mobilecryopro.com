@@ -5366,8 +5366,8 @@ body:not(.services-page).about-page .bio-video-frame {
   box-shadow: 0 20px 42px rgba(8, 23, 41, 0.16);
 }
 
-.home-inline-cta .eyebrow {
-  color: #7ed8ef;
+body.home-page .home-inline-cta .eyebrow {
+  color: #8ee8fa;
 }
 
 .home-inline-cta h3,
@@ -5376,7 +5376,7 @@ body:not(.services-page).about-page .bio-video-frame {
 }
 
 .home-inline-cta p {
-  color: rgba(255, 255, 255, 0.76);
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .home-inline-cta .cta-actions {
