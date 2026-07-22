@@ -13,7 +13,7 @@
       <div class="footer-shell">
         <div class="footer-section-heading">
           <p class="eyebrow">Mobile across the North Bay</p>
-          <h2 id="footer-service-title">Check your area and request a mobile visit.</h2>
+          <h2 id="footer-service-title">Check your area and request a mobile visit</h2>
           <p>Sonoma and Marin are home base. Napa, Solano, and San Francisco are available by request.</p>
         </div>
         <div class="footer-map-contact-layout">
@@ -25,7 +25,7 @@
           </figure>
           <div class="footer-form-panel">
             <div class="footer-copy">
-              <h2>Request a mobile visit.</h2>
+              <h2>Request a mobile visit</h2>
               <p>Share the service or goal, your location, and the timing you have in mind.</p>
             </div>
             <form class="contact-form" id="contact-form" data-contact-form>

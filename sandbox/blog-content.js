@@ -269,5 +269,5 @@
         </div>
       </div>
     </article>
-    <section class="related-posts-section related-guides-section"><div class="section-heading"><p class="eyebrow">Related guides</p><h2>More topics to explore.</h2></div><div class="blog-card-grid">${related.map(renderCard).join("")}</div></section>`;
+    <section class="related-posts-section related-guides-section"><div class="section-heading"><p class="eyebrow">Related guides</p><h2>More topics to explore</h2></div><div class="blog-card-grid">${related.map(renderCard).join("")}</div></section>`;
 })();

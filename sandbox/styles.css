@@ -10068,8 +10068,12 @@ body:not(.services-page) .footer-section-heading .eyebrow {
 
 .footer-section-heading h2 {
   max-width: 18ch;
+  font-family: "Barlow Condensed", sans-serif;
   font-size: clamp(2rem, 3.4vw, 3.8rem);
+  font-style: normal;
+  font-weight: 800;
   line-height: 0.98;
+  letter-spacing: 0;
   text-wrap: balance;
 }
 
