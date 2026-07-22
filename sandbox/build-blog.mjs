@@ -110,7 +110,7 @@ const articlePage = (article) => {
   <title>${esc(article.title)} | Mobile Cryo Pro</title><meta name="description" content="${esc(article.description)}" /><link rel="canonical" href="${rootUrl(article.slug)}" />
   <meta property="og:type" content="article" /><meta property="og:title" content="${esc(article.title)}" /><meta property="og:description" content="${esc(article.description)}" /><meta property="og:url" content="${rootUrl(article.slug)}" /><meta property="og:image" content="https://mobilecryopro.com${asset(article.image)}" />
   <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="${esc(article.title)}" /><meta name="twitter:description" content="${esc(article.description)}" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />${leafletStylesheet}<link rel="stylesheet" href="/sandbox/styles.css?v=193" /><link rel="icon" href="/favicon.ico?v=9" sizes="any" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />${leafletStylesheet}<link rel="stylesheet" href="/sandbox/styles.css?v=194" /><link rel="icon" href="/favicon.ico?v=9" sizes="any" />
   <script type="application/ld+json">${JSON.stringify(schema)}</script><script type="application/ld+json">${JSON.stringify(breadcrumb)}</script>
 </head><body class="blog-post-page evidence-article-page"><a class="skip-link" href="#main-content">Skip to content</a><div class="page-shell">
   ${header()}
@@ -143,7 +143,7 @@ const hub = clean(`<!doctype html>
 const guidesHub = hub
   .replace("Cryotherapy Guides | Mobile Cryo Pro Blog", "Cryotherapy Guides | Mobile Cryo Pro")
   .replaceAll("https://mobilecryopro.com/sandbox/blog.html", "https://mobilecryopro.com/sandbox/guides/index.html")
-  .replace("/sandbox/styles.css?v=192", "/sandbox/styles.css?v=193")
+  .replace("/sandbox/styles.css?v=192", "/sandbox/styles.css?v=194")
   .replace("These blog drafts are not published or indexed.", "These guides are unpublished and not indexed.")
   .replace("Cryotherapy, explained for real life.", "Cryotherapy guides for real life.");
 

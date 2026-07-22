@@ -10057,7 +10057,7 @@ body.home-page .site-footer .footer-bar {
   margin-bottom: clamp(30px, 4vw, 46px);
 }
 
-.footer-section-heading .eyebrow {
+body:not(.services-page) .footer-section-heading .eyebrow {
   color: #f7fbff;
 }
 
@@ -10479,7 +10479,7 @@ body.home-page .site-footer .footer-bar {
   line-height: 1.65;
 }
 
-.article-conversion .eyebrow {
+body:not(.services-page) .article-conversion .eyebrow {
   color: #fff;
 }
 
