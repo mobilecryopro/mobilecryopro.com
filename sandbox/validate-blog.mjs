@@ -64,7 +64,7 @@ check(unique(canonicals), "Generated canonical URLs are not unique");
 
 const hub = fs.readFileSync(hubPath, "utf8");
 check((hub.match(/data-guide-card/g) || []).length === 14, "Hub does not contain 14 server-rendered guide cards");
-check(hub.includes("Cryotherapy guides for real life."), "Hub consumer-first headline is missing");
+check(hub.includes("Cryotherapy guides for real life"), "Hub consumer-first headline is missing");
 check(!hub.includes("Editorial status"), "Internal editorial status is exposed to readers");
 check(!hub.includes("Useful first. Accurate always."), "Internal standards promo remains on the marketing hub");
 check(hub.includes("blog-filter.js"), "Hub filter script is missing");
@@ -74,11 +74,13 @@ const legacyRedirect = fs.readFileSync(path.join(sandboxDir, "blog.html"), "utf8
 check(legacyRedirect.includes('http-equiv="refresh" content="0; url=/sandbox/guides/index.html"'), "Legacy Blog URL does not redirect to the Guides hub");
 check(legacyRedirect.includes('name="robots" content="noindex, nofollow, noarchive"'), "Legacy Blog redirect is missing noindex");
 
-for (const file of [path.join(siteRoot, "index.html"), path.join(sandboxDir, "index.html")]) {
+for (const file of [path.join(sandboxDir, "index.html")]) {
   const relative = path.relative(siteRoot, file).replaceAll("\\", "/");
   const html = fs.readFileSync(file, "utf8");
   check(html.includes(`integrity="${leafletIntegrity}"`), `${relative}: correct Leaflet stylesheet integrity is missing`);
 }
+const siteScript = fs.readFileSync(path.join(siteRoot, "script.js"), "utf8");
+check(siteScript.includes(`leafletStyles.integrity = "${leafletIntegrity}"`), "script.js: deferred Leaflet stylesheet integrity is missing");
 
 const css = fs.readFileSync(path.join(sandboxDir, "styles.css"), "utf8").replace(/\/\*[\s\S]*?\*\//g, "");
 check((css.match(/{/g) || []).length === (css.match(/}/g) || []).length, "CSS braces are unbalanced");

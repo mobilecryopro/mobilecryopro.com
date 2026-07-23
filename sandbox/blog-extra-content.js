@@ -39,11 +39,11 @@
         "Personal eligibility and the exact session plan are confirmed directly rather than guessed online."
       ],
       sections: [
-        { heading: "Start with the goal, not a treatment label", body: `<p>You do not need to arrive knowing which service name to choose. Tell Dan what kind of appointment you are considering, the area you want to discuss, your location, and your preferred date. He can explain the current localized cryotherapy, CryoSkin body, and facial options before anything is scheduled.</p><p>If symptoms are new, severe, unexplained, worsening, or persistent, seek appropriate medical care rather than using a wellness appointment to delay an evaluation.</p>` },
+        { heading: "Start with the goal, not a treatment label", body: `<p>You do not need to know which service name to choose. Tell Dan what you are considering, the area you want to discuss, your location, and your preferred date. He can explain the localized cryotherapy, CryoSkin body, and facial options before you schedule.</p><p>If symptoms are new, severe, unexplained, worsening, or persistent, seek appropriate medical care rather than using a wellness appointment to delay an evaluation.</p>` },
         { heading: "Confirm the location and privacy", body: `<p>Mobile Cryo Pro accepts requests for homes, hotels, gyms, offices, wineries, events, and other suitable private venues across the North Bay. Sonoma and Marin are the primary service areas; Napa, Solano, and San Francisco are available by request. Venue access, parking, privacy, and group size can affect what is practical.</p><p>For a hotel, workplace, gym, or event, check the venue's rules first. Dan can confirm what the specific service needs once he knows the setting.</p>` },
         { heading: "Meet Dan and review the plan", body: `<p>Dan personally handles the intake, setup, and service. Before starting, confirm the exact service, selected area, expected sensation, price, and how to stop the session. This is also the time to disclose relevant health information and ask whether medical clearance is appropriate.</p>` },
         { heading: "During and after the appointment", body: `<p>Localized cryotherapy focuses on a selected area rather than placing you in a whole-body chamber. CryoSkin body and facial appointments are separate services. Because the equipment and procedure differ, follow the instructions for the appointment you actually booked.</p><p>Speak up immediately if anything feels wrong. After the session, follow Dan's service-specific guidance and do not treat temporary changes in sensation as proof that an injury or medical condition has been resolved.</p>` },
-        { heading: "The easiest way to request a visit", body: `<p>Send the service or goal, city, preferred date, and whether the visit is for one person or a group. Dan can then confirm availability, current pricing, and any location details without a long back-and-forth.</p>` }
+        { heading: "The easiest way to request a visit", body: `<p>Send the service or goal, city, preferred date, and whether the visit is for one person or a group. Dan can then confirm availability, pricing, and location details.</p>` }
       ],
       refs: [],
       related: ["questions-before-booking", "choose-a-provider", "north-bay-mobile-cryotherapy"]
@@ -83,7 +83,7 @@
       status: "Service guide",
       title: "What to Expect From a CryoSkin 3.0 Body Appointment",
       displayTitle: "What to expect from a CryoSkin 3.0 body appointment.",
-      description: "A straightforward guide to Mobile Cryo Pro's body-focused CryoSkin service, from choosing an area to confirming current pricing.",
+      description: "A straightforward guide to Mobile Cryo Pro's body-focused CryoSkin service, from choosing an area to confirming pricing.",
       readTime: "4 min read",
       image: "/assets/client-arm-assessment.jpg",
       imageAlt: "Dan discussing a selected arm area before a mobile service",
@@ -93,11 +93,11 @@
         "The sandbox does not promise inches lost, fat loss, or a particular visual result."
       ],
       sections: [
-        { heading: "Choose the area you want to discuss", body: `<p>Mobile Cryo Pro currently lists a CryoSkin 3.0 body treatment for one mapped area, with an option to add another area during the same visit. Tell Dan the area you have in mind and what you hope to understand. He can confirm whether the body service or another listed option is the relevant conversation.</p>` },
-        { heading: "Confirm the service and price", body: `<p>The current services page lists the CryoSkin 3.0 body treatment at $225 for one mapped area and an additional area at $120 during the same visit. Prices and suitability should still be confirmed before scheduling.</p><p>A lower-priced contouring and de-puffing option is listed separately. Similar names do not mean the services are interchangeable, so ask which one is being quoted.</p>` },
+        { heading: "Choose the area you want to discuss", body: `<p>Mobile Cryo Pro lists a CryoSkin 3.0 body treatment for one mapped area, with an option to add another area during the same visit. Tell Dan the area you have in mind and what you want to know. He can help you choose the relevant service.</p>` },
+        { heading: "Confirm the service and price", body: `<p>The services page lists CryoSkin 3.0 at $225 for one mapped area and $120 for an additional area during the same visit. Confirm price and suitability before scheduling.</p><p>Contouring and de-puffing is listed separately. Similar names do not make the services interchangeable, so confirm which service is being quoted.</p>` },
         { heading: "Plan for a private mobile setting", body: `<p>Body-focused appointments need an appropriate private space. Share whether the visit will be at a home, hotel, office, gym, or venue so Dan can confirm access and setup. The exact preparation, clothing, duration, and aftercare should come from Dan for the service being booked.</p>` },
         { heading: "Keep expectations specific", body: `<p>Photos, testimonials, and descriptions can imply guaranteed or typical physical changes even when the wording is vague. This guide therefore does not promise inches lost, fat loss, permanent contour changes, or a particular result. Ask what the exact device is intended to do, what evidence supports that use, how progress would be measured, and what variability to expect.</p>` },
-        { heading: "What to include in your request", body: `<p>Send your city, the area you want to discuss, preferred timing, and whether you are considering one appointment or want information about a series. Dan can then explain the current options without assuming that one plan fits everyone.</p>` }
+        { heading: "What to include in your request", body: `<p>Send your city, treatment area, preferred timing, and whether you are considering one appointment or a series. Dan can then explain your options.</p>` }
       ],
       refs: ["ftc"],
       related: ["cryofacial-appointment", "mobile-cryotherapy-appointment", "questions-before-booking"]
@@ -116,12 +116,12 @@
       imageAlt: "Dan speaking with a client before a mobile appointment",
       takeaways: [
         "Mobile Cryo Pro lists two distinct facial services.",
-        "The CryoSkin 3.0 facial is currently listed at $175; the localized option is quoted before booking.",
+        "The CryoSkin 3.0 facial is listed at $175; the localized option is quoted before booking.",
         "Exact procedure details and realistic expectations should be confirmed directly with Dan."
       ],
       sections: [
         { heading: "Two services, not two names for the same thing", body: `<p>Mobile Cryo Pro lists a CryoSkin 3.0 facial and a localized liquid-nitrogen cryofacial. They use different service descriptions, and the word “cryo” alone does not explain the equipment, exposure, or expected experience. Ask Dan to compare the options before choosing.</p>` },
-        { heading: "Current pricing", body: `<p>The CryoSkin 3.0 facial is currently listed at $175. The localized liquid-nitrogen cryofacial is quoted before booking. Confirm the final price, travel considerations, and any package terms before scheduling.</p>` },
+        { heading: "Pricing", body: `<p>The CryoSkin 3.0 facial is listed at $175. The localized liquid-nitrogen cryofacial is quoted before booking. Confirm the price, travel considerations, and any package terms before scheduling.</p>` },
         { heading: "Questions to ask before the visit", body: `<ul class="article-check-list"><li>Which facial service are we discussing?</li><li>What equipment and cooling method does it use?</li><li>What preparation and aftercare are required?</li><li>What skin conditions, sensitivities, medications, or recent procedures affect eligibility?</li><li>What result is realistic, and what is not promised?</li></ul>` },
         { heading: "Be conservative with facial skin", body: `<p>Facial skin concerns can overlap with medical or dermatologic conditions. Share relevant history and seek a licensed clinician's guidance when you have an active skin problem, recent procedure, impaired sensation, unusual reaction to cold, or uncertainty about safety. A mobile wellness service should not diagnose a skin condition.</p>` },
         { heading: "Request the right appointment", body: `<p>Include the facial option you are considering, your location, preferred date, and any question you want answered before booking. Dan can clarify the difference without making you decode the menu on your own.</p>` }
@@ -148,7 +148,7 @@
       ],
       sections: [
         { heading: "Start with the veterinarian when health is involved", body: `<p>Cold-related equine research is highly specific to the method, body area, duration, and condition. Evidence involving continuous distal-limb ice-water cooling does not establish what a brief localized mobile device will do. When a request involves lameness, injury, disease, rehabilitation, or return to work, the horse's veterinarian should direct the medical plan.</p>` },
-        { heading: "Send the practical details", body: `<p>Include the barn address, preferred date, the area you want to discuss, who will handle the horse, and whether a veterinarian has provided instructions. Dan can confirm the current mobile service options, travel feasibility, price, and any site requirements before the visit.</p>` },
+        { heading: "Send the practical details", body: `<p>Include the barn address, preferred date, the area you want to discuss, who will handle the horse, and whether a veterinarian has provided instructions. Dan can confirm the service options, travel feasibility, price, and site requirements before the visit.</p>` },
         { heading: "Create a calm, workable setup", body: `<p>A suitable appointment depends on safe access, appropriate restraint and handling, the horse's behavior, and a location where equipment can be used without creating avoidable risk. Do not assume that a human appointment workflow transfers to a horse.</p>` },
         { heading: "Keep roles clear", body: `<p>Mobile Cryo Pro should not diagnose the horse, prescribe a medical treatment, change medication, or decide when the horse can return to training. The veterinarian's instructions come first, and a session should stop if the horse becomes distressed or the setup is not safe.</p>` },
         { heading: "Ask for specifics before scheduling", body: `<p>Confirm the exact equipment, selected area, session plan, price, veterinarian involvement, stop procedure, and who is responsible for handling the horse. Clear expectations protect the horse, owner, veterinarian, and provider.</p>` }
@@ -176,9 +176,9 @@
       sections: [
         { heading: "A service-area business, not a storefront", body: `<p>Mobile Cryo Pro brings its listed services to approved private locations. That can remove a separate clinic trip from the day, but the address still needs to work for access, privacy, setup, and the service requested.</p>` },
         { heading: "Primary and by-request areas", body: `<p>Sonoma and Marin are the primary service areas. Napa, Solano, and San Francisco are available by request. Availability depends on the date, route, location, and type of visit, so a city name on the map is not a guarantee of a specific time slot.</p>` },
-        { heading: "Settings that may work", body: `<p>Current site information lists homes, hotels, gyms, offices, wineries, private events, and training facilities. A venue visit may require advance permission, a private area, parking or loading instructions, and coordination with staff. Share those constraints at the start.</p>` },
+        { heading: "Settings that may work", body: `<p>Mobile Cryo Pro serves homes, hotels, gyms, offices, wineries, private events, and training facilities. A venue visit may require advance permission, a private area, parking or loading instructions, and staff coordination. Share those constraints at the start.</p>` },
         { heading: "How to get a useful answer quickly", body: `<p>Send the city or ZIP code, service or goal, preferred date and time window, number of people, and venue type. If it is a hotel, workplace, gym, winery, or event, mention any access rules. Dan can then confirm whether the route and setting are workable.</p>` },
-        { heading: "Plan groups differently", body: `<p>Groups, teams, offices, retreats, and events need more coordination than a single private appointment. Include the estimated participant count and schedule so Dan can discuss timing and current group options rather than treating the visit like a standard one-person request.</p>` }
+        { heading: "Plan groups differently", body: `<p>Groups, teams, offices, retreats, and events require more coordination than a private appointment. Include the estimated participant count and schedule so Dan can discuss timing and group options.</p>` }
       ],
       refs: [],
       related: ["mobile-cryotherapy-appointment", "questions-before-booking", "cryoskin-body-appointment"]

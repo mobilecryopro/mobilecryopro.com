@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <base href="/" />
+    <link rel="canonical" href="https://mobilecryopro.com/services" />
+    <title>Services &amp; Pricing Preview | Mobile Cryo Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css?v=176" />
+    <link rel="stylesheet" href="/sandbox/services-preview.css?v=2" />
+    <link rel="icon" href="/favicon.ico?v=9" sizes="any" />
+  </head>
+  <body class="services-page sandbox-services-page sandbox-services-loading">
+    <main class="sandbox-services-loader" id="main-content">
+      <p class="eyebrow">Sandbox preview</p>
+      <h1>Loading the Services preview</h1>
+      <p>This page uses the live Services content with sandbox-only styling.</p>
+    </main>
+    <script>
+      (() => {
+        "use strict";
+
+        const rewriteSandboxLinks = () => {
+          const redirects = new Map([
+            ["index.html", "/sandbox/index.html"],
+            ["index.html#service-area", "/sandbox/index.html#service-area"],
+            ["services.html", "/sandbox/services.html"],
+            ["blog.html", "/sandbox/guides/index.html"]
+          ]);
+
+          document.querySelectorAll("a[href]").forEach((link) => {
+            const href = link.getAttribute("href");
+            if (href?.startsWith("#")) {
+              link.href = `/sandbox/services.html${href}`;
+              return;
+            }
+
+            const sandboxHref = redirects.get(href);
+            if (sandboxHref) link.href = sandboxHref;
+          });
+        };
+
+        const showError = () => {
+          document.body.classList.remove("sandbox-services-loading");
+          document.body.innerHTML =
+            '<main class="sandbox-services-loader" id="main-content"><p class="eyebrow">Sandbox preview</p><h1>Preview unavailable</h1><p>The Services content could not be loaded. <a href="/services.html">Open the live Services page</a>.</p></main>';
+        };
+
+        fetch("/services.html", { cache: "no-cache" })
+          .then((response) => {
+            if (!response.ok) throw new Error(`Services page returned ${response.status}`);
+            return response.text();
+          })
+          .then((html) => {
+            const source = new DOMParser().parseFromString(html, "text/html");
+            const pageShell = source.querySelector(".page-shell");
+            if (!pageShell) throw new Error("Services page shell was not found");
+
+            document.body.className = "services-page sandbox-services-page";
+            document.body.innerHTML =
+              '<a class="skip-link" href="#main-content">Skip to content</a>' +
+              source.querySelector(".icon-sprite").outerHTML +
+              pageShell.outerHTML;
+
+            const header = document.querySelector(".site-header");
+            if (header) {
+              const banner = document.createElement("aside");
+              banner.className = "sandbox-services-banner";
+              banner.setAttribute("role", "status");
+              banner.innerHTML =
+                "<strong>Sandbox Services preview</strong><span>Live content with experimental color styling. This page is not indexed.</span>";
+              header.insertAdjacentElement("afterend", banner);
+            }
+
+            rewriteSandboxLinks();
+
+            const siteScript = document.createElement("script");
+            siteScript.src = "/script.js?v=30";
+            siteScript.addEventListener("load", rewriteSandboxLinks);
+            document.body.append(siteScript);
+          })
+          .catch((error) => {
+            console.error("Services preview failed", error);
+            showError();
+          });
+      })();
+    </script>
+  </body>
+</html>
