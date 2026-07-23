@@ -33,7 +33,7 @@ const installUnifiedSiteFooter = () => {
 
           <div class="footer-form-panel">
             <div class="footer-copy">
-              <h2>Request a mobile visit</h2>
+              <h2>Appointments &amp; Questions</h2>
               <p>Share the service or goal, your location, and the timing you have in mind.</p>
             </div>
 
