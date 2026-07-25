@@ -1,3 +1,37 @@
+const GOOGLE_ANALYTICS_MEASUREMENT_ID = "G-ZP3ZP784WD";
+
+const installGoogleAnalytics = () => {
+  const { hostname, pathname } = window.location;
+  const isProductionHost =
+    hostname === "mobilecryopro.com" || hostname === "www.mobilecryopro.com";
+  const isNonProductionPage =
+    pathname.startsWith("/sandbox/") ||
+    pathname.startsWith("/original-attempt/") ||
+    pathname.startsWith("/email-media/") ||
+    pathname === "/blog-layout-preview.html" ||
+    pathname === "/logo-options.html" ||
+    pathname === "/logo-riffs.html";
+
+  if (isNonProductionPage || !isProductionHost || window.gtag) {
+    return;
+  }
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function gtag() {
+    window.dataLayer.push(arguments);
+  };
+  window.gtag("js", new Date());
+  window.gtag("config", GOOGLE_ANALYTICS_MEASUREMENT_ID);
+
+  const googleTag = document.createElement("script");
+  googleTag.async = true;
+  googleTag.src = `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_MEASUREMENT_ID}`;
+  googleTag.dataset.mobileCryoGoogleTag = "true";
+  document.head.append(googleTag);
+};
+
+installGoogleAnalytics();
+
 const installUnifiedSiteFooter = () => {
   const pageShell = document.querySelector(".page-shell");
 
