@@ -322,8 +322,25 @@ const sandboxCaseSlots = Array.from({ length: 2 }, (_, index) => ({
   },
 }));
 
+const sandboxBeforeAfterCases = Array.isArray(homepageProofContent.sandboxBeforeAfterCases)
+  ? homepageProofContent.sandboxBeforeAfterCases.filter((caseStudy) => {
+    return (
+      caseStudy?.approvedForSandbox === true &&
+      String(caseStudy?.title || "").trim() &&
+      String(caseStudy?.service || "").trim() &&
+      String(caseStudy?.disclaimer || "").trim() &&
+      isApprovedImageUrl(caseStudy?.before?.imageUrl) &&
+      String(caseStudy?.before?.alt || "").trim() &&
+      isApprovedImageUrl(caseStudy?.after?.imageUrl) &&
+      String(caseStudy?.after?.alt || "").trim()
+    );
+  })
+  : [];
+
 const approvedBeforeAfterCases = sandboxPreviewMode
-  ? sandboxCaseSlots
+  ? sandboxBeforeAfterCases.length
+    ? sandboxBeforeAfterCases
+    : sandboxCaseSlots
   : Array.isArray(homepageProofContent.beforeAfterCases)
     ? homepageProofContent.beforeAfterCases.filter((caseStudy) => {
       return (
@@ -365,7 +382,15 @@ if (approvedBeforeAfterCases.length && beforeAfterSection && beforeAfterGrid && 
 
     card.querySelector("[data-case-service]").textContent = String(caseStudy.service).trim();
     card.querySelector("[data-case-title]").textContent = String(caseStudy.title).trim();
-    card.querySelector("[data-case-caption]").textContent = String(caseStudy.caption).trim();
+    const caseCaption = String(caseStudy.caption || "").trim();
+    const beforeCaption = String(caseStudy.before.caption || "").trim();
+    const afterCaption = String(caseStudy.after.caption || "").trim();
+
+    if (caseCaption) {
+      card.querySelector("[data-case-caption]").textContent = caseCaption;
+    } else {
+      card.querySelector("[data-case-caption]").remove();
+    }
     card.querySelector("[data-case-disclaimer]").textContent = String(caseStudy.disclaimer).trim();
 
     if (isPreviewSlot) {
@@ -392,8 +417,16 @@ if (approvedBeforeAfterCases.length && beforeAfterSection && beforeAfterGrid && 
     card.querySelector("[data-after-image-slot]").replaceWith(afterImage);
     card.querySelector("[data-before-label]").textContent = beforeLabel;
     card.querySelector("[data-after-label]").textContent = afterLabel;
-    card.querySelector("[data-before-caption]").textContent = String(caseStudy.before.caption).trim();
-    card.querySelector("[data-after-caption]").textContent = String(caseStudy.after.caption).trim();
+    if (beforeCaption) {
+      card.querySelector("[data-before-caption]").textContent = beforeCaption;
+    } else {
+      card.querySelector("[data-before-caption]").remove();
+    }
+    if (afterCaption) {
+      card.querySelector("[data-after-caption]").textContent = afterCaption;
+    } else {
+      card.querySelector("[data-after-caption]").remove();
+    }
 
     metadataItems.forEach(([term, value]) => {
       const item = document.createElement("div");
