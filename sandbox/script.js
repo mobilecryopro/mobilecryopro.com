@@ -322,6 +322,41 @@ const sandboxCaseSlots = Array.from({ length: 2 }, (_, index) => ({
   },
 }));
 
+const getBeforeAfterPairs = (caseStudy) => {
+  if (Array.isArray(caseStudy?.pairs) && caseStudy.pairs.length) {
+    return caseStudy.pairs;
+  }
+
+  if (caseStudy?.before && caseStudy?.after) {
+    return [{ before: caseStudy.before, after: caseStudy.after }];
+  }
+
+  return [];
+};
+
+const hasValidBeforeAfterPairs = (caseStudy, requireCaptions = false) => {
+  const pairs = getBeforeAfterPairs(caseStudy);
+
+  return (
+    pairs.length > 0 &&
+    pairs.every((pair) => {
+      const hasRequiredMedia = (
+        isApprovedImageUrl(pair?.before?.imageUrl) &&
+        String(pair?.before?.alt || "").trim() &&
+        isApprovedImageUrl(pair?.after?.imageUrl) &&
+        String(pair?.after?.alt || "").trim()
+      );
+
+      if (!hasRequiredMedia || !requireCaptions) return hasRequiredMedia;
+
+      return (
+        String(pair?.before?.caption || "").trim() &&
+        String(pair?.after?.caption || "").trim()
+      );
+    })
+  );
+};
+
 const sandboxBeforeAfterCases = Array.isArray(homepageProofContent.sandboxBeforeAfterCases)
   ? homepageProofContent.sandboxBeforeAfterCases.filter((caseStudy) => {
     return (
@@ -329,10 +364,7 @@ const sandboxBeforeAfterCases = Array.isArray(homepageProofContent.sandboxBefore
       String(caseStudy?.title || "").trim() &&
       String(caseStudy?.service || "").trim() &&
       String(caseStudy?.disclaimer || "").trim() &&
-      isApprovedImageUrl(caseStudy?.before?.imageUrl) &&
-      String(caseStudy?.before?.alt || "").trim() &&
-      isApprovedImageUrl(caseStudy?.after?.imageUrl) &&
-      String(caseStudy?.after?.alt || "").trim()
+      hasValidBeforeAfterPairs(caseStudy)
     );
   })
   : [];
@@ -352,12 +384,7 @@ const approvedBeforeAfterCases = sandboxPreviewMode
         String(caseStudy?.timeframe || "").trim() &&
         String(caseStudy?.caption || "").trim() &&
         String(caseStudy?.disclaimer || "").trim() &&
-        isApprovedImageUrl(caseStudy?.before?.imageUrl) &&
-        String(caseStudy?.before?.alt || "").trim() &&
-        String(caseStudy?.before?.caption || "").trim() &&
-        isApprovedImageUrl(caseStudy?.after?.imageUrl) &&
-        String(caseStudy?.after?.alt || "").trim() &&
-        String(caseStudy?.after?.caption || "").trim()
+        hasValidBeforeAfterPairs(caseStudy, true)
       );
       })
     : [];
@@ -365,15 +392,20 @@ const approvedBeforeAfterCases = sandboxPreviewMode
 const beforeAfterSection = document.querySelector("[data-before-after-gallery]");
 const beforeAfterGrid = document.querySelector("[data-before-after-grid]");
 const beforeAfterTemplate = document.querySelector("#before-after-card-template");
+const beforeAfterViewTemplate = document.querySelector("#before-after-view-template");
 
-if (approvedBeforeAfterCases.length && beforeAfterSection && beforeAfterGrid && beforeAfterTemplate) {
+if (
+  approvedBeforeAfterCases.length &&
+  beforeAfterSection &&
+  beforeAfterGrid &&
+  beforeAfterTemplate &&
+  beforeAfterViewTemplate
+) {
   approvedBeforeAfterCases.forEach((caseStudy) => {
     const card = beforeAfterTemplate.content.firstElementChild.cloneNode(true);
     const isPreviewSlot = caseStudy.previewPlaceholder === true;
-    const beforeImage = document.createElement(isPreviewSlot ? "div" : "img");
-    const afterImage = document.createElement(isPreviewSlot ? "div" : "img");
-    const beforeLabel = String(caseStudy.before.label || "Before").trim();
-    const afterLabel = String(caseStudy.after.label || "After").trim();
+    const pairs = getBeforeAfterPairs(caseStudy);
+    const views = card.querySelector("[data-case-views]");
     const metadata = card.querySelector("[data-case-metadata]");
     const metadataItems = [
       ["Sessions", caseStudy.sessions],
@@ -383,8 +415,6 @@ if (approvedBeforeAfterCases.length && beforeAfterSection && beforeAfterGrid && 
     card.querySelector("[data-case-service]").textContent = String(caseStudy.service).trim();
     card.querySelector("[data-case-title]").textContent = String(caseStudy.title).trim();
     const caseCaption = String(caseStudy.caption || "").trim();
-    const beforeCaption = String(caseStudy.before.caption || "").trim();
-    const afterCaption = String(caseStudy.after.caption || "").trim();
 
     if (caseCaption) {
       card.querySelector("[data-case-caption]").textContent = caseCaption;
@@ -393,39 +423,70 @@ if (approvedBeforeAfterCases.length && beforeAfterSection && beforeAfterGrid && 
     }
     card.querySelector("[data-case-disclaimer]").textContent = String(caseStudy.disclaimer).trim();
 
-    if (isPreviewSlot) {
-      beforeImage.className = "sandbox-image-placeholder";
-      beforeImage.setAttribute("role", "img");
-      beforeImage.setAttribute("aria-label", caseStudy.before.alt);
-      beforeImage.textContent = "Approved before image";
-      afterImage.className = "sandbox-image-placeholder";
-      afterImage.setAttribute("role", "img");
-      afterImage.setAttribute("aria-label", caseStudy.after.alt);
-      afterImage.textContent = "Approved after image";
-      card.classList.add("is-sandbox-placeholder");
-    } else {
-      beforeImage.src = caseStudy.before.imageUrl;
-      beforeImage.alt = caseStudy.before.alt;
-      beforeImage.loading = "lazy";
-      beforeImage.decoding = "async";
-      afterImage.src = caseStudy.after.imageUrl;
-      afterImage.alt = caseStudy.after.alt;
-      afterImage.loading = "lazy";
-      afterImage.decoding = "async";
-    }
-    card.querySelector("[data-before-image-slot]").replaceWith(beforeImage);
-    card.querySelector("[data-after-image-slot]").replaceWith(afterImage);
-    card.querySelector("[data-before-label]").textContent = beforeLabel;
-    card.querySelector("[data-after-label]").textContent = afterLabel;
-    if (beforeCaption) {
-      card.querySelector("[data-before-caption]").textContent = beforeCaption;
-    } else {
-      card.querySelector("[data-before-caption]").remove();
-    }
-    if (afterCaption) {
-      card.querySelector("[data-after-caption]").textContent = afterCaption;
-    } else {
-      card.querySelector("[data-after-caption]").remove();
+    pairs.forEach((pair) => {
+      const view = beforeAfterViewTemplate.content.firstElementChild.cloneNode(true);
+      const beforeImage = document.createElement(isPreviewSlot ? "div" : "img");
+      const afterImage = document.createElement(isPreviewSlot ? "div" : "img");
+      const beforeLabel = String(pair.before.label || "Before").trim();
+      const afterLabel = String(pair.after.label || "After").trim();
+      const viewTitle = String(pair.title || "").trim();
+      const beforeCaption = String(pair.before.caption || "").trim();
+      const afterCaption = String(pair.after.caption || "").trim();
+
+      if (viewTitle) {
+        view.querySelector("[data-view-title]").textContent = viewTitle;
+      } else {
+        view.querySelector("[data-view-title]").remove();
+      }
+
+      if (isPreviewSlot) {
+        beforeImage.className = "sandbox-image-placeholder";
+        beforeImage.setAttribute("role", "img");
+        beforeImage.setAttribute("aria-label", pair.before.alt);
+        beforeImage.textContent = "Approved before image";
+        afterImage.className = "sandbox-image-placeholder";
+        afterImage.setAttribute("role", "img");
+        afterImage.setAttribute("aria-label", pair.after.alt);
+        afterImage.textContent = "Approved after image";
+        card.classList.add("is-sandbox-placeholder");
+      } else {
+        beforeImage.src = pair.before.imageUrl;
+        beforeImage.alt = pair.before.alt;
+        beforeImage.width = 1200;
+        beforeImage.height = 1500;
+        beforeImage.loading = "lazy";
+        beforeImage.decoding = "async";
+        afterImage.src = pair.after.imageUrl;
+        afterImage.alt = pair.after.alt;
+        afterImage.width = 1200;
+        afterImage.height = 1500;
+        afterImage.loading = "lazy";
+        afterImage.decoding = "async";
+      }
+
+      view.querySelector("[data-before-image-slot]").replaceWith(beforeImage);
+      view.querySelector("[data-after-image-slot]").replaceWith(afterImage);
+      view.querySelector("[data-before-label]").textContent = beforeLabel;
+      view.querySelector("[data-after-label]").textContent = afterLabel;
+
+      if (beforeCaption) {
+        view.querySelector("[data-before-caption]").textContent = beforeCaption;
+      } else {
+        view.querySelector("[data-before-caption]").remove();
+      }
+
+      if (afterCaption) {
+        view.querySelector("[data-after-caption]").textContent = afterCaption;
+      } else {
+        view.querySelector("[data-after-caption]").remove();
+      }
+
+      views.append(view);
+    });
+
+    if (pairs.length > 1) {
+      card.classList.add("is-multi-view");
+      views.classList.add("is-multi-view");
     }
 
     metadataItems.forEach(([term, value]) => {

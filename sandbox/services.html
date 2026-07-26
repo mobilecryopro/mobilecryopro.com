@@ -14,7 +14,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles.css?v=176" />
-    <link rel="stylesheet" href="/sandbox/services-preview.css?v=4" />
+    <link rel="stylesheet" href="/sandbox/services-preview.css?v=6" />
     <link rel="icon" href="/favicon.ico?v=9" sizes="any" />
   </head>
   <body class="services-page sandbox-services-page sandbox-services-loading">
@@ -75,9 +75,52 @@
               banner.className = "sandbox-services-banner";
               banner.setAttribute("role", "status");
               banner.innerHTML =
-                "<strong>Sandbox Services preview</strong><span>Refined brand color styling for review. This page is not indexed.</span>";
+                "<strong>Sandbox Services preview</strong><span>New treatment images are shown for placement review. Final approval is still needed before they go live.</span>";
               header.insertAdjacentElement("afterend", banner);
             }
+
+            const addServiceImage = ({ selector, src, alt, title, copy, modifier = "" }) => {
+              const category = document.querySelector(selector);
+              const heading = category?.querySelector(".menu-category-heading");
+              if (!category || !heading) return;
+
+              const figure = document.createElement("figure");
+              figure.className = `sandbox-service-media ${modifier}`.trim();
+
+              const image = document.createElement("img");
+              image.src = src;
+              image.alt = alt;
+              image.width = 1024;
+              image.height = modifier.includes("facial") ? 1536 : 1024;
+              image.loading = "lazy";
+              image.decoding = "async";
+
+              const caption = document.createElement("figcaption");
+              const captionTitle = document.createElement("strong");
+              const captionCopy = document.createElement("span");
+              captionTitle.textContent = title;
+              captionCopy.textContent = copy;
+              caption.append(captionTitle, captionCopy);
+              figure.append(image, caption);
+              heading.insertAdjacentElement("afterend", figure);
+            };
+
+            addServiceImage({
+              selector: "#contouring",
+              src: "/sandbox/assets/services/cryoskin-treatment-action.webp",
+              alt: "CryoSkin 3.0 body treatment shown in progress",
+              title: "CryoSkin 3.0 in action",
+              copy: "Placement preview supplied by Mobile Cryo Pro. Final image approval is still pending.",
+            });
+
+            addServiceImage({
+              selector: "#cryofacial",
+              src: "/sandbox/assets/services/liquid-nitrogen-facial.webp",
+              alt: "Localized liquid-nitrogen facial shown in progress",
+              title: "Localized liquid-nitrogen facial",
+              copy: "Placement preview supplied by Mobile Cryo Pro. Final image approval is still pending.",
+              modifier: "sandbox-service-media-facial",
+            });
 
             rewriteSandboxLinks();
 

@@ -144,6 +144,49 @@
   background: linear-gradient(145deg, rgba(68, 185, 221, 0.055), transparent 52%), #ffffff;
 }
 
+.sandbox-service-media {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1fr);
+  gap: clamp(20px, 3vw, 34px);
+  align-items: center;
+  margin: 0;
+  padding: clamp(18px, 2.6vw, 28px);
+  border-bottom: 1px solid var(--preview-line);
+  background:
+    linear-gradient(135deg, rgba(68, 185, 221, 0.1), transparent 56%),
+    #f8fbfd;
+}
+
+.sandbox-service-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 14px 32px rgba(8, 23, 41, 0.14);
+}
+
+.sandbox-service-media-facial img {
+  object-position: center 38%;
+}
+
+.sandbox-service-media figcaption {
+  display: grid;
+  gap: 8px;
+  color: #425c70;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.sandbox-service-media figcaption strong {
+  color: #102036;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1;
+}
+
 @media (max-width: 760px) {
   .sandbox-services-banner {
     align-items: center;
@@ -165,6 +208,15 @@
   .sandbox-services-page .menu-price {
     justify-self: start;
     min-width: 96px;
+  }
+
+  .sandbox-service-media {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .sandbox-service-media img {
+    aspect-ratio: 16 / 10;
   }
 }
 

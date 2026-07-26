@@ -8946,9 +8946,11 @@ body:not(.services-page).about-page .bio-video-frame.has-video::before {
 
 .before-after-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 24px;
+  width: min(100%, 1280px);
   margin-top: 30px;
+  margin-inline: auto;
 }
 
 .before-after-card {
@@ -8969,6 +8971,28 @@ body:not(.services-page).about-page .bio-video-frame.has-video::before {
   font-family: "Barlow Condensed", sans-serif;
   font-size: clamp(1.55rem, 2.2vw, 2.1rem);
   line-height: 1;
+}
+
+.before-after-views {
+  display: grid;
+  gap: 22px;
+}
+
+.before-after-views.is-multi-view {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.before-after-view {
+  min-width: 0;
+}
+
+.before-after-view-title {
+  margin: 0 0 10px;
+  color: #31536d;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
 }
 
 .before-after-pair {
@@ -9064,7 +9088,7 @@ body:not(.services-page).about-page .bio-video-frame.has-video::before {
     grid-auto-columns: minmax(300px, calc((100% - 18px) / 2));
   }
 
-  .before-after-grid {
+  .before-after-views.is-multi-view {
     grid-template-columns: 1fr;
   }
 }
