@@ -3,7 +3,7 @@
  *
  * Both homepage sections are fail-closed. Production-ready records require
  * explicit website and consent approval. Sandbox-only records require their
- * own review flag and are never treated as production approval.
+ * own review flag and are never treated as production placement approval.
  * Do not use draft copy, inferred results, or unverified media.
  *
  * Google review record fields:
@@ -82,6 +82,58 @@ window.mobileCryoContent = Object.freeze({
           after: Object.freeze({
             imageUrl: "assets/before-after/body-contouring-back-after.webp",
             alt: "Back torso view from the same body-contouring photo set",
+            label: "After",
+            caption: "",
+          }),
+        }),
+      ]),
+    }),
+    Object.freeze({
+      approvedForSandbox: true,
+      title: "One-session abdominal source pair",
+      service: "Body contouring",
+      sessions: "1 session (source filename)",
+      timeframe: "Not provided",
+      caption: "Manufacturer-library source pair supplied through Dan for placement review.",
+      disclaimer: "Sandbox review only. Left/right order follows the conventional source layout but still needs confirmation. Photograph distance, pose, lighting, and conditions differ. Individual results vary.",
+      pairs: Object.freeze([
+        Object.freeze({
+          title: "Working review order",
+          before: Object.freeze({
+            imageUrl: "/sandbox/assets/gallery/body-contouring-one-session-before.webp",
+            alt: "Left source panel showing an adult's abdomen and shorts",
+            label: "Left panel",
+            caption: "Working before label; confirm before publication.",
+          }),
+          after: Object.freeze({
+            imageUrl: "/sandbox/assets/gallery/body-contouring-one-session-after.webp",
+            alt: "Right source panel showing the same adult's abdomen and shorts",
+            label: "Right panel",
+            caption: "Working after label; confirm before publication.",
+          }),
+        }),
+      ]),
+    }),
+    Object.freeze({
+      approvedForSandbox: true,
+      title: "Neck skin-tightening source pair",
+      service: "Facial and neck services",
+      sessions: "1 session (source graphic)",
+      timeframe: "Not provided",
+      caption: "Manufacturer-library comparison supplied through Dan for placement review.",
+      disclaimer: "The original source explicitly labels these before and after. Treatment protocol, timing, measurements, and typicality were not independently verified. Individual results vary.",
+      pairs: Object.freeze([
+        Object.freeze({
+          title: "Neck view",
+          before: Object.freeze({
+            imageUrl: "/sandbox/assets/gallery/neck-skin-tightening-before.webp",
+            alt: "Lower face and neck in the source image labeled before",
+            label: "Before",
+            caption: "",
+          }),
+          after: Object.freeze({
+            imageUrl: "/sandbox/assets/gallery/neck-skin-tightening-after.webp",
+            alt: "Lower face and neck in the source image labeled after",
             label: "After",
             caption: "",
           }),

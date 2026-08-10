@@ -452,14 +452,14 @@ if (
       } else {
         beforeImage.src = pair.before.imageUrl;
         beforeImage.alt = pair.before.alt;
-        beforeImage.width = 1200;
-        beforeImage.height = 1500;
+        beforeImage.width = 800;
+        beforeImage.height = 1000;
         beforeImage.loading = "lazy";
         beforeImage.decoding = "async";
         afterImage.src = pair.after.imageUrl;
         afterImage.alt = pair.after.alt;
-        afterImage.width = 1200;
-        afterImage.height = 1500;
+        afterImage.width = 800;
+        afterImage.height = 1000;
         afterImage.loading = "lazy";
         afterImage.decoding = "async";
       }
