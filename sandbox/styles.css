@@ -10907,6 +10907,32 @@ body:not(.services-page) .article-conversion .eyebrow {
   line-height: 1.6;
 }
 
+.gallery-results-disclaimer {
+  margin: -6px auto 0;
+  padding-inline: 20px;
+}
+
+.gallery-results-cta {
+  display: grid;
+  justify-items: start;
+  gap: 16px;
+}
+
+.gallery-results-cta h2,
+.gallery-results-cta p {
+  margin: 0;
+}
+
+.gallery-results-cta > p:not(.eyebrow) {
+  max-width: 760px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+
+.gallery-results-cta .button {
+  margin-top: 4px;
+}
+
 .gallery-review-footer {
   padding-top: 0;
 }

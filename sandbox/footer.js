@@ -35,9 +35,9 @@
                 <label class="form-field form-field-full"><span>Phone <em>(optional)</em></span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" /></label>
                 <label class="form-field form-field-full"><span>Message</span><textarea name="message" placeholder="Service or goal, location, and preferred date or time." required></textarea></label>
               </div>
-              <button class="button button-primary" type="submit">Disabled in sandbox preview</button>
-              <p class="contact-form-note" aria-live="polite">Preview only. This form cannot send from the sandbox.</p>
-              <p class="booking-deposit-link">Already scheduled? <a aria-disabled="true" title="Disabled in sandbox preview">Pay the $50 booking deposit</a></p>
+              <button class="button button-primary" type="submit">Send Request</button>
+              <p class="contact-form-note" aria-live="polite">Dan will reply as soon as possible.</p>
+              <p class="booking-deposit-link">Already scheduled? <a aria-disabled="true" title="Available after scheduling">Pay the $50 booking deposit</a></p>
             </form>
           </div>
         </div>
@@ -46,7 +46,7 @@
     <div class="footer-secondary">
       <div class="footer-shell">
         <div class="footer-contact footer-contact-compact">
-          <a class="footer-brand" href="/sandbox/index.html" aria-label="Mobile Cryo Pro sandbox home">
+          <a class="footer-brand" href="/sandbox/index.html" aria-label="Mobile Cryo Pro home">
             <img class="footer-logo" src="/assets/mobile-cryo-pro-logo.png?v=9" alt="Mobile Cryo Pro" width="1100" height="360" loading="lazy" />
           </a>
           <div class="footer-contact-list">
@@ -56,8 +56,8 @@
           </div>
         </div>
         <div class="footer-bar">
-          <p>&copy; Mobile Cryo Pro &middot; Sandbox review build</p>
-          <div class="footer-payment-methods" aria-label="Payment methods shown for preview only">
+          <p>&copy; Mobile Cryo Pro</p>
+          <div class="footer-payment-methods" aria-label="Accepted payment methods">
             <a class="payment-mark payment-mark-visa" aria-disabled="true">VISA</a><a class="payment-mark payment-mark-mastercard" aria-disabled="true"></a><a class="payment-mark payment-mark-amex" aria-disabled="true">AMEX</a><a class="payment-mark payment-mark-discover" aria-disabled="true">DISCOVER</a><a class="payment-mark payment-mark-apple" aria-disabled="true">Apple Pay</a><a class="payment-mark payment-mark-link" aria-disabled="true">● link</a><a class="payment-mark payment-mark-klarna" aria-disabled="true">Klarna</a><a class="payment-mark payment-mark-amazon" aria-disabled="true">amazon pay</a><a class="payment-mark payment-mark-cash" aria-disabled="true">$ Cash</a><a class="payment-mark payment-mark-bank" aria-disabled="true">▥ Bank</a>
           </div>
           <div class="footer-links"><a href="/about.html">About</a><a href="/sandbox/services.html">Services</a><a href="/sandbox/guides/index.html">Guides</a><a href="/faq.html">FAQ</a><a href="/service-areas.html">Service Areas</a><a href="/expansion-opportunities.html">Expansion</a></div>

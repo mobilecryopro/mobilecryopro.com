@@ -573,10 +573,10 @@ contactForms.forEach((contactForm) => {
     contactForm.removeAttribute("method");
     if (submitButton) {
       submitButton.disabled = true;
-      submitButton.textContent = "Disabled in sandbox preview";
+      submitButton.textContent = isExpansionForm ? "Send Expansion Inquiry" : "Send Request";
     }
     if (status) {
-      status.textContent = "Preview only. This form cannot send from the sandbox.";
+      status.textContent = readyMessage;
       status.setAttribute("aria-live", "polite");
     }
     return;
