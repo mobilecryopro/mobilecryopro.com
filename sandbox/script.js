@@ -404,6 +404,7 @@ if (
   approvedBeforeAfterCases.forEach((caseStudy) => {
     const card = beforeAfterTemplate.content.firstElementChild.cloneNode(true);
     const isPreviewSlot = caseStudy.previewPlaceholder === true;
+    const layoutClass = String(caseStudy.layoutClass || "").trim();
     const pairs = getBeforeAfterPairs(caseStudy);
     const views = card.querySelector("[data-case-views]");
     const metadata = card.querySelector("[data-case-metadata]");
@@ -414,6 +415,7 @@ if (
 
     card.querySelector("[data-case-service]").textContent = String(caseStudy.service).trim();
     card.querySelector("[data-case-title]").textContent = String(caseStudy.title).trim();
+    if (/^[a-z0-9_-]+$/i.test(layoutClass)) card.classList.add(layoutClass);
     const caseCaption = String(caseStudy.caption || "").trim();
 
     if (caseCaption) {
@@ -452,14 +454,14 @@ if (
       } else {
         beforeImage.src = pair.before.imageUrl;
         beforeImage.alt = pair.before.alt;
-        beforeImage.width = 800;
-        beforeImage.height = 1000;
+        beforeImage.width = Number(pair.before.width) || 800;
+        beforeImage.height = Number(pair.before.height) || 1000;
         beforeImage.loading = "lazy";
         beforeImage.decoding = "async";
         afterImage.src = pair.after.imageUrl;
         afterImage.alt = pair.after.alt;
-        afterImage.width = 800;
-        afterImage.height = 1000;
+        afterImage.width = Number(pair.after.width) || 800;
+        afterImage.height = Number(pair.after.height) || 1000;
         afterImage.loading = "lazy";
         afterImage.decoding = "async";
       }

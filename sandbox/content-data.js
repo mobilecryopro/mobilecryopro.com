@@ -21,13 +21,13 @@ window.mobileCryoContent = Object.freeze({
         Object.freeze({
           title: "",
           before: Object.freeze({
-            imageUrl: "/sandbox/assets/gallery/neck-skin-tightening-before.webp",
+            imageUrl: "/sandbox/assets/gallery/neck-skin-tightening-before.webp?v=2",
             alt: "Neck and jawline before skin-tightening cryotherapy",
             label: "Before",
             caption: "",
           }),
           after: Object.freeze({
-            imageUrl: "/sandbox/assets/gallery/neck-skin-tightening-after.webp",
+            imageUrl: "/sandbox/assets/gallery/neck-skin-tightening-after.webp?v=2",
             alt: "Neck and jawline after skin-tightening cryotherapy",
             label: "After",
             caption: "",
@@ -41,22 +41,27 @@ window.mobileCryoContent = Object.freeze({
       service: "Body sculpting",
       sessions: "3 sessions",
       timeframe: "",
+      layoutClass: "before-after-card-landscape",
       caption: "A side-profile comparison from a three-session body-sculpting series.",
       disclaimer: "Manufacturer-provided case-study imagery. Individual results vary.",
       pairs: Object.freeze([
         Object.freeze({
           title: "",
           before: Object.freeze({
-            imageUrl: "/sandbox/assets/gallery/body-contouring-three-sessions-panel-1.webp",
+            imageUrl: "/sandbox/assets/gallery/body-contouring-three-sessions-full-1.webp",
             alt: "Abdomen before a three-session body-sculpting series",
             label: "Before",
             caption: "",
+            width: 1200,
+            height: 800,
           }),
           after: Object.freeze({
-            imageUrl: "/sandbox/assets/gallery/body-contouring-three-sessions-panel-3.webp",
+            imageUrl: "/sandbox/assets/gallery/body-contouring-three-sessions-full-3.webp",
             alt: "Abdomen after a three-session body-sculpting series",
             label: "After",
             caption: "",
+            width: 1200,
+            height: 800,
           }),
         }),
       ]),

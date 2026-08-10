@@ -11278,6 +11278,10 @@ body:not(.services-page) .article-conversion .eyebrow {
   background: #dce6eb;
 }
 
+.gallery-result-card-landscape .gallery-result-images figure {
+  aspect-ratio: 3 / 2;
+}
+
 .gallery-result-images img {
   display: block;
   width: 100%;
@@ -11418,6 +11422,10 @@ body:not(.services-page) .article-conversion .eyebrow {
 
 .home-results-band .before-after-image-wrap {
   border-radius: 0;
+}
+
+.home-results-band .before-after-card-landscape .before-after-image-wrap {
+  aspect-ratio: 3 / 2;
 }
 
 .home-results-band .before-after-metadata {
