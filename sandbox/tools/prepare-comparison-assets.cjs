@@ -41,17 +41,17 @@ const landscapePanels = [
 const neckPanels = [
   {
     source: "neck-skin-tightening-source.jpg",
-    output: "neck-skin-tightening-before.webp",
+    output: "neck-skin-tightening-before-centered.webp",
     region: { left: 100, top: 70, width: 660, height: 1080 },
     angle: 3.5,
-    crop: { left: 65, top: 144, width: 620, height: 775 },
+    crop: { left: 100, top: 190, width: 620, height: 775 },
   },
   {
     source: "neck-skin-tightening-source.jpg",
-    output: "neck-skin-tightening-after.webp",
+    output: "neck-skin-tightening-after-centered.webp",
     region: { left: 830, top: 500, width: 710, height: 1240 },
     angle: -3,
-    crop: { left: 90, top: 195, width: 600, height: 750 },
+    crop: { left: 130, top: 240, width: 600, height: 750 },
   },
 ];
 
@@ -80,7 +80,8 @@ async function prepareNeckPanel(panel) {
   return `${panel.output} ${result.width}x${result.height}`;
 }
 
-Promise.all([
-  ...landscapePanels.map(prepareLandscapePanel),
-  ...neckPanels.map(prepareNeckPanel),
-]).then((results) => results.forEach((result) => console.log(result)));
+const tasks = process.argv.includes("--neck-only")
+  ? neckPanels.map(prepareNeckPanel)
+  : [...landscapePanels.map(prepareLandscapePanel), ...neckPanels.map(prepareNeckPanel)];
+
+Promise.all(tasks).then((results) => results.forEach((result) => console.log(result)));
