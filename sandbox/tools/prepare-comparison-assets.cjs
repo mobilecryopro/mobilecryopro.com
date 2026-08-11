@@ -58,18 +58,17 @@ const neckPanels = [
 const homepageNeckPanels = [
   {
     source: "neck-skin-tightening-source.jpg",
-    output: "homepage-neck-skin-tightening-before-wide.webp",
+    output: "homepage-neck-skin-tightening-before-full-frame.webp",
     region: { left: 50, top: 0, width: 800, height: 1180 },
     angle: 3.5,
-    crop: { left: 115, top: 170, width: 640, height: 850 },
+    crop: { left: 130, top: 320, width: 660, height: 660 },
   },
   {
     source: "neck-skin-tightening-source.jpg",
-    output: "homepage-neck-skin-tightening-after-wide.webp",
+    output: "homepage-neck-skin-tightening-after-full-frame.webp",
     region: { left: 650, top: 350, width: 950, height: 1250 },
     angle: -7.5,
-    crop: { left: 300, top: 220, width: 650, height: 1000 },
-    foregroundLeft: 70,
+    crop: { left: 305, top: 430, width: 680, height: 680 },
   },
 ];
 
@@ -119,25 +118,9 @@ async function prepareHomepageNeckPanel(panel) {
     .rotate(panel.angle, { background: "#ffffff" })
     .png()
     .toBuffer({ resolveWithObject: true });
-  const portrait = await sharp(rotated.data)
+  const result = await sharp(rotated.data)
     .extract(panel.crop)
-    .resize({ height: 1000 })
-    .png()
-    .toBuffer({ resolveWithObject: true });
-  const background = await sharp(portrait.data)
-    .resize({ width: 1000, height: 1000, fit: "cover" })
-    .blur(28)
-    .modulate({ brightness: 0.82, saturation: 0.9 })
-    .png()
-    .toBuffer();
-  const result = await sharp(background)
-    .composite([
-      {
-        input: portrait.data,
-        left: panel.foregroundLeft ?? Math.round((1000 - portrait.info.width) / 2),
-        top: 0,
-      },
-    ])
+    .resize({ width: 1000, height: 1000, fit: "fill" })
     .webp({ quality: 90, effort: 6, smartSubsample: true })
     .toFile(path.join(output, panel.output));
 
