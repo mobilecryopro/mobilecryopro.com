@@ -11432,6 +11432,10 @@ body:not(.services-page) .article-conversion .eyebrow {
   aspect-ratio: 1;
 }
 
+.home-results-band .before-after-card-portrait .before-after-image-wrap {
+  aspect-ratio: 4 / 5;
+}
+
 .home-results-band .before-after-metadata {
   margin: 0;
   padding: 18px 24px 0;

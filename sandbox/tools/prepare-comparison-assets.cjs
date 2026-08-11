@@ -58,40 +58,40 @@ const neckPanels = [
 const homepageNeckPanels = [
   {
     source: "neck-skin-tightening-source.jpg",
-    output: "homepage-neck-skin-tightening-before-original-panel.webp",
+    output: "homepage-neck-skin-tightening-before-original-portrait.webp",
     quad: {
       topLeft: { x: 94, y: 79 },
       topRight: { x: 792, y: 38 },
       bottomRight: { x: 702, y: 1110 },
       bottomLeft: { x: 154, y: 1128 },
     },
-    crop: { left: 0, top: 270, width: 800, height: 800 },
+    crop: { left: 0, top: 100, width: 800, height: 1000 },
   },
   {
     source: "neck-skin-tightening-source.jpg",
-    output: "homepage-neck-skin-tightening-after-original-panel.webp",
+    output: "homepage-neck-skin-tightening-after-original-portrait.webp",
     quad: {
       topLeft: { x: 948, y: 406 },
       topRight: { x: 1560, y: 517 },
       bottomRight: { x: 1380, y: 1555 },
       bottomLeft: { x: 776, y: 1441 },
     },
-    crop: { left: 0, top: 270, width: 800, height: 800 },
+    crop: { left: 0, top: 100, width: 800, height: 1000 },
   },
 ];
 
 const homepageAbdomenPanels = [
   {
     source: "body-contouring-three-sessions-source.jpg",
-    output: "homepage-abdominal-contouring-before.webp",
+    output: "homepage-abdominal-contouring-before-portrait.webp",
     region: { left: 261, top: 15, width: 718, height: 470 },
-    crop: { left: 180, top: 0, width: 800, height: 800 },
+    crop: { left: 340, top: 0, width: 640, height: 800 },
   },
   {
     source: "body-contouring-three-sessions-source.jpg",
-    output: "homepage-abdominal-contouring-after.webp",
+    output: "homepage-abdominal-contouring-after-portrait.webp",
     region: { left: 261, top: 990, width: 718, height: 470 },
-    crop: { left: 180, top: 0, width: 800, height: 800 },
+    crop: { left: 280, top: 0, width: 640, height: 800 },
   },
 ];
 
@@ -169,7 +169,7 @@ async function prepareHomepageNeckPanel(panel) {
     raw: { width: rectifiedWidth, height: rectifiedHeight, channels: 3 },
   })
     .extract(panel.crop)
-    .resize({ width: 1000, height: 1000, fit: "fill" })
+    .resize({ width: 1000, height: 1250, fit: "fill" })
     .webp({ quality: 90, effort: 6, smartSubsample: true })
     .toFile(path.join(output, panel.output));
 
@@ -184,7 +184,7 @@ async function prepareHomepageAbdomenPanel(panel) {
     .toBuffer();
   const result = await sharp(landscape)
     .extract(panel.crop)
-    .resize({ width: 1000, height: 1000, fit: "fill" })
+    .resize({ width: 1000, height: 1250, fit: "fill" })
     .webp({ quality: 90, effort: 6, smartSubsample: true })
     .toFile(path.join(output, panel.output));
 
