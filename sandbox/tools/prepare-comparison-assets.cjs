@@ -58,7 +58,7 @@ const neckPanels = [
 const homepageNeckPanels = [
   {
     source: "neck-skin-tightening-source.jpg",
-    output: "homepage-neck-skin-tightening-before-original-portrait.webp",
+    output: "homepage-neck-skin-tightening-before-original-chin-centered.webp",
     quad: {
       topLeft: { x: 94, y: 79 },
       topRight: { x: 792, y: 38 },
@@ -66,10 +66,11 @@ const homepageNeckPanels = [
       bottomLeft: { x: 154, y: 1128 },
     },
     crop: { left: 0, top: 100, width: 800, height: 1000 },
+    shiftLeft: 120,
   },
   {
     source: "neck-skin-tightening-source.jpg",
-    output: "homepage-neck-skin-tightening-after-original-portrait.webp",
+    output: "homepage-neck-skin-tightening-after-original-chin-centered.webp",
     quad: {
       topLeft: { x: 948, y: 406 },
       topRight: { x: 1560, y: 517 },
@@ -77,6 +78,7 @@ const homepageNeckPanels = [
       bottomLeft: { x: 776, y: 1441 },
     },
     crop: { left: 0, top: 100, width: 800, height: 1000 },
+    shiftLeft: 200,
   },
 ];
 
@@ -165,11 +167,26 @@ async function prepareHomepageNeckPanel(panel) {
     }
   }
 
-  const result = await sharp(rectified, {
+  const photo = await sharp(rectified, {
     raw: { width: rectifiedWidth, height: rectifiedHeight, channels: 3 },
   })
     .extract(panel.crop)
     .resize({ width: 1000, height: 1250, fit: "fill" })
+    .png()
+    .toBuffer();
+  const shiftedPhoto = await sharp(photo)
+    .extract({ left: panel.shiftLeft, top: 0, width: 1000 - panel.shiftLeft, height: 1250 })
+    .png()
+    .toBuffer();
+  const result = await sharp({
+    create: {
+      width: 1000,
+      height: 1250,
+      channels: 3,
+      background: "#ffffff",
+    },
+  })
+    .composite([{ input: shiftedPhoto, left: 0, top: 0 }])
     .webp({ quality: 90, effort: 6, smartSubsample: true })
     .toFile(path.join(output, panel.output));
 

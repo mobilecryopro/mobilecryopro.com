@@ -11436,6 +11436,19 @@ body:not(.services-page) .article-conversion .eyebrow {
   aspect-ratio: 4 / 5;
 }
 
+.home-results-band .before-after-card-chin-centered .before-after-image-wrap {
+  aspect-ratio: 4 / 5;
+  background: #ffffff;
+}
+
+.home-results-band .before-after-card-chin-centered .before-after-frame:first-child .before-after-label {
+  right: calc(12% + 8px);
+}
+
+.home-results-band .before-after-card-chin-centered .before-after-frame:last-child .before-after-label {
+  right: calc(20% + 8px);
+}
+
 .home-results-band .before-after-metadata {
   margin: 0;
   padding: 18px 24px 0;
