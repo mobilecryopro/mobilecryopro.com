@@ -22,7 +22,7 @@ window.mobileCryoContent = Object.freeze({
         Object.freeze({
           title: "",
           before: Object.freeze({
-            imageUrl: "/sandbox/assets/gallery/homepage-neck-skin-tightening-before-original-chin-centered.webp",
+            imageUrl: "/sandbox/assets/gallery/neck-skin-tightening-before-edge-outpaint-v7.webp",
             alt: "Neck and jawline before skin-tightening cryotherapy",
             label: "Before",
             caption: "",
@@ -30,7 +30,7 @@ window.mobileCryoContent = Object.freeze({
             height: 1250,
           }),
           after: Object.freeze({
-            imageUrl: "/sandbox/assets/gallery/homepage-neck-skin-tightening-after-original-chin-centered.webp",
+            imageUrl: "/sandbox/assets/gallery/neck-skin-tightening-after-edge-outpaint-v7.webp",
             alt: "Neck and jawline after skin-tightening cryotherapy",
             label: "After",
             caption: "",
