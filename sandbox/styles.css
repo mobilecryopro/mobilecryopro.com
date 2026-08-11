@@ -11428,8 +11428,8 @@ body:not(.services-page) .article-conversion .eyebrow {
   aspect-ratio: 3 / 2;
 }
 
-.home-results-band .before-after-card-abdomen .before-after-image-wrap img {
-  object-position: 35% 50%;
+.home-results-band .before-after-card-square .before-after-image-wrap {
+  aspect-ratio: 1;
 }
 
 .home-results-band .before-after-metadata {
