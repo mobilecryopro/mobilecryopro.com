@@ -11456,7 +11456,7 @@ body:not(.services-page) .article-conversion .eyebrow {
 }
 
 .home-results-band .before-after-caption {
-  margin: 12px 24px 0;
+  margin: 12px 24px 24px;
   font-size: 0.9rem;
   line-height: 1.5;
 }
