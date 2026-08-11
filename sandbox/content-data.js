@@ -17,7 +17,6 @@ window.mobileCryoContent = Object.freeze({
       timeframe: "",
       layoutClass: "before-after-card-chin-centered",
       caption: "A focused comparison of the neck and jawline.",
-      disclaimer: "Manufacturer-provided case-study imagery. Individual results vary.",
       pairs: Object.freeze([
         Object.freeze({
           title: "",
@@ -48,7 +47,6 @@ window.mobileCryoContent = Object.freeze({
       timeframe: "",
       layoutClass: "before-after-card-portrait",
       caption: "A side-profile comparison from a three-session body-sculpting series.",
-      disclaimer: "Manufacturer-provided case-study imagery. Individual results vary.",
       pairs: Object.freeze([
         Object.freeze({
           title: "",

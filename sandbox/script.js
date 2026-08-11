@@ -363,7 +363,6 @@ const sandboxBeforeAfterCases = Array.isArray(homepageProofContent.sandboxBefore
       caseStudy?.approvedForSandbox === true &&
       String(caseStudy?.title || "").trim() &&
       String(caseStudy?.service || "").trim() &&
-      String(caseStudy?.disclaimer || "").trim() &&
       hasValidBeforeAfterPairs(caseStudy)
     );
   })
@@ -423,7 +422,13 @@ if (
     } else {
       card.querySelector("[data-case-caption]").remove();
     }
-    card.querySelector("[data-case-disclaimer]").textContent = String(caseStudy.disclaimer).trim();
+    const caseDisclaimer = String(caseStudy.disclaimer || "").trim();
+
+    if (caseDisclaimer) {
+      card.querySelector("[data-case-disclaimer]").textContent = caseDisclaimer;
+    } else {
+      card.querySelector("[data-case-disclaimer]").remove();
+    }
 
     pairs.forEach((pair) => {
       const view = beforeAfterViewTemplate.content.firstElementChild.cloneNode(true);
