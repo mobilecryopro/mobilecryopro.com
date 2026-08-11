@@ -58,27 +58,25 @@ const neckPanels = [
 const homepageNeckPanels = [
   {
     source: "neck-skin-tightening-source.jpg",
-    output: "homepage-neck-skin-tightening-before-original-recentered.webp",
+    output: "homepage-neck-skin-tightening-before-original-portrait.webp",
     quad: {
       topLeft: { x: 94, y: 79 },
       topRight: { x: 792, y: 38 },
       bottomRight: { x: 702, y: 1110 },
       bottomLeft: { x: 154, y: 1128 },
     },
-    crop: { left: 0, top: 10, width: 800, height: 1190 },
-    photoLeft: 68,
+    crop: { left: 0, top: 100, width: 800, height: 1000 },
   },
   {
     source: "neck-skin-tightening-source.jpg",
-    output: "homepage-neck-skin-tightening-after-original-recentered.webp",
+    output: "homepage-neck-skin-tightening-after-original-portrait.webp",
     quad: {
       topLeft: { x: 948, y: 406 },
       topRight: { x: 1560, y: 517 },
       bottomRight: { x: 1380, y: 1555 },
       bottomLeft: { x: 776, y: 1441 },
     },
-    crop: { left: 0, top: 50, width: 800, height: 1150 },
-    photoLeft: 50,
+    crop: { left: 0, top: 100, width: 800, height: 1000 },
   },
 ];
 
@@ -167,22 +165,11 @@ async function prepareHomepageNeckPanel(panel) {
     }
   }
 
-  const photo = await sharp(rectified, {
+  const result = await sharp(rectified, {
     raw: { width: rectifiedWidth, height: rectifiedHeight, channels: 3 },
   })
     .extract(panel.crop)
-    .resize({ width: 720, height: 1080, fit: "fill" })
-    .png()
-    .toBuffer();
-  const result = await sharp({
-    create: {
-      width: 1000,
-      height: 1250,
-      channels: 3,
-      background: "#ffffff",
-    },
-  })
-    .composite([{ input: photo, left: panel.photoLeft, top: 85 }])
+    .resize({ width: 1000, height: 1250, fit: "fill" })
     .webp({ quality: 90, effort: 6, smartSubsample: true })
     .toFile(path.join(output, panel.output));
 

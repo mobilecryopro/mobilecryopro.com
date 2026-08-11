@@ -15,14 +15,14 @@ window.mobileCryoContent = Object.freeze({
       service: "Facial & neck",
       sessions: "1 session",
       timeframe: "",
-      layoutClass: "before-after-card-recentered",
+      layoutClass: "before-after-card-portrait",
       caption: "A focused comparison of the neck and jawline.",
       disclaimer: "Manufacturer-provided case-study imagery. Individual results vary.",
       pairs: Object.freeze([
         Object.freeze({
           title: "",
           before: Object.freeze({
-            imageUrl: "/sandbox/assets/gallery/homepage-neck-skin-tightening-before-original-recentered.webp",
+            imageUrl: "/sandbox/assets/gallery/homepage-neck-skin-tightening-before-original-portrait.webp",
             alt: "Neck and jawline before skin-tightening cryotherapy",
             label: "Before",
             caption: "",
@@ -30,7 +30,7 @@ window.mobileCryoContent = Object.freeze({
             height: 1250,
           }),
           after: Object.freeze({
-            imageUrl: "/sandbox/assets/gallery/homepage-neck-skin-tightening-after-original-recentered.webp",
+            imageUrl: "/sandbox/assets/gallery/homepage-neck-skin-tightening-after-original-portrait.webp",
             alt: "Neck and jawline after skin-tightening cryotherapy",
             label: "After",
             caption: "",
