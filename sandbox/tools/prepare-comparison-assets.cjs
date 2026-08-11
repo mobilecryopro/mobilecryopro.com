@@ -58,17 +58,25 @@ const neckPanels = [
 const homepageNeckPanels = [
   {
     source: "neck-skin-tightening-source.jpg",
-    output: "homepage-neck-skin-tightening-before-full-frame.webp",
-    region: { left: 50, top: 0, width: 800, height: 1180 },
-    angle: 3.5,
-    crop: { left: 130, top: 320, width: 660, height: 660 },
+    output: "homepage-neck-skin-tightening-before-original-panel.webp",
+    quad: {
+      topLeft: { x: 94, y: 79 },
+      topRight: { x: 792, y: 38 },
+      bottomRight: { x: 702, y: 1110 },
+      bottomLeft: { x: 154, y: 1128 },
+    },
+    crop: { left: 0, top: 270, width: 800, height: 800 },
   },
   {
     source: "neck-skin-tightening-source.jpg",
-    output: "homepage-neck-skin-tightening-after-full-frame.webp",
-    region: { left: 650, top: 350, width: 950, height: 1250 },
-    angle: -7.5,
-    crop: { left: 305, top: 430, width: 680, height: 680 },
+    output: "homepage-neck-skin-tightening-after-original-panel.webp",
+    quad: {
+      topLeft: { x: 948, y: 406 },
+      topRight: { x: 1560, y: 517 },
+      bottomRight: { x: 1380, y: 1555 },
+      bottomLeft: { x: 776, y: 1441 },
+    },
+    crop: { left: 0, top: 270, width: 800, height: 800 },
   },
 ];
 
@@ -113,12 +121,53 @@ async function prepareNeckPanel(panel) {
 }
 
 async function prepareHomepageNeckPanel(panel) {
-  const rotated = await sharp(path.join(originals, panel.source))
-    .extract(panel.region)
-    .rotate(panel.angle, { background: "#ffffff" })
-    .png()
+  const source = await sharp(path.join(originals, panel.source))
+    .removeAlpha()
+    .raw()
     .toBuffer({ resolveWithObject: true });
-  const result = await sharp(rotated.data)
+  const rectifiedWidth = 800;
+  const rectifiedHeight = 1200;
+  const rectified = Buffer.alloc(rectifiedWidth * rectifiedHeight * 3);
+  const { topLeft, topRight, bottomRight, bottomLeft } = panel.quad;
+
+  for (let y = 0; y < rectifiedHeight; y += 1) {
+    const v = y / (rectifiedHeight - 1);
+    for (let x = 0; x < rectifiedWidth; x += 1) {
+      const u = x / (rectifiedWidth - 1);
+      const sourceX =
+        (1 - u) * (1 - v) * topLeft.x +
+        u * (1 - v) * topRight.x +
+        u * v * bottomRight.x +
+        (1 - u) * v * bottomLeft.x;
+      const sourceY =
+        (1 - u) * (1 - v) * topLeft.y +
+        u * (1 - v) * topRight.y +
+        u * v * bottomRight.y +
+        (1 - u) * v * bottomLeft.y;
+      const x0 = Math.max(0, Math.min(source.info.width - 2, Math.floor(sourceX)));
+      const y0 = Math.max(0, Math.min(source.info.height - 2, Math.floor(sourceY)));
+      const xWeight = sourceX - x0;
+      const yWeight = sourceY - y0;
+      const outputOffset = (y * rectifiedWidth + x) * 3;
+
+      for (let channel = 0; channel < 3; channel += 1) {
+        const topLeftOffset = (y0 * source.info.width + x0) * 3 + channel;
+        const topRightOffset = topLeftOffset + 3;
+        const bottomLeftOffset = topLeftOffset + source.info.width * 3;
+        const bottomRightOffset = bottomLeftOffset + 3;
+        const top =
+          source.data[topLeftOffset] * (1 - xWeight) + source.data[topRightOffset] * xWeight;
+        const bottom =
+          source.data[bottomLeftOffset] * (1 - xWeight) +
+          source.data[bottomRightOffset] * xWeight;
+        rectified[outputOffset + channel] = Math.round(top * (1 - yWeight) + bottom * yWeight);
+      }
+    }
+  }
+
+  const result = await sharp(rectified, {
+    raw: { width: rectifiedWidth, height: rectifiedHeight, channels: 3 },
+  })
     .extract(panel.crop)
     .resize({ width: 1000, height: 1000, fit: "fill" })
     .webp({ quality: 90, effort: 6, smartSubsample: true })
