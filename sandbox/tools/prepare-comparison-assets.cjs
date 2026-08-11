@@ -59,16 +59,16 @@ const homepageNeckPanels = [
   {
     source: "neck-skin-tightening-source.jpg",
     output: "homepage-neck-skin-tightening-before.webp",
-    region: { left: 80, top: 40, width: 740, height: 1120 },
+    region: { left: 50, top: 0, width: 800, height: 1180 },
     angle: 3.5,
-    crop: { left: 205, top: 355, width: 540, height: 540 },
+    crop: { left: 130, top: 360, width: 620, height: 620 },
   },
   {
     source: "neck-skin-tightening-source.jpg",
     output: "homepage-neck-skin-tightening-after.webp",
-    region: { left: 830, top: 500, width: 710, height: 1240 },
+    region: { left: 650, top: 350, width: 950, height: 1250 },
     angle: -7.5,
-    crop: { left: 205, top: 320, width: 540, height: 540 },
+    crop: { left: 292, top: 460, width: 650, height: 650 },
   },
 ];
 
