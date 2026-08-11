@@ -11436,6 +11436,15 @@ body:not(.services-page) .article-conversion .eyebrow {
   aspect-ratio: 4 / 5;
 }
 
+.home-results-band .before-after-card-recentered .before-after-image-wrap {
+  aspect-ratio: 4 / 5;
+  background: #ffffff;
+}
+
+.home-results-band .before-after-card-recentered .before-after-label {
+  right: calc(23% + 8px);
+}
+
 .home-results-band .before-after-metadata {
   margin: 0;
   padding: 18px 24px 0;
