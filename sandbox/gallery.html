@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/sandbox/styles.css?v=201" />
+    <link rel="stylesheet" href="/sandbox/styles.css?v=202" />
     <link rel="icon" href="/favicon.ico?v=9" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/mobile-cryo-pro-favicon-32.png?v=9" />
   </head>
@@ -68,16 +68,17 @@
               portable cryotherapy fits real people, real goals, and real settings.
             </p>
           </div>
-          <div class="gallery-intro-nav-wrap">
-            <p>Explore the gallery</p>
-            <nav class="gallery-category-nav" aria-label="Gallery categories">
-              <a href="#treatments">Treatments</a>
-              <a href="#body-results">Body sculpting</a>
-              <a href="#facial-results">Facial &amp; neck</a>
-              <a href="#equine-photo">Equine</a>
-            </nav>
-          </div>
         </header>
+
+        <nav class="gallery-directory" aria-label="Explore the gallery" data-gallery-directory>
+          <span class="gallery-directory-label">Explore the gallery</span>
+          <div class="gallery-directory-links">
+            <a href="#treatments">Treatments in action</a>
+            <a href="#facial-results">Facial &amp; neck</a>
+            <a href="#body-results">Body contouring</a>
+            <a href="#equine-photo">Equine</a>
+          </div>
+        </nav>
 
         <section class="gallery-section gallery-treatment-section" id="treatments" aria-labelledby="treatments-title">
           <div class="gallery-section-heading">
@@ -89,7 +90,7 @@
           </div>
 
           <div class="gallery-mosaic">
-            <figure class="gallery-mosaic-card gallery-mosaic-card-tall">
+            <figure class="gallery-mosaic-card gallery-mosaic-card-featured">
               <img
                 src="/sandbox/assets/gallery/kacey-back-treatment-headroom-v3.webp"
                 alt="Adult receiving handheld cryotherapy on her back"
@@ -103,7 +104,41 @@
               </figcaption>
             </figure>
 
-            <figure class="gallery-mosaic-card gallery-mosaic-card-wide">
+            <figure class="gallery-mosaic-card gallery-mosaic-card-spotlight">
+              <img
+                src="/sandbox/assets/gallery/facial-treatment-800.webp"
+                srcset="/sandbox/assets/gallery/facial-treatment-800.webp 800w, /sandbox/assets/gallery/facial-treatment-1600.webp 1600w"
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 42vw"
+                alt="Adult receiving focused cryotherapy near her face"
+                width="1600"
+                height="1200"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>
+                <span>Facial cryotherapy</span>
+                <strong>Focused facial care in a comfortable setting</strong>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery-mosaic-card gallery-mosaic-card-spotlight">
+              <img
+                src="/sandbox/assets/gallery/sports-knee-treatment-800.webp"
+                srcset="/sandbox/assets/gallery/sports-knee-treatment-800.webp 800w, /sandbox/assets/gallery/sports-knee-treatment-1600.webp 1600w"
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 42vw"
+                alt="Handheld cryotherapy being applied around an athlete's knee"
+                width="1600"
+                height="1200"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>
+                <span>Sports recovery</span>
+                <strong>Targeted treatment where athletes need it</strong>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery-mosaic-card gallery-mosaic-card-supporting">
               <img
                 src="/sandbox/assets/gallery/kaasen-equipment.webp"
                 alt="Kaasen by TruCryo equipment arranged inside its carrying case"
@@ -118,7 +153,7 @@
               </figcaption>
             </figure>
 
-            <figure class="gallery-mosaic-card gallery-mosaic-card-wide" id="equine-photo">
+            <figure class="gallery-mosaic-card gallery-mosaic-card-supporting" id="equine-photo">
               <img
                 src="/sandbox/assets/gallery/equine-hock-treatment.webp"
                 alt="Handheld cryotherapy being applied near a horse's hock"
@@ -135,13 +170,65 @@
           </div>
         </section>
 
-        <section class="gallery-section gallery-results-section" id="body-results" aria-labelledby="results-title">
+        <section class="gallery-section gallery-results-section" id="facial-results" aria-labelledby="facial-results-title">
           <div class="gallery-section-heading">
             <div>
               <p class="eyebrow">Before &amp; after</p>
-              <h2 id="results-title">Results, side by side</h2>
+              <h2 id="facial-results-title">Facial &amp; neck results</h2>
             </div>
-            <p>Compare body-sculpting and skin-tightening case studies, including client photo sets and one- and three-session series.</p>
+            <p>Compare focused facial and neck case studies from one- and four-session treatment series.</p>
+          </div>
+
+          <div class="gallery-results-grid">
+            <article class="gallery-result-card">
+              <header>
+                <div>
+                  <span class="gallery-result-kicker">Facial &amp; neck</span>
+                  <h3>Neck skin-tightening</h3>
+                </div>
+                <span class="gallery-session-pill">1 session</span>
+              </header>
+              <div class="gallery-result-images gallery-result-images-two">
+                <figure>
+                  <img src="/sandbox/assets/gallery/neck-skin-tightening-before-minimal-original-v9.webp" alt="Neck and jawline before skin-tightening cryotherapy" width="1000" height="1250" loading="lazy" decoding="async" />
+                  <figcaption>Before</figcaption>
+                </figure>
+                <figure>
+                  <img src="/sandbox/assets/gallery/neck-skin-tightening-after-minimal-original-v9.webp" alt="Neck and jawline after skin-tightening cryotherapy" width="1000" height="1250" loading="lazy" decoding="async" />
+                  <figcaption>After</figcaption>
+                </figure>
+              </div>
+            </article>
+
+            <article class="gallery-result-card">
+              <header>
+                <div>
+                  <span class="gallery-result-kicker">Facial &amp; neck</span>
+                  <h3>Facial treatment series</h3>
+                </div>
+                <span class="gallery-session-pill">4 sessions</span>
+              </header>
+              <div class="gallery-result-images gallery-result-images-two">
+                <figure>
+                  <img src="/sandbox/assets/gallery/facial-four-session-before.webp" alt="Face before a four-session facial cryotherapy series" width="600" height="750" loading="lazy" decoding="async" />
+                  <figcaption>Before</figcaption>
+                </figure>
+                <figure>
+                  <img src="/sandbox/assets/gallery/facial-four-session-after.webp" alt="Face after a four-session facial cryotherapy series" width="600" height="750" loading="lazy" decoding="async" />
+                  <figcaption>After</figcaption>
+                </figure>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="gallery-section gallery-results-section" id="body-results" aria-labelledby="body-results-title">
+          <div class="gallery-section-heading">
+            <div>
+              <p class="eyebrow">Before &amp; after</p>
+              <h2 id="body-results-title">Body-contouring results</h2>
+            </div>
+            <p>Compare body-sculpting case studies, including client photo sets and one- and three-session series.</p>
           </div>
 
           <div class="gallery-results-grid">
@@ -165,21 +252,21 @@
               </div>
             </article>
 
-            <article class="gallery-result-card" id="facial-results">
+            <article class="gallery-result-card">
               <header>
                 <div>
-                  <span class="gallery-result-kicker">Facial &amp; neck</span>
-                  <h3>Neck skin-tightening</h3>
+                  <span class="gallery-result-kicker">Body sculpting</span>
+                  <h3>Abdominal skin-tightening</h3>
                 </div>
                 <span class="gallery-session-pill">1 session</span>
               </header>
               <div class="gallery-result-images gallery-result-images-two">
                 <figure>
-                  <img src="/sandbox/assets/gallery/neck-skin-tightening-before-minimal-original-v9.webp" alt="Neck and jawline before skin-tightening cryotherapy" width="1000" height="1250" loading="lazy" decoding="async" />
+                  <img src="/sandbox/assets/gallery/body-tightening-one-session-before.webp" alt="Side view of an abdomen before one skin-tightening session" width="600" height="750" loading="lazy" decoding="async" />
                   <figcaption>Before</figcaption>
                 </figure>
                 <figure>
-                  <img src="/sandbox/assets/gallery/neck-skin-tightening-after-minimal-original-v9.webp" alt="Neck and jawline after skin-tightening cryotherapy" width="1000" height="1250" loading="lazy" decoding="async" />
+                  <img src="/sandbox/assets/gallery/body-tightening-one-session-after.webp" alt="Side view of an abdomen after one skin-tightening session" width="600" height="750" loading="lazy" decoding="async" />
                   <figcaption>After</figcaption>
                 </figure>
               </div>
@@ -273,7 +360,7 @@
               </div>
             </article>
 
-            <article class="gallery-result-card">
+            <article class="gallery-result-card gallery-result-card-centered">
               <header>
                 <div>
                   <span class="gallery-result-kicker">Body sculpting</span>
@@ -328,6 +415,6 @@
     </div>
 
     <script src="/sandbox/footer.js?v=10"></script>
-    <script src="/sandbox/script.js?v=31"></script>
+    <script src="/sandbox/script.js?v=32"></script>
   </body>
 </html>

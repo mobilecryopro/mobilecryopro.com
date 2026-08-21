@@ -674,3 +674,40 @@ if (sandboxPreviewMode) {
     link.setAttribute("title", "Disabled in sandbox preview");
   });
 }
+
+const galleryDirectory = document.querySelector("[data-gallery-directory]");
+
+if (galleryDirectory && "IntersectionObserver" in window) {
+  const directoryLinks = Array.from(galleryDirectory.querySelectorAll('a[href^="#"]'));
+  const directorySections = directoryLinks
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+  const setCurrentGallerySection = (sectionId) => {
+    directoryLinks.forEach((link) => {
+      if (link.getAttribute("href") === `#${sectionId}`) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  };
+
+  const gallerySectionObserver = new IntersectionObserver(
+    (entries) => {
+      const visibleSections = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((first, second) => second.intersectionRatio - first.intersectionRatio);
+
+      if (visibleSections[0]) {
+        setCurrentGallerySection(visibleSections[0].target.id);
+      }
+    },
+    {
+      rootMargin: "-30% 0px -55% 0px",
+      threshold: [0, 0.1, 0.35],
+    },
+  );
+
+  directorySections.forEach((section) => gallerySectionObserver.observe(section));
+}
