@@ -711,3 +711,91 @@ if (galleryDirectory && "IntersectionObserver" in window) {
 
   directorySections.forEach((section) => gallerySectionObserver.observe(section));
 }
+
+const galleryLightbox = document.querySelector("[data-gallery-lightbox]");
+const galleryOpenButtons = Array.from(document.querySelectorAll("[data-gallery-open]"));
+
+if (galleryLightbox && galleryOpenButtons.length) {
+  const lightboxImage = galleryLightbox.querySelector("[data-gallery-lightbox-image]");
+  const lightboxTitle = galleryLightbox.querySelector("[data-gallery-lightbox-title]");
+  const lightboxMeta = galleryLightbox.querySelector("[data-gallery-lightbox-meta]");
+  const lightboxCurrent = galleryLightbox.querySelector("[data-gallery-lightbox-current]");
+  const lightboxTotal = galleryLightbox.querySelector("[data-gallery-lightbox-total]");
+  const lightboxThumbs = galleryLightbox.querySelector("[data-gallery-thumbs]");
+  const closeButton = galleryLightbox.querySelector("[data-gallery-close]");
+  const previousButton = galleryLightbox.querySelector("[data-gallery-prev]");
+  const nextButton = galleryLightbox.querySelector("[data-gallery-next]");
+  let currentGalleryIndex = 0;
+
+  const thumbnailButtons = galleryOpenButtons.map((button, index) => {
+    const sourceImage = button.querySelector("img");
+    const thumbnail = document.createElement("button");
+    const thumbnailImage = document.createElement("img");
+
+    thumbnail.type = "button";
+    thumbnail.className = "gallery-lightbox-thumb";
+    thumbnail.setAttribute("aria-label", `View image ${index + 1}: ${button.dataset.galleryTitle || sourceImage.alt}`);
+    thumbnailImage.src = sourceImage.currentSrc || sourceImage.src;
+    thumbnailImage.alt = "";
+    thumbnailImage.loading = "lazy";
+    thumbnail.append(thumbnailImage);
+    thumbnail.addEventListener("click", () => showGalleryImage(index));
+    lightboxThumbs.append(thumbnail);
+    return thumbnail;
+  });
+
+  const showGalleryImage = (index) => {
+    currentGalleryIndex = (index + galleryOpenButtons.length) % galleryOpenButtons.length;
+    const selectedButton = galleryOpenButtons[currentGalleryIndex];
+    const selectedImage = selectedButton.querySelector("img");
+
+    lightboxImage.src = selectedImage.currentSrc || selectedImage.src;
+    lightboxImage.alt = selectedImage.alt;
+    lightboxTitle.textContent = selectedButton.dataset.galleryTitle || selectedImage.alt;
+    lightboxMeta.textContent = selectedButton.dataset.galleryMeta || "Mobile Cryo Pro gallery";
+    lightboxCurrent.textContent = String(currentGalleryIndex + 1);
+    lightboxTotal.textContent = String(galleryOpenButtons.length);
+
+    thumbnailButtons.forEach((thumbnail, thumbnailIndex) => {
+      if (thumbnailIndex === currentGalleryIndex) {
+        thumbnail.setAttribute("aria-current", "true");
+      } else {
+        thumbnail.removeAttribute("aria-current");
+      }
+    });
+
+    thumbnailButtons[currentGalleryIndex]?.scrollIntoView({ block: "nearest", inline: "center" });
+  };
+
+  const openGalleryLightbox = (index) => {
+    showGalleryImage(index);
+    document.body.classList.add("gallery-lightbox-open");
+    galleryLightbox.showModal();
+    closeButton.focus();
+  };
+
+  galleryOpenButtons.forEach((button, index) => {
+    button.addEventListener("click", () => openGalleryLightbox(index));
+  });
+
+  closeButton.addEventListener("click", () => galleryLightbox.close());
+  previousButton.addEventListener("click", () => showGalleryImage(currentGalleryIndex - 1));
+  nextButton.addEventListener("click", () => showGalleryImage(currentGalleryIndex + 1));
+
+  galleryLightbox.addEventListener("close", () => {
+    document.body.classList.remove("gallery-lightbox-open");
+    galleryOpenButtons[currentGalleryIndex]?.focus();
+  });
+
+  galleryLightbox.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      showGalleryImage(currentGalleryIndex - 1);
+    }
+
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      showGalleryImage(currentGalleryIndex + 1);
+    }
+  });
+}

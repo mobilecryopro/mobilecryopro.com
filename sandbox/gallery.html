@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/sandbox/styles.css?v=202" />
+    <link rel="stylesheet" href="/sandbox/styles.css?v=204" />
     <link rel="icon" href="/favicon.ico?v=9" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/mobile-cryo-pro-favicon-32.png?v=9" />
   </head>
@@ -58,162 +58,131 @@
         </nav>
       </header>
 
-      <main id="main-content" class="gallery-main" tabindex="-1">
-        <header class="gallery-intro">
+      <main id="main-content" class="gallery-main gallery-main-premium" tabindex="-1">
+        <header class="gallery-intro gallery-intro-premium">
           <div class="gallery-intro-copy">
             <p class="eyebrow">Treatment &amp; results gallery</p>
-            <h1>See cryotherapy in action.</h1>
+            <h1>Real treatments.<br />Visible results.</h1>
             <p>
-              From focused recovery to body sculpting and equine care, see how professional
-              portable cryotherapy fits real people, real goals, and real settings.
+              Explore portable cryotherapy in action and compare facial, neck, and body-contouring
+              case studies. Select any photograph to see the complete image.
             </p>
+          </div>
+          <div class="gallery-intro-note" aria-hidden="true">
+            <span>01</span>
+            <div></div>
+            <p>North Bay<br />mobile care</p>
           </div>
         </header>
 
-        <nav class="gallery-directory" aria-label="Explore the gallery" data-gallery-directory>
-          <span class="gallery-directory-label">Explore the gallery</span>
+        <nav class="gallery-directory gallery-directory-premium" aria-label="Explore the gallery" data-gallery-directory>
+          <span class="gallery-directory-label">Explore</span>
           <div class="gallery-directory-links">
-            <a href="#treatments">Treatments in action</a>
+            <a href="#treatments">Treatments</a>
             <a href="#facial-results">Facial &amp; neck</a>
             <a href="#body-results">Body contouring</a>
           </div>
         </nav>
 
-        <section class="gallery-section gallery-treatment-section" id="treatments" aria-labelledby="treatments-title">
-          <div class="gallery-section-heading">
+        <section class="gallery-section gallery-treatment-section gallery-section-premium" id="treatments" aria-labelledby="treatments-title">
+          <div class="gallery-section-heading gallery-section-heading-premium">
             <div>
               <p class="eyebrow">Professional mobile care</p>
-              <h2 id="treatments-title">Treatment wherever you need it</h2>
+              <h2 id="treatments-title">Cryotherapy in action</h2>
             </div>
-            <p>Portable equipment makes focused treatment possible at home, work, events, and the stable.</p>
+            <p>Focused treatment with portable professional equipment—in homes, at events, and wherever recovery is needed.</p>
           </div>
 
-          <div class="gallery-mosaic">
-            <figure class="gallery-mosaic-card gallery-mosaic-card-featured">
-              <img
-                src="/sandbox/assets/gallery/kacey-back-treatment-headroom-v3.webp"
-                alt="Adult receiving handheld cryotherapy on her back"
-                width="1080"
-                height="1430"
-                fetchpriority="high"
-              />
-              <figcaption>
-                <span>Localized recovery</span>
-                <strong>Focused care, wherever recovery happens</strong>
-              </figcaption>
+          <div class="gallery-editorial-grid">
+            <figure class="gallery-photo-card gallery-photo-card-portrait">
+              <button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Focused back treatment" data-gallery-meta="Localized cryotherapy">
+                <img src="/sandbox/assets/gallery/kacey-back-treatment-headroom-v3.webp" alt="Adult receiving handheld cryotherapy on her back" width="1080" height="1430" fetchpriority="high" />
+                <span class="gallery-expand-cue" aria-hidden="true">View</span>
+              </button>
+              <figcaption><span>Localized cryotherapy</span><strong>Focused back treatment</strong></figcaption>
             </figure>
 
-            <figure class="gallery-mosaic-card gallery-mosaic-card-spotlight">
-              <img
-                src="/sandbox/assets/gallery/facial-treatment-800.webp"
-                srcset="/sandbox/assets/gallery/facial-treatment-800.webp 800w, /sandbox/assets/gallery/facial-treatment-1600.webp 1600w"
-                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 42vw"
-                alt="Adult receiving focused cryotherapy near her face"
-                width="1600"
-                height="1200"
-                loading="lazy"
-                decoding="async"
-              />
-              <figcaption>
-                <span>Facial cryotherapy</span>
-                <strong>Focused facial care in a comfortable setting</strong>
-              </figcaption>
+            <figure class="gallery-photo-card">
+              <button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Facial cryotherapy" data-gallery-meta="Treatment in action">
+                <img src="/sandbox/assets/gallery/facial-treatment-800.webp" srcset="/sandbox/assets/gallery/facial-treatment-800.webp 800w, /sandbox/assets/gallery/facial-treatment-1600.webp 1600w" sizes="(max-width: 760px) 100vw, 46vw" alt="Adult receiving focused cryotherapy near her face" width="1600" height="1200" loading="lazy" decoding="async" />
+                <span class="gallery-expand-cue" aria-hidden="true">View</span>
+              </button>
+              <figcaption><span>Facial cryotherapy</span><strong>Comfortable, focused care</strong></figcaption>
             </figure>
 
-            <figure class="gallery-mosaic-card gallery-mosaic-card-spotlight">
-              <img
-                src="/sandbox/assets/gallery/sports-knee-treatment-800.webp"
-                srcset="/sandbox/assets/gallery/sports-knee-treatment-800.webp 800w, /sandbox/assets/gallery/sports-knee-treatment-1600.webp 1600w"
-                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 42vw"
-                alt="Handheld cryotherapy being applied around an athlete's knee"
-                width="1600"
-                height="1200"
-                loading="lazy"
-                decoding="async"
-              />
-              <figcaption>
-                <span>Sports recovery</span>
-                <strong>Targeted treatment where athletes need it</strong>
-              </figcaption>
+            <figure class="gallery-photo-card">
+              <button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Targeted knee treatment" data-gallery-meta="Sports recovery">
+                <img src="/sandbox/assets/gallery/sports-knee-treatment-800.webp" srcset="/sandbox/assets/gallery/sports-knee-treatment-800.webp 800w, /sandbox/assets/gallery/sports-knee-treatment-1600.webp 1600w" sizes="(max-width: 760px) 100vw, 46vw" alt="Handheld cryotherapy being applied around an athlete's knee" width="1600" height="1200" loading="lazy" decoding="async" />
+                <span class="gallery-expand-cue" aria-hidden="true">View</span>
+              </button>
+              <figcaption><span>Sports recovery</span><strong>Targeted knee treatment</strong></figcaption>
             </figure>
 
-            <figure class="gallery-mosaic-card gallery-mosaic-card-supporting">
-              <img
-                src="/sandbox/assets/gallery/kaasen-equipment.webp"
-                alt="Kaasen by TruCryo equipment arranged inside its carrying case"
-                width="2000"
-                height="1333"
-                loading="lazy"
-                decoding="async"
-              />
-              <figcaption>
-                <span>Professional equipment</span>
-                <strong>Compact technology. Precise application.</strong>
-              </figcaption>
+            <figure class="gallery-photo-card">
+              <button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Portable professional equipment" data-gallery-meta="Kaasen by TruCryo">
+                <img src="/sandbox/assets/gallery/kaasen-equipment.webp" alt="Kaasen by TruCryo equipment arranged inside its carrying case" width="2000" height="1333" loading="lazy" decoding="async" />
+                <span class="gallery-expand-cue" aria-hidden="true">View</span>
+              </button>
+              <figcaption><span>Professional equipment</span><strong>Compact and portable</strong></figcaption>
             </figure>
 
-            <figure class="gallery-mosaic-card gallery-mosaic-card-supporting" id="equine-photo">
-              <img
-                src="/sandbox/assets/gallery/equine-hock-treatment.webp"
-                alt="Handheld cryotherapy being applied near a horse's hock"
-                width="2000"
-                height="1333"
-                loading="lazy"
-                decoding="async"
-              />
-              <figcaption>
-                <span>Equine cryotherapy</span>
-                <strong>Targeted treatment at the barn or event</strong>
-              </figcaption>
+            <figure class="gallery-photo-card" id="equine-photo">
+              <button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Focused equine treatment" data-gallery-meta="At the barn or event">
+                <img src="/sandbox/assets/gallery/equine-hock-treatment.webp" alt="Handheld cryotherapy being applied near a horse's hock" width="2000" height="1333" loading="lazy" decoding="async" />
+                <span class="gallery-expand-cue" aria-hidden="true">View</span>
+              </button>
+              <figcaption><span>Equine cryotherapy</span><strong>Focused treatment at the barn</strong></figcaption>
             </figure>
           </div>
         </section>
 
-        <section class="gallery-section gallery-results-section" id="facial-results" aria-labelledby="facial-results-title">
-          <div class="gallery-section-heading">
+        <section class="gallery-section gallery-results-section gallery-section-premium" id="facial-results" aria-labelledby="facial-results-title">
+          <div class="gallery-section-heading gallery-section-heading-premium">
             <div>
               <p class="eyebrow">Before &amp; after</p>
-              <h2 id="facial-results-title">Facial &amp; neck results</h2>
+              <h2 id="facial-results-title">Facial &amp; neck</h2>
             </div>
-            <p>Compare focused facial and neck case studies from one- and four-session treatment series.</p>
+            <p>Side-by-side comparisons with the complete available frame preserved.</p>
           </div>
 
-          <div class="gallery-results-grid">
-            <article class="gallery-result-card">
-              <header>
-                <div>
-                  <span class="gallery-result-kicker">Facial &amp; neck</span>
-                  <h3>Neck skin-tightening</h3>
-                </div>
-                <span class="gallery-session-pill">1 session</span>
+          <div class="gallery-case-grid gallery-case-grid-two">
+            <article class="gallery-case-card">
+              <header class="gallery-case-header">
+                <div><span>Facial &amp; neck</span><h3>Neck skin-tightening</h3></div>
+                <p>1 session</p>
               </header>
-              <div class="gallery-result-images gallery-result-images-two">
+              <div class="gallery-comparison gallery-comparison-two">
                 <figure>
-                  <img src="/sandbox/assets/gallery/neck-skin-tightening-before-minimal-original-v9.webp" alt="Neck and jawline before skin-tightening cryotherapy" width="1000" height="1250" loading="lazy" decoding="async" />
+                  <button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Neck skin-tightening — Before" data-gallery-meta="1 session">
+                    <img src="/sandbox/assets/gallery/neck-skin-tightening-before-minimal-original-v9.webp" alt="Neck and jawline before skin-tightening cryotherapy" width="1000" height="1250" loading="lazy" decoding="async" />
+                  </button>
                   <figcaption>Before</figcaption>
                 </figure>
                 <figure>
-                  <img src="/sandbox/assets/gallery/neck-skin-tightening-after-minimal-original-v9.webp" alt="Neck and jawline after skin-tightening cryotherapy" width="1000" height="1250" loading="lazy" decoding="async" />
+                  <button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Neck skin-tightening — After" data-gallery-meta="1 session">
+                    <img src="/sandbox/assets/gallery/neck-skin-tightening-after-minimal-original-v9.webp" alt="Neck and jawline after skin-tightening cryotherapy" width="1000" height="1250" loading="lazy" decoding="async" />
+                  </button>
                   <figcaption>After</figcaption>
                 </figure>
               </div>
             </article>
 
-            <article class="gallery-result-card">
-              <header>
-                <div>
-                  <span class="gallery-result-kicker">Facial &amp; neck</span>
-                  <h3>Facial treatment series</h3>
-                </div>
-                <span class="gallery-session-pill">4 sessions</span>
+            <article class="gallery-case-card">
+              <header class="gallery-case-header">
+                <div><span>Facial &amp; neck</span><h3>Facial treatment series</h3></div>
+                <p>4 sessions</p>
               </header>
-              <div class="gallery-result-images gallery-result-images-two">
+              <div class="gallery-comparison gallery-comparison-two">
                 <figure>
-                  <img src="/sandbox/assets/gallery/facial-four-session-before.webp" alt="Face before a four-session facial cryotherapy series" width="600" height="750" loading="lazy" decoding="async" />
+                  <button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Facial treatment series — Before" data-gallery-meta="4 sessions">
+                    <img src="/sandbox/assets/gallery/facial-four-session-before.webp" alt="Face before a four-session facial cryotherapy series" width="600" height="750" loading="lazy" decoding="async" />
+                  </button>
                   <figcaption>Before</figcaption>
                 </figure>
                 <figure>
-                  <img src="/sandbox/assets/gallery/facial-four-session-after.webp" alt="Face after a four-session facial cryotherapy series" width="600" height="750" loading="lazy" decoding="async" />
+                  <button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Facial treatment series — After" data-gallery-meta="4 sessions">
+                    <img src="/sandbox/assets/gallery/facial-four-session-after.webp" alt="Face after a four-session facial cryotherapy series" width="600" height="750" loading="lazy" decoding="async" />
+                  </button>
                   <figcaption>After</figcaption>
                 </figure>
               </div>
@@ -221,172 +190,79 @@
           </div>
         </section>
 
-        <section class="gallery-section gallery-results-section" id="body-results" aria-labelledby="body-results-title">
-          <div class="gallery-section-heading">
+        <section class="gallery-section gallery-results-section gallery-section-premium" id="body-results" aria-labelledby="body-results-title">
+          <div class="gallery-section-heading gallery-section-heading-premium">
             <div>
               <p class="eyebrow">Before &amp; after</p>
-              <h2 id="body-results-title">Body-contouring results</h2>
+              <h2 id="body-results-title">Body contouring</h2>
             </div>
-            <p>Compare body-sculpting case studies, including client photo sets and one- and three-session series.</p>
+            <p>Abdominal, torso, and upper-arm comparisons organized by treatment series.</p>
           </div>
 
-          <div class="gallery-results-grid">
-            <article class="gallery-result-card">
-              <header>
-                <div>
-                  <span class="gallery-result-kicker">Body sculpting</span>
-                  <h3>Abdominal contouring</h3>
-                </div>
-                <span class="gallery-session-pill">1 session</span>
-              </header>
-              <div class="gallery-result-images gallery-result-images-two">
-                <figure>
-                  <img src="/sandbox/assets/gallery/body-contouring-one-session-before.webp" alt="Abdomen before one body-sculpting session" width="800" height="1000" loading="lazy" decoding="async" />
-                  <figcaption>Before</figcaption>
-                </figure>
-                <figure>
-                  <img src="/sandbox/assets/gallery/body-contouring-one-session-after.webp" alt="Abdomen after one body-sculpting session" width="800" height="1000" loading="lazy" decoding="async" />
-                  <figcaption>After</figcaption>
-                </figure>
+          <div class="gallery-case-grid gallery-case-grid-body">
+            <article class="gallery-case-card gallery-case-half">
+              <header class="gallery-case-header"><div><span>Body sculpting</span><h3>Abdominal contouring</h3></div><p>1 session</p></header>
+              <div class="gallery-comparison gallery-comparison-two">
+                <figure><button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Abdominal contouring — Before" data-gallery-meta="1 session"><img src="/sandbox/assets/gallery/body-contouring-one-session-before.webp" alt="Abdomen before one body-sculpting session" width="800" height="1000" loading="lazy" decoding="async" /></button><figcaption>Before</figcaption></figure>
+                <figure><button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Abdominal contouring — After" data-gallery-meta="1 session"><img src="/sandbox/assets/gallery/body-contouring-one-session-after.webp" alt="Abdomen after one body-sculpting session" width="800" height="1000" loading="lazy" decoding="async" /></button><figcaption>After</figcaption></figure>
               </div>
             </article>
 
-            <article class="gallery-result-card">
-              <header>
-                <div>
-                  <span class="gallery-result-kicker">Body sculpting</span>
-                  <h3>Abdominal skin-tightening</h3>
-                </div>
-                <span class="gallery-session-pill">1 session</span>
-              </header>
-              <div class="gallery-result-images gallery-result-images-two">
-                <figure>
-                  <img src="/sandbox/assets/gallery/body-tightening-one-session-before.webp" alt="Side view of an abdomen before one skin-tightening session" width="600" height="750" loading="lazy" decoding="async" />
-                  <figcaption>Before</figcaption>
-                </figure>
-                <figure>
-                  <img src="/sandbox/assets/gallery/body-tightening-one-session-after.webp" alt="Side view of an abdomen after one skin-tightening session" width="600" height="750" loading="lazy" decoding="async" />
-                  <figcaption>After</figcaption>
-                </figure>
+            <article class="gallery-case-card gallery-case-half">
+              <header class="gallery-case-header"><div><span>Body sculpting</span><h3>Abdominal skin-tightening</h3></div><p>1 session</p></header>
+              <div class="gallery-comparison gallery-comparison-two">
+                <figure><button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Abdominal skin-tightening — Before" data-gallery-meta="1 session"><img src="/sandbox/assets/gallery/body-tightening-one-session-before.webp" alt="Side view of an abdomen before one skin-tightening session" width="600" height="750" loading="lazy" decoding="async" /></button><figcaption>Before</figcaption></figure>
+                <figure><button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Abdominal skin-tightening — After" data-gallery-meta="1 session"><img src="/sandbox/assets/gallery/body-tightening-one-session-after.webp" alt="Side view of an abdomen after one skin-tightening session" width="600" height="750" loading="lazy" decoding="async" /></button><figcaption>After</figcaption></figure>
               </div>
             </article>
 
-            <article class="gallery-result-card gallery-result-card-wide gallery-result-card-landscape">
-              <header>
-                <div>
-                  <span class="gallery-result-kicker">Body sculpting</span>
-                  <h3>Abdominal contouring series</h3>
-                </div>
-                <span class="gallery-session-pill">3 sessions</span>
-              </header>
-              <div class="gallery-result-images gallery-result-images-three">
-                <figure>
-                  <img src="/sandbox/assets/gallery/body-contouring-three-sessions-full-1.webp" alt="Abdomen before a three-session body-sculpting series" width="1200" height="800" loading="lazy" decoding="async" />
-                  <figcaption>Before</figcaption>
-                </figure>
-                <figure>
-                  <img src="/sandbox/assets/gallery/body-contouring-three-sessions-full-2.webp" alt="Abdomen during a three-session body-sculpting series" width="1200" height="800" loading="lazy" decoding="async" />
-                  <figcaption>Progress</figcaption>
-                </figure>
-                <figure>
-                  <img src="/sandbox/assets/gallery/body-contouring-three-sessions-full-3.webp" alt="Abdomen after a three-session body-sculpting series" width="1200" height="800" loading="lazy" decoding="async" />
-                  <figcaption>After</figcaption>
-                </figure>
+            <article class="gallery-case-card gallery-case-wide">
+              <header class="gallery-case-header"><div><span>Body sculpting</span><h3>Abdominal contouring series</h3></div><p>3 sessions</p></header>
+              <div class="gallery-comparison gallery-comparison-three">
+                <figure><button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Abdominal contouring series — Before" data-gallery-meta="3 sessions"><img src="/sandbox/assets/gallery/body-contouring-three-sessions-full-1.webp" alt="Abdomen before a three-session body-sculpting series" width="1200" height="800" loading="lazy" decoding="async" /></button><figcaption>Before</figcaption></figure>
+                <figure><button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Abdominal contouring series — Progress" data-gallery-meta="3 sessions"><img src="/sandbox/assets/gallery/body-contouring-three-sessions-full-2.webp" alt="Abdomen during a three-session body-sculpting series" width="1200" height="800" loading="lazy" decoding="async" /></button><figcaption>Progress</figcaption></figure>
+                <figure><button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Abdominal contouring series — After" data-gallery-meta="3 sessions"><img src="/sandbox/assets/gallery/body-contouring-three-sessions-full-3.webp" alt="Abdomen after a three-session body-sculpting series" width="1200" height="800" loading="lazy" decoding="async" /></button><figcaption>After</figcaption></figure>
               </div>
             </article>
 
-            <article class="gallery-result-card gallery-result-card-wide gallery-result-card-landscape">
-              <header>
-                <div>
-                  <span class="gallery-result-kicker">Body sculpting</span>
-                  <h3>Upper-arm contouring series</h3>
-                </div>
-                <span class="gallery-session-pill">3 sessions</span>
-              </header>
-              <div class="gallery-result-images gallery-result-images-three">
-                <figure>
-                  <img src="/sandbox/assets/gallery/upper-arm-three-sessions-aligned-1.webp" alt="Upper arm before a three-session body-sculpting series" width="1200" height="800" loading="lazy" decoding="async" />
-                  <figcaption>Before</figcaption>
-                </figure>
-                <figure>
-                  <img src="/sandbox/assets/gallery/upper-arm-three-sessions-aligned-2.webp" alt="Upper arm during a three-session body-sculpting series" width="1200" height="800" loading="lazy" decoding="async" />
-                  <figcaption>Progress</figcaption>
-                </figure>
-                <figure>
-                  <img src="/sandbox/assets/gallery/upper-arm-three-sessions-aligned-3.webp" alt="Upper arm after a three-session body-sculpting series" width="1200" height="800" loading="lazy" decoding="async" />
-                  <figcaption>After</figcaption>
-                </figure>
+            <article class="gallery-case-card gallery-case-wide">
+              <header class="gallery-case-header"><div><span>Body sculpting</span><h3>Upper-arm contouring series</h3></div><p>3 sessions</p></header>
+              <div class="gallery-comparison gallery-comparison-three">
+                <figure><button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Upper-arm contouring series — Before" data-gallery-meta="3 sessions"><img src="/sandbox/assets/gallery/upper-arm-three-sessions-aligned-1.webp" alt="Upper arm before a three-session body-sculpting series" width="1200" height="800" loading="lazy" decoding="async" /></button><figcaption>Before</figcaption></figure>
+                <figure><button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Upper-arm contouring series — Progress" data-gallery-meta="3 sessions"><img src="/sandbox/assets/gallery/upper-arm-three-sessions-aligned-2.webp" alt="Upper arm during a three-session body-sculpting series" width="1200" height="800" loading="lazy" decoding="async" /></button><figcaption>Progress</figcaption></figure>
+                <figure><button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Upper-arm contouring series — After" data-gallery-meta="3 sessions"><img src="/sandbox/assets/gallery/upper-arm-three-sessions-aligned-3.webp" alt="Upper arm after a three-session body-sculpting series" width="1200" height="800" loading="lazy" decoding="async" /></button><figcaption>After</figcaption></figure>
               </div>
             </article>
 
-            <article class="gallery-result-card">
-              <header>
-                <div>
-                  <span class="gallery-result-kicker">Body sculpting</span>
-                  <h3>Abdominal contouring: front view</h3>
-                </div>
-                <span class="gallery-session-pill">Client photos</span>
-              </header>
-              <div class="gallery-result-images gallery-result-images-two">
-                <figure>
-                  <img src="/sandbox/assets/before-after/astra-body-contouring-before.webp" alt="Front view of a client's abdomen before body contouring" width="1200" height="1500" loading="lazy" decoding="async" />
-                  <figcaption>Before</figcaption>
-                </figure>
-                <figure>
-                  <img src="/sandbox/assets/before-after/astra-body-contouring-after.webp" alt="Front view of the same client's abdomen after body contouring" width="1200" height="1500" loading="lazy" decoding="async" />
-                  <figcaption>After</figcaption>
-                </figure>
+            <article class="gallery-case-card gallery-case-third">
+              <header class="gallery-case-header"><div><span>Body sculpting</span><h3>Abdominal contouring</h3></div><p>Front view</p></header>
+              <div class="gallery-comparison gallery-comparison-two">
+                <figure><button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Abdominal contouring, front view — Before" data-gallery-meta="Client photo set"><img src="/sandbox/assets/before-after/astra-body-contouring-before.webp" alt="Front view of a client's abdomen before body contouring" width="1200" height="1500" loading="lazy" decoding="async" /></button><figcaption>Before</figcaption></figure>
+                <figure><button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Abdominal contouring, front view — After" data-gallery-meta="Client photo set"><img src="/sandbox/assets/before-after/astra-body-contouring-after.webp" alt="Front view of the same client's abdomen after body contouring" width="1200" height="1500" loading="lazy" decoding="async" /></button><figcaption>After</figcaption></figure>
               </div>
             </article>
 
-            <article class="gallery-result-card">
-              <header>
-                <div>
-                  <span class="gallery-result-kicker">Body sculpting</span>
-                  <h3>Torso contouring: front view</h3>
-                </div>
-                <span class="gallery-session-pill">Client photos</span>
-              </header>
-              <div class="gallery-result-images gallery-result-images-two">
-                <figure>
-                  <img src="/sandbox/assets/before-after/body-contouring-front-before.webp" alt="Front torso view before body contouring" width="1200" height="1500" loading="lazy" decoding="async" />
-                  <figcaption>Before</figcaption>
-                </figure>
-                <figure>
-                  <img src="/sandbox/assets/before-after/body-contouring-front-after.webp" alt="Front torso view from the same body-contouring photo set" width="1200" height="1500" loading="lazy" decoding="async" />
-                  <figcaption>After</figcaption>
-                </figure>
+            <article class="gallery-case-card gallery-case-third">
+              <header class="gallery-case-header"><div><span>Body sculpting</span><h3>Torso contouring</h3></div><p>Front view</p></header>
+              <div class="gallery-comparison gallery-comparison-two">
+                <figure><button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Torso contouring, front view — Before" data-gallery-meta="Client photo set"><img src="/sandbox/assets/before-after/body-contouring-front-before.webp" alt="Front torso view before body contouring" width="1200" height="1500" loading="lazy" decoding="async" /></button><figcaption>Before</figcaption></figure>
+                <figure><button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Torso contouring, front view — After" data-gallery-meta="Client photo set"><img src="/sandbox/assets/before-after/body-contouring-front-after.webp" alt="Front torso view from the same body-contouring photo set" width="1200" height="1500" loading="lazy" decoding="async" /></button><figcaption>After</figcaption></figure>
               </div>
             </article>
 
-            <article class="gallery-result-card gallery-result-card-centered">
-              <header>
-                <div>
-                  <span class="gallery-result-kicker">Body sculpting</span>
-                  <h3>Torso contouring: back view</h3>
-                </div>
-                <span class="gallery-session-pill">Client photos</span>
-              </header>
-              <div class="gallery-result-images gallery-result-images-two">
-                <figure>
-                  <img src="/sandbox/assets/before-after/body-contouring-back-before.webp" alt="Back torso view before body contouring" width="1200" height="1500" loading="lazy" decoding="async" />
-                  <figcaption>Before</figcaption>
-                </figure>
-                <figure>
-                  <img src="/sandbox/assets/before-after/body-contouring-back-after.webp" alt="Back torso view from the same body-contouring photo set" width="1200" height="1500" loading="lazy" decoding="async" />
-                  <figcaption>After</figcaption>
-                </figure>
+            <article class="gallery-case-card gallery-case-third">
+              <header class="gallery-case-header"><div><span>Body sculpting</span><h3>Torso contouring</h3></div><p>Back view</p></header>
+              <div class="gallery-comparison gallery-comparison-two">
+                <figure><button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Torso contouring, back view — Before" data-gallery-meta="Client photo set"><img src="/sandbox/assets/before-after/body-contouring-back-before.webp" alt="Back torso view before body contouring" width="1200" height="1500" loading="lazy" decoding="async" /></button><figcaption>Before</figcaption></figure>
+                <figure><button class="gallery-photo-button" type="button" data-gallery-open data-gallery-title="Torso contouring, back view — After" data-gallery-meta="Client photo set"><img src="/sandbox/assets/before-after/body-contouring-back-after.webp" alt="Back torso view from the same body-contouring photo set" width="1200" height="1500" loading="lazy" decoding="async" /></button><figcaption>After</figcaption></figure>
               </div>
             </article>
           </div>
 
-          <p class="gallery-disclosure">
-            Images include Mobile Cryo Pro client photo sets and equipment-manufacturer case studies. Photography conditions may vary.
-            Individual results vary, and no outcome is guaranteed.
-          </p>
+          <p class="gallery-disclosure">Photography conditions vary across case studies. Individual results vary.</p>
         </section>
 
-        <section class="gallery-cta" aria-labelledby="gallery-cta-title">
+        <section class="gallery-cta gallery-cta-premium" aria-labelledby="gallery-cta-title">
           <div>
             <p class="eyebrow">Professional cryotherapy, brought to you</p>
             <h2 id="gallery-cta-title">What would you like to work on?</h2>
@@ -413,7 +289,23 @@
       </footer>
     </div>
 
+    <dialog class="gallery-lightbox" data-gallery-lightbox aria-label="Gallery image viewer">
+      <div class="gallery-lightbox-shell">
+        <button class="gallery-lightbox-close" type="button" data-gallery-close aria-label="Close image viewer">&times;</button>
+        <button class="gallery-lightbox-arrow gallery-lightbox-prev" type="button" data-gallery-prev aria-label="Previous image">&#8592;</button>
+        <figure class="gallery-lightbox-stage">
+          <img src="" alt="" data-gallery-lightbox-image />
+          <figcaption>
+            <div><span data-gallery-lightbox-meta></span><strong data-gallery-lightbox-title></strong></div>
+            <p><span data-gallery-lightbox-current>1</span> / <span data-gallery-lightbox-total>1</span></p>
+          </figcaption>
+        </figure>
+        <button class="gallery-lightbox-arrow gallery-lightbox-next" type="button" data-gallery-next aria-label="Next image">&#8594;</button>
+        <div class="gallery-lightbox-thumbs" data-gallery-thumbs aria-label="Gallery thumbnails"></div>
+      </div>
+    </dialog>
+
     <script src="/sandbox/footer.js?v=10"></script>
-    <script src="/sandbox/script.js?v=32"></script>
+    <script src="/sandbox/script.js?v=33"></script>
   </body>
 </html>
