@@ -726,30 +726,45 @@ if (galleryLightbox && galleryOpenButtons.length) {
   const previousButton = galleryLightbox.querySelector("[data-gallery-prev]");
   const nextButton = galleryLightbox.querySelector("[data-gallery-next]");
   let currentGalleryIndex = 0;
+  let thumbnailButtons = [];
+  const adjacentPreloads = new Map();
 
-  const thumbnailButtons = galleryOpenButtons.map((button, index) => {
-    const sourceImage = button.querySelector("img");
-    const thumbnail = document.createElement("button");
-    const thumbnailImage = document.createElement("img");
+  const getFullGallerySource = (image) => {
+    const sourceCandidates = (image.getAttribute("srcset") || "")
+      .split(",")
+      .map((candidate) => {
+        const [source, descriptor = "0w"] = candidate.trim().split(/\s+/);
+        return { source, width: Number.parseInt(descriptor, 10) || 0 };
+      })
+      .filter((candidate) => candidate.source)
+      .sort((first, second) => second.width - first.width);
 
-    thumbnail.type = "button";
-    thumbnail.className = "gallery-lightbox-thumb";
-    thumbnail.setAttribute("aria-label", `View image ${index + 1}: ${button.dataset.galleryTitle || sourceImage.alt}`);
-    thumbnailImage.src = sourceImage.currentSrc || sourceImage.src;
-    thumbnailImage.alt = "";
-    thumbnailImage.loading = "lazy";
-    thumbnail.append(thumbnailImage);
-    thumbnail.addEventListener("click", () => showGalleryImage(index));
-    lightboxThumbs.append(thumbnail);
-    return thumbnail;
-  });
+    const fallbackSource = image.getAttribute("src") || image.src;
+    return sourceCandidates[0]?.source || fallbackSource.replace(/-card(?=\.[^./?#]+(?:[?#].*)?$)/, "");
+  };
+
+  const getGalleryThumbnailSource = (image) =>
+    getFullGallerySource(image).replace(/(\.[^./?#]+)([?#].*)?$/, "-thumb.webp$2");
+
+  const preloadAdjacentGalleryImage = (index) => {
+    const normalizedIndex = (index + galleryOpenButtons.length) % galleryOpenButtons.length;
+    const sourceImage = galleryOpenButtons[normalizedIndex].querySelector("img");
+    const fullSource = getFullGallerySource(sourceImage);
+
+    if (!fullSource || adjacentPreloads.has(fullSource)) return;
+
+    const preload = new Image();
+    preload.decoding = "async";
+    preload.src = fullSource;
+    adjacentPreloads.set(fullSource, preload);
+  };
 
   const showGalleryImage = (index) => {
     currentGalleryIndex = (index + galleryOpenButtons.length) % galleryOpenButtons.length;
     const selectedButton = galleryOpenButtons[currentGalleryIndex];
     const selectedImage = selectedButton.querySelector("img");
 
-    lightboxImage.src = selectedImage.currentSrc || selectedImage.src;
+    lightboxImage.src = getFullGallerySource(selectedImage);
     lightboxImage.alt = selectedImage.alt;
     lightboxTitle.textContent = selectedButton.dataset.galleryTitle || selectedImage.alt;
     lightboxMeta.textContent = selectedButton.dataset.galleryMeta || "Mobile Cryo Pro gallery";
@@ -765,9 +780,38 @@ if (galleryLightbox && galleryOpenButtons.length) {
     });
 
     thumbnailButtons[currentGalleryIndex]?.scrollIntoView({ block: "nearest", inline: "center" });
+    window.setTimeout(() => {
+      preloadAdjacentGalleryImage(currentGalleryIndex - 1);
+      preloadAdjacentGalleryImage(currentGalleryIndex + 1);
+    }, 0);
+  };
+
+  const ensureThumbnailButtons = () => {
+    if (thumbnailButtons.length) return;
+
+    thumbnailButtons = galleryOpenButtons.map((button, index) => {
+      const sourceImage = button.querySelector("img");
+      const thumbnail = document.createElement("button");
+      const thumbnailImage = document.createElement("img");
+
+      thumbnail.type = "button";
+      thumbnail.className = "gallery-lightbox-thumb";
+      thumbnail.setAttribute("aria-label", `View image ${index + 1}: ${button.dataset.galleryTitle || sourceImage.alt}`);
+      thumbnailImage.src = getGalleryThumbnailSource(sourceImage);
+      thumbnailImage.alt = "";
+      thumbnailImage.width = 240;
+      thumbnailImage.height = 192;
+      thumbnailImage.loading = "lazy";
+      thumbnailImage.decoding = "async";
+      thumbnail.append(thumbnailImage);
+      thumbnail.addEventListener("click", () => showGalleryImage(index));
+      lightboxThumbs.append(thumbnail);
+      return thumbnail;
+    });
   };
 
   const openGalleryLightbox = (index) => {
+    ensureThumbnailButtons();
     showGalleryImage(index);
     document.body.classList.add("gallery-lightbox-open");
     galleryLightbox.showModal();
