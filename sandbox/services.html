@@ -45,6 +45,27 @@
             const sandboxHref = redirects.get(href);
             if (sandboxHref) link.href = sandboxHref;
           });
+
+          const footerLinks = document.querySelector(".footer-links");
+          if (footerLinks && !footerLinks.querySelector('a[href="/sandbox/privacy.html"]')) {
+            const privacyLink = document.createElement("a");
+            const termsLink = document.createElement("a");
+            privacyLink.href = "/sandbox/privacy.html";
+            privacyLink.textContent = "Privacy";
+            termsLink.href = "/sandbox/terms.html";
+            termsLink.textContent = "Terms";
+            footerLinks.append(privacyLink, termsLink);
+          }
+
+          document.querySelectorAll("[data-contact-form]").forEach((form) => {
+            if (form.querySelector(".form-privacy-note")) return;
+            const note = document.createElement("p");
+            note.className = "form-privacy-note";
+            note.innerHTML = 'Use this form for scheduling details, not medical records. By sending, you authorize a reply about your request. <a href="/sandbox/privacy.html">Privacy Policy</a>';
+            const depositLink = form.querySelector(".booking-deposit-link");
+            if (depositLink) depositLink.before(note);
+            else form.append(note);
+          });
         };
 
         const showError = () => {

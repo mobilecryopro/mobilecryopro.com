@@ -37,6 +37,7 @@
               </div>
               <button class="button button-primary" type="submit">Send Request</button>
               <p class="contact-form-note" aria-live="polite">Dan will reply as soon as possible.</p>
+              <p class="form-privacy-note">Use this form for scheduling details, not medical records. By sending, you authorize a reply about your request. <a href="/sandbox/privacy.html">Privacy Policy</a></p>
               <p class="booking-deposit-link">Already scheduled? <a aria-disabled="true" title="Available after scheduling">Pay the $50 booking deposit</a></p>
             </form>
           </div>
@@ -60,7 +61,7 @@
           <div class="footer-payment-methods" aria-label="Accepted payment methods">
             <a class="payment-mark payment-mark-visa" aria-disabled="true">VISA</a><a class="payment-mark payment-mark-mastercard" aria-disabled="true"></a><a class="payment-mark payment-mark-amex" aria-disabled="true">AMEX</a><a class="payment-mark payment-mark-discover" aria-disabled="true">DISCOVER</a><a class="payment-mark payment-mark-apple" aria-disabled="true">Apple Pay</a><a class="payment-mark payment-mark-link" aria-disabled="true">● link</a><a class="payment-mark payment-mark-klarna" aria-disabled="true">Klarna</a><a class="payment-mark payment-mark-amazon" aria-disabled="true">amazon pay</a><a class="payment-mark payment-mark-cash" aria-disabled="true">$ Cash</a><a class="payment-mark payment-mark-bank" aria-disabled="true">▥ Bank</a>
           </div>
-          <div class="footer-links"><a href="/about.html">About</a><a href="/sandbox/services.html">Services</a><a href="/sandbox/guides/index.html">Guides</a><a href="/faq.html">FAQ</a><a href="/service-areas.html">Service Areas</a><a href="/expansion-opportunities.html">Expansion</a></div>
+          <div class="footer-links"><a href="/about.html">About</a><a href="/sandbox/services.html">Services</a><a href="/sandbox/guides/index.html">Guides</a><a href="/faq.html">FAQ</a><a href="/service-areas.html">Service Areas</a><a href="/expansion-opportunities.html">Expansion</a><a href="/sandbox/privacy.html">Privacy</a><a href="/sandbox/terms.html">Terms</a></div>
         </div>
       </div>
     </div>`;
