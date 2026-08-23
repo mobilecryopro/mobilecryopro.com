@@ -1,6 +1,6 @@
 const GOOGLE_ANALYTICS_MEASUREMENT_ID = "G-ZP3ZP784WD";
 
-const installGoogleAnalytics = () => {
+const isProductionAnalyticsContext = () => {
   const { hostname, pathname } = window.location;
   const isProductionHost =
     hostname === "mobilecryopro.com" || hostname === "www.mobilecryopro.com";
@@ -12,7 +12,11 @@ const installGoogleAnalytics = () => {
     pathname === "/logo-options.html" ||
     pathname === "/logo-riffs.html";
 
-  if (isNonProductionPage || !isProductionHost || window.gtag) {
+  return isProductionHost && !isNonProductionPage;
+};
+
+const installGoogleAnalytics = () => {
+  if (!isProductionAnalyticsContext() || window.gtag) {
     return;
   }
 
@@ -31,6 +35,70 @@ const installGoogleAnalytics = () => {
 };
 
 installGoogleAnalytics();
+
+const trackAnalyticsEvent = (eventName, parameters = {}) => {
+  const eventDetail = {
+    eventName,
+    parameters: {
+      ...parameters,
+      page_path: window.location.pathname,
+    },
+  };
+
+  // This local event makes the instrumentation testable without sending
+  // sandbox or localhost activity to the production Analytics property.
+  window.dispatchEvent(
+    new CustomEvent("mobilecryopro:analytics", { detail: eventDetail }),
+  );
+
+  if (!isProductionAnalyticsContext() || typeof window.gtag !== "function") {
+    return;
+  }
+
+  window.gtag("event", eventName, eventDetail.parameters);
+};
+
+const getLinkContext = (link) => {
+  if (link.closest(".site-header")) {
+    return "header";
+  }
+  if (link.closest(".site-footer")) {
+    return "footer";
+  }
+  if (link.closest("form")) {
+    return "form";
+  }
+  return "content";
+};
+
+document.addEventListener("click", (event) => {
+  const link = event.target.closest?.("a[href]");
+
+  if (!link) {
+    return;
+  }
+
+  const url = new URL(link.href, window.location.href);
+  const linkContext = getLinkContext(link);
+
+  if (url.protocol === "tel:") {
+    trackAnalyticsEvent("click_to_call", { link_context: linkContext });
+    return;
+  }
+
+  if (url.protocol === "mailto:") {
+    trackAnalyticsEvent("click_to_email", { link_context: linkContext });
+    return;
+  }
+
+  if (url.hostname === "book.stripe.com") {
+    trackAnalyticsEvent("booking_deposit_click", {
+      link_context: linkContext,
+      currency: "USD",
+      value: 50,
+    });
+  }
+});
 
 const installUnifiedSiteFooter = () => {
   const pageShell = document.querySelector(".page-shell");
@@ -418,6 +486,9 @@ contactForms.forEach((contactForm) => {
         throw new Error(`Formspree returned ${response.status}`);
       }
 
+      trackAnalyticsEvent("generate_lead", {
+        form_type: isExpansionForm ? "expansion_inquiry" : "website_inquiry",
+      });
       contactForm.reset();
       if (status) {
         status.textContent = isExpansionForm

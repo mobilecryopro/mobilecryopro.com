@@ -1,3 +1,104 @@
+const GOOGLE_ANALYTICS_MEASUREMENT_ID = "G-ZP3ZP784WD";
+
+const isProductionAnalyticsContext = () => {
+  const { hostname, pathname } = window.location;
+  const isProductionHost =
+    hostname === "mobilecryopro.com" || hostname === "www.mobilecryopro.com";
+  const isNonProductionPage =
+    pathname.startsWith("/sandbox/") ||
+    pathname.startsWith("/original-attempt/") ||
+    pathname.startsWith("/email-media/") ||
+    pathname === "/blog-layout-preview.html" ||
+    pathname === "/logo-options.html" ||
+    pathname === "/logo-riffs.html";
+
+  return isProductionHost && !isNonProductionPage;
+};
+
+const installGoogleAnalytics = () => {
+  if (!isProductionAnalyticsContext() || window.gtag) {
+    return;
+  }
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function gtag() {
+    window.dataLayer.push(arguments);
+  };
+  window.gtag("js", new Date());
+  window.gtag("config", GOOGLE_ANALYTICS_MEASUREMENT_ID);
+
+  const googleTag = document.createElement("script");
+  googleTag.async = true;
+  googleTag.src = `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_MEASUREMENT_ID}`;
+  googleTag.dataset.mobileCryoGoogleTag = "true";
+  document.head.append(googleTag);
+};
+
+installGoogleAnalytics();
+
+const trackAnalyticsEvent = (eventName, parameters = {}) => {
+  const eventDetail = {
+    eventName,
+    parameters: {
+      ...parameters,
+      page_path: window.location.pathname,
+    },
+  };
+
+  // Keep previews measurable in automated QA without polluting production GA4.
+  window.dispatchEvent(
+    new CustomEvent("mobilecryopro:analytics", { detail: eventDetail }),
+  );
+
+  if (!isProductionAnalyticsContext() || typeof window.gtag !== "function") {
+    return;
+  }
+
+  window.gtag("event", eventName, eventDetail.parameters);
+};
+
+const getLinkContext = (link) => {
+  if (link.closest(".site-header")) {
+    return "header";
+  }
+  if (link.closest(".site-footer")) {
+    return "footer";
+  }
+  if (link.closest("form")) {
+    return "form";
+  }
+  return "content";
+};
+
+document.addEventListener("click", (event) => {
+  const link = event.target.closest?.("a[href]");
+
+  if (!link) {
+    return;
+  }
+
+  const url = new URL(link.href, window.location.href);
+  const linkContext = getLinkContext(link);
+
+  if (url.protocol === "tel:") {
+    trackAnalyticsEvent("click_to_call", { link_context: linkContext });
+    return;
+  }
+
+  if (url.protocol === "mailto:") {
+    trackAnalyticsEvent("click_to_email", { link_context: linkContext });
+    return;
+  }
+
+  if (url.hostname === "book.stripe.com") {
+    trackAnalyticsEvent("booking_deposit_click", {
+      link_context: linkContext,
+      currency: "USD",
+      value: 50,
+    });
+  }
+});
+
 const header = document.querySelector(".site-header");
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelectorAll(".site-nav a");
@@ -646,6 +747,9 @@ contactForms.forEach((contactForm) => {
         throw new Error(`Formspree returned ${response.status}`);
       }
 
+      trackAnalyticsEvent("generate_lead", {
+        form_type: isExpansionForm ? "expansion_inquiry" : "website_inquiry",
+      });
       contactForm.reset();
       if (status) {
         status.textContent = isExpansionForm
