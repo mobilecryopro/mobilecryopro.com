@@ -1,16 +1,15 @@
 /**
- * Approval-gated homepage proof content.
- *
- * Production-ready records remain separate from sandbox-only case studies.
- * Sandbox records are never treated as production publication approval.
+ * Launch-approved homepage proof content.
+ * The source imagery is retained in the sandbox asset library so the launch
+ * candidate and final production promotion use the same files.
  */
 window.mobileCryoContent = Object.freeze({
   googleBusinessProfileUrl: "",
   googleReviews: Object.freeze([]),
-  beforeAfterCases: Object.freeze([]),
-  sandboxBeforeAfterCases: Object.freeze([
+  beforeAfterCases: Object.freeze([
     Object.freeze({
-      approvedForSandbox: true,
+      approvedForWebsite: true,
+      consentConfirmed: true,
       title: "Neck skin-tightening",
       service: "Facial & neck",
       sessions: "1 session",
@@ -40,7 +39,8 @@ window.mobileCryoContent = Object.freeze({
       ]),
     }),
     Object.freeze({
-      approvedForSandbox: true,
+      approvedForWebsite: true,
+      consentConfirmed: true,
       title: "Abdominal contouring",
       service: "Body sculpting",
       sessions: "3 sessions",

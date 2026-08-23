@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow, noarchive" />
     <base href="/" />
-    <link rel="canonical" href="https://mobilecryopro.com/services" />
-    <title>Services &amp; Pricing Preview | Mobile Cryo Pro</title>
+    <link rel="canonical" href="https://mobilecryopro.com/services.html" />
+    <title>Services &amp; Pricing | Mobile Cryo Pro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,9 +19,9 @@
   </head>
   <body class="services-page sandbox-services-page sandbox-services-loading">
     <main class="sandbox-services-loader" id="main-content">
-      <p class="eyebrow">Sandbox preview</p>
-      <h1>Loading the Services preview</h1>
-      <p>This page uses the live Services content with sandbox-only styling.</p>
+      <p class="eyebrow">Services &amp; pricing</p>
+      <h1>Loading services</h1>
+      <p>Preparing Mobile Cryo Pro service and pricing details.</p>
     </main>
     <script>
       (() => {
@@ -71,7 +71,7 @@
         const showError = () => {
           document.body.classList.remove("sandbox-services-loading");
           document.body.innerHTML =
-            '<main class="sandbox-services-loader" id="main-content"><p class="eyebrow">Sandbox preview</p><h1>Preview unavailable</h1><p>The Services content could not be loaded. <a href="/services.html">Open the live Services page</a>.</p></main>';
+            '<main class="sandbox-services-loader" id="main-content"><p class="eyebrow">Services &amp; pricing</p><h1>Services are temporarily unavailable</h1><p>Please <a href="tel:+17074139366">call or text (707) 413-9366</a> for current options and pricing.</p></main>';
         };
 
         fetch("/services.html", { cache: "no-cache" })
@@ -89,16 +89,6 @@
               '<a class="skip-link" href="#main-content">Skip to content</a>' +
               source.querySelector(".icon-sprite").outerHTML +
               pageShell.outerHTML;
-
-            const header = document.querySelector(".site-header");
-            if (header) {
-              const banner = document.createElement("aside");
-              banner.className = "sandbox-services-banner";
-              banner.setAttribute("role", "status");
-              banner.innerHTML =
-                "<strong>Sandbox Services preview</strong><span>New treatment images are shown for placement review. Final approval is still needed before they go live.</span>";
-              header.insertAdjacentElement("afterend", banner);
-            }
 
             const addServiceImage = ({ selector, src, alt, title, copy, modifier = "" }) => {
               const category = document.querySelector(selector);
@@ -131,7 +121,7 @@
               src: "/sandbox/assets/services/cryoskin-treatment-action.webp",
               alt: "CryoSkin 3.0 body treatment shown in progress",
               title: "CryoSkin 3.0 in action",
-              copy: "Placement preview supplied by Mobile Cryo Pro. Final image approval is still pending.",
+              copy: "A focused body treatment using portable CryoSkin 3.0 equipment.",
             });
 
             addServiceImage({
@@ -139,7 +129,7 @@
               src: "/sandbox/assets/services/liquid-nitrogen-facial.webp",
               alt: "Localized liquid-nitrogen facial shown in progress",
               title: "Localized liquid-nitrogen facial",
-              copy: "Placement preview supplied by Mobile Cryo Pro. Final image approval is still pending.",
+              copy: "A localized facial treatment delivered with portable equipment.",
               modifier: "sandbox-service-media-facial",
             });
 

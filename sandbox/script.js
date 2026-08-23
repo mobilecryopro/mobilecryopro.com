@@ -45,7 +45,7 @@ const trackAnalyticsEvent = (eventName, parameters = {}) => {
     },
   };
 
-  // Keep previews measurable in automated QA without polluting production GA4.
+  // Keep the launch candidate testable without polluting production GA4.
   window.dispatchEvent(
     new CustomEvent("mobilecryopro:analytics", { detail: eventDetail }),
   );
@@ -110,7 +110,6 @@ const formspreeEndpoint = "https://formspree.io/f/mnjeppkn";
 const bookingDepositPage = "https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00";
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 const homepageProofContent = window.mobileCryoContent || {};
-const sandboxPreviewMode = document.documentElement.dataset.sandboxPreview === "true";
 
 if (header) {
   const updateScrolledHeader = () => {
@@ -241,18 +240,8 @@ const googleBusinessProfileUrl = isGoogleUrl(homepageProofContent.googleBusiness
   ? homepageProofContent.googleBusinessProfileUrl
   : "";
 
-const sandboxReviewSlots = Array.from({ length: 4 }, (_, index) => ({
-  previewPlaceholder: true,
-  reviewerName: "Reviewer attribution pending",
-  reviewText: "Approved Google review text will appear here.",
-  reviewDate: "Review date pending",
-  slotNumber: index + 1,
-}));
-
-const approvedGoogleReviews = sandboxPreviewMode
-  ? sandboxReviewSlots
-  : Array.isArray(homepageProofContent.googleReviews)
-    ? homepageProofContent.googleReviews.filter((review) => {
+const approvedGoogleReviews = Array.isArray(homepageProofContent.googleReviews)
+  ? homepageProofContent.googleReviews.filter((review) => {
       const rating = Number(review?.rating);
 
       return (
@@ -264,8 +253,8 @@ const approvedGoogleReviews = sandboxPreviewMode
         rating <= 5 &&
         isGoogleUrl(review?.sourceUrl)
       );
-      })
-    : [];
+    })
+  : [];
 
 const googleReviewsSection = document.querySelector("[data-google-reviews]");
 const reviewCarousel = document.querySelector("[data-review-carousel]");
@@ -278,7 +267,7 @@ const reviewCardTemplate = document.querySelector("#google-review-card-template"
 
 if (
   approvedGoogleReviews.length &&
-  (googleBusinessProfileUrl || sandboxPreviewMode) &&
+  googleBusinessProfileUrl &&
   googleReviewsSection &&
   reviewCarousel &&
   reviewTrack &&
@@ -403,26 +392,6 @@ if (
   updateReviewControls();
 }
 
-const sandboxCaseSlots = Array.from({ length: 2 }, (_, index) => ({
-  previewPlaceholder: true,
-  title: `Approved case study slot ${index + 1}`,
-  service: "Service details pending",
-  sessions: "Pending approval",
-  timeframe: "Pending approval",
-  caption: "Approved case summary will appear here.",
-  disclaimer: "Preview only. No client media or treatment result is shown.",
-  before: {
-    label: "Before",
-    alt: "Placeholder for an approved before image",
-    caption: "Approved before-image caption",
-  },
-  after: {
-    label: "After",
-    alt: "Placeholder for an approved after image",
-    caption: "Approved after-image caption",
-  },
-}));
-
 const getBeforeAfterPairs = (caseStudy) => {
   if (Array.isArray(caseStudy?.pairs) && caseStudy.pairs.length) {
     return caseStudy.pairs;
@@ -458,36 +427,19 @@ const hasValidBeforeAfterPairs = (caseStudy, requireCaptions = false) => {
   );
 };
 
-const sandboxBeforeAfterCases = Array.isArray(homepageProofContent.sandboxBeforeAfterCases)
-  ? homepageProofContent.sandboxBeforeAfterCases.filter((caseStudy) => {
-    return (
-      caseStudy?.approvedForSandbox === true &&
-      String(caseStudy?.title || "").trim() &&
-      String(caseStudy?.service || "").trim() &&
-      hasValidBeforeAfterPairs(caseStudy)
-    );
-  })
-  : [];
-
-const approvedBeforeAfterCases = sandboxPreviewMode
-  ? sandboxBeforeAfterCases.length
-    ? sandboxBeforeAfterCases
-    : sandboxCaseSlots
-  : Array.isArray(homepageProofContent.beforeAfterCases)
-    ? homepageProofContent.beforeAfterCases.filter((caseStudy) => {
+const approvedBeforeAfterCases = Array.isArray(homepageProofContent.beforeAfterCases)
+  ? homepageProofContent.beforeAfterCases.filter((caseStudy) => {
       return (
         caseStudy?.approvedForWebsite === true &&
         caseStudy?.consentConfirmed === true &&
         String(caseStudy?.title || "").trim() &&
         String(caseStudy?.service || "").trim() &&
         String(caseStudy?.sessions || "").trim() &&
-        String(caseStudy?.timeframe || "").trim() &&
         String(caseStudy?.caption || "").trim() &&
-        String(caseStudy?.disclaimer || "").trim() &&
-        hasValidBeforeAfterPairs(caseStudy, true)
+        hasValidBeforeAfterPairs(caseStudy)
       );
-      })
-    : [];
+    })
+  : [];
 
 const beforeAfterSection = document.querySelector("[data-before-after-gallery]");
 const beforeAfterGrid = document.querySelector("[data-before-after-grid]");
@@ -618,7 +570,7 @@ if (
   beforeAfterSection.hidden = false;
 }
 
-// Build the review-only homepage sequence without changing the production page.
+// Build the launch-candidate homepage sequence.
 const homepageMain = document.querySelector("main");
 const homepageHero = document.querySelector(".home-flagship-hero");
 const servicesPricingSection = document.querySelector(".home-services-pricing-band");
@@ -658,8 +610,7 @@ if (homepageMain) {
   });
 }
 
-// The service-area map and contact form are one continuous footer region in
-// the sandbox preview. Production markup and styles remain untouched.
+// The service-area map and contact form form one continuous footer region.
 if (serviceAreaSection) {
   if (siteFooter) {
     siteFooter.prepend(serviceAreaSection);
@@ -675,20 +626,6 @@ contactForms.forEach((contactForm) => {
   const readyMessage = isExpansionForm
     ? "Send an expansion inquiry to Mobile Cryo Pro. This is an expression of interest, not an offer or commitment."
     : "Send the form and Dan will reply as soon as possible.";
-
-  if (sandboxPreviewMode) {
-    contactForm.removeAttribute("action");
-    contactForm.removeAttribute("method");
-    if (submitButton) {
-      submitButton.disabled = true;
-      submitButton.textContent = isExpansionForm ? "Send Expansion Inquiry" : "Send Request";
-    }
-    if (status) {
-      status.textContent = readyMessage;
-      status.setAttribute("aria-live", "polite");
-    }
-    return;
-  }
 
   contactForm.action = formspreeEndpoint;
   contactForm.method = "POST";
@@ -769,15 +706,6 @@ contactForms.forEach((contactForm) => {
     }
   });
 });
-
-if (sandboxPreviewMode) {
-  document.querySelectorAll('a[href^="https://book.stripe.com"]').forEach((link) => {
-    link.removeAttribute("href");
-    link.removeAttribute("target");
-    link.setAttribute("aria-disabled", "true");
-    link.setAttribute("title", "Disabled in sandbox preview");
-  });
-}
 
 const galleryDirectory = document.querySelector("[data-gallery-directory]");
 
