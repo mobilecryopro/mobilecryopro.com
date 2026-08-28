@@ -58,8 +58,8 @@
       displayTitle: "Cold therapy after exercise: what the research actually says.",
       description: "A plain-English look at soreness, recovery, performance, and why results from one cooling method do not automatically apply to another.",
       readTime: "6 min read",
-      image: "/assets/sports-recovery-stretch.jpg",
-      imageAlt: "An athlete stretching as part of a recovery routine",
+      image: "/assets/sports-marathon-runner.jpg",
+      imageAlt: "Runner competing in a road race",
       takeaways: [
         "Some cold methods may help perceived soreness for some people in the short term.",
         "Research does not show a universal improvement in recovery or performance.",
