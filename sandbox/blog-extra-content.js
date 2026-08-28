@@ -31,8 +31,8 @@
       displayTitle: "What to expect at a mobile cryotherapy appointment.",
       description: "A practical walkthrough of choosing a service, confirming the location, meeting Dan, and preparing for a private mobile visit.",
       readTime: "4 min read",
-      image: "/assets/guides/guide-mobile-appointment.webp",
-      imageAlt: "Practitioner preparing a compact mobile cryotherapy setup in a private home",
+      image: "/assets/guides/guide-mobile-appointment-v3.webp",
+      imageAlt: "Client prepared for a private mobile appointment",
       takeaways: [
         "Dan confirms the service, location, timing, and treatment area before the visit.",
         "Appointments can be requested for homes, hotels, gyms, offices, and private venues.",
@@ -139,8 +139,8 @@
       displayTitle: "Planning a mobile equine cryotherapy visit.",
       description: "A barn-side logistics guide that keeps veterinary diagnosis, treatment decisions, and return-to-work advice with the horse's veterinarian.",
       readTime: "4 min read",
-      image: "/assets/guides/guide-equine-barn-visit.webp",
-      imageAlt: "Horse and handler preparing for a mobile barn visit",
+      image: "/assets/guides/guide-equine-barn-visit-v3.webp",
+      imageAlt: "Full-size horse standing calmly in a barn",
       takeaways: [
         "Involve the horse's veterinarian when the visit relates to an injury, disease, lameness, or rehabilitation plan.",
         "Share the barn location, requested area, timing, and handling considerations before scheduling.",
