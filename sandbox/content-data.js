@@ -4,8 +4,49 @@
  * candidate and final production promotion use the same files.
  */
 window.mobileCryoContent = Object.freeze({
-  googleBusinessProfileUrl: "",
-  googleReviews: Object.freeze([]),
+  googleBusinessProfileUrl:
+    "https://www.google.com/maps/place/Mobile+Cryo+Pro/data=!4m7!3m6!1s0x8085075a0c62ba07:0x39adb03ef86d32ef!8m2!3d38.3340091!4d-122.9899756!16s%2Fg%2F11yxjrd3m_!19sChIJB7piDFoHhYAR7zJt-D6wrTk",
+  googleReviews: Object.freeze([
+    Object.freeze({
+      approved: true,
+      reviewerName: "Kelly",
+      reviewerInitial: "K",
+      rating: 5,
+      reviewText:
+        "I’ve been using Mobile Cryo Pro for recovery and overall wellness, and it’s made a noticeable difference. Super convenient having mobile cryotherapy come to my home in Petaluma. Great experience every time.",
+      sourceUrl: "https://maps.app.goo.gl/gAjtwoLbtK5rXjHb7",
+    }),
+    Object.freeze({
+      approved: true,
+      reviewerName: "Timothy Adams",
+      reviewerInitial: "T",
+      rating: 5,
+      reviewText:
+        "Wasn't sure what to expect with cryotherapy, but this was legit. I'm in Sonoma and had them come out, which made it easier than going somewhere. Helped a lot with some lingering soreness and tightness I've been dealing with. You can actually feel the difference after. Cool service to have out here in Sonoma.",
+      sourceUrl:
+        "https://www.google.com/maps/place/Mobile+Cryo+Pro/data=!4m7!3m6!1s0x8085075a0c62ba07:0x39adb03ef86d32ef!8m2!3d38.3340091!4d-122.9899756!16s%2Fg%2F11yxjrd3m_!19sChIJB7piDFoHhYAR7zJt-D6wrTk",
+    }),
+    Object.freeze({
+      approved: true,
+      reviewerName: "Oliverlovespie",
+      reviewerInitial: "O",
+      rating: 5,
+      reviewText:
+        "Tried Mobile Cryo Pro for workout recovery and was surprised how much better I felt afterward. The mobile setup is awesome because they come right to you, and the treatment was quick and easy. Helped a ton with muscle soreness and inflammation after the gym. Really cool experience and I’ll definitely be using it again.",
+      sourceUrl:
+        "https://www.google.com/maps/place/Mobile+Cryo+Pro/data=!4m7!3m6!1s0x8085075a0c62ba07:0x39adb03ef86d32ef!8m2!3d38.3340091!4d-122.9899756!16s%2Fg%2F11yxjrd3m_!19sChIJB7piDFoHhYAR7zJt-D6wrTk",
+    }),
+    Object.freeze({
+      approved: true,
+      reviewerName: "troyt112",
+      reviewerInitial: "T",
+      rating: 5,
+      reviewText:
+        "I have been to a few different cryotherapy businesses and I must say that Dan at Mobile Cryo Pro Sonoma is the most convenient, knowledgeable and professional one I have experienced to date and the pain relief and recovery are amazing.",
+      sourceUrl:
+        "https://www.google.com/maps/place/Mobile+Cryo+Pro/data=!4m7!3m6!1s0x8085075a0c62ba07:0x39adb03ef86d32ef!8m2!3d38.3340091!4d-122.9899756!16s%2Fg%2F11yxjrd3m_!19sChIJB7piDFoHhYAR7zJt-D6wrTk",
+    }),
+  ]),
   beforeAfterCases: Object.freeze([
     Object.freeze({
       approvedForWebsite: true,
