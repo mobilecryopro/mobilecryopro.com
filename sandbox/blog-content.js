@@ -142,8 +142,8 @@
       displayTitle: "Localized vs whole-body cryotherapy.",
       description: "How a targeted mobile service differs from a whole-body chamber—and why research about one should not be used to sell the other.",
       readTime: "7 min read",
-      image: "../assets/guides/guide-localized-vs-whole-body.webp",
-      imageAlt: "Localized cryotherapy beside a whole-body cryotherapy chamber",
+      image: "../assets/guides/guide-localized-vs-whole-body-v3.webp",
+      imageAlt: "Athlete and practitioner discussing localized cryotherapy options",
       grade: "Distinct modalities; evidence cannot be transferred",
       takeaways: ["Localized exposure targets a smaller area; whole-body exposure cools most of the body in a chamber.", "Temperature and physiological responses differ across modalities.", "Whole-body studies do not validate localized service claims."],
       sections: [
