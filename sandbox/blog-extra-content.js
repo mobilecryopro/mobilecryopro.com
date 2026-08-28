@@ -31,8 +31,8 @@
       displayTitle: "What to expect at a mobile cryotherapy appointment.",
       description: "A practical walkthrough of choosing a service, confirming the location, meeting Dan, and preparing for a private mobile visit.",
       readTime: "4 min read",
-      image: "/assets/mobile-recovery-home-setup.jpg",
-      imageAlt: "A compact mobile cryotherapy setup in a private home",
+      image: "/assets/guides/guide-mobile-appointment.webp",
+      imageAlt: "Practitioner preparing a compact mobile cryotherapy setup in a private home",
       takeaways: [
         "Dan confirms the service, location, timing, and treatment area before the visit.",
         "Appointments can be requested for homes, hotels, gyms, offices, and private venues.",
@@ -58,8 +58,8 @@
       displayTitle: "Cold therapy after exercise: what the research actually says.",
       description: "A plain-English look at soreness, recovery, performance, and why results from one cooling method do not automatically apply to another.",
       readTime: "6 min read",
-      image: "/assets/sports-marathon-runner.jpg",
-      imageAlt: "Runner competing in a road race",
+      image: "/assets/guides/guide-exercise-recovery.webp",
+      imageAlt: "Runner receiving localized cold therapy after exercise",
       takeaways: [
         "Some cold methods may help perceived soreness for some people in the short term.",
         "Research does not show a universal improvement in recovery or performance.",
@@ -139,8 +139,8 @@
       displayTitle: "Planning a mobile equine cryotherapy visit.",
       description: "A barn-side logistics guide that keeps veterinary diagnosis, treatment decisions, and return-to-work advice with the horse's veterinarian.",
       readTime: "4 min read",
-      image: "/assets/mobile-recovery-home-setup.jpg",
-      imageAlt: "Compact equipment prepared for a mobile appointment",
+      image: "/assets/guides/guide-equine-barn-visit.webp",
+      imageAlt: "Horse and handler preparing for a mobile barn visit",
       takeaways: [
         "Involve the horse's veterinarian when the visit relates to an injury, disease, lameness, or rehabilitation plan.",
         "Share the barn location, requested area, timing, and handling considerations before scheduling.",
@@ -166,8 +166,8 @@
       displayTitle: "Mobile cryotherapy in Sonoma, Marin and the North Bay.",
       description: "Where Mobile Cryo Pro travels, which private settings can work, and the details that make an availability request easier to answer.",
       readTime: "4 min read",
-      image: "/assets/recovery-knee-assessment-home.jpg",
-      imageAlt: "A private mobile appointment in a home setting",
+      image: "/assets/guides/guide-north-bay-mobile.webp",
+      imageAlt: "Mobile cryotherapy setup overlooking the North Bay landscape",
       takeaways: [
         "Sonoma and Marin are the primary service areas.",
         "Napa, Solano, and San Francisco are available by request.",
