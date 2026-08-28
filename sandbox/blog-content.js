@@ -142,8 +142,8 @@
       displayTitle: "Localized vs whole-body cryotherapy.",
       description: "How a targeted mobile service differs from a whole-body chamber—and why research about one should not be used to sell the other.",
       readTime: "7 min read",
-      image: "../assets/recovery-shoulder-assessment.jpg",
-      imageAlt: "A focused shoulder assessment before localized treatment",
+      image: "../assets/guides/guide-localized-vs-whole-body.webp",
+      imageAlt: "Localized cryotherapy beside a whole-body cryotherapy chamber",
       grade: "Distinct modalities; evidence cannot be transferred",
       takeaways: ["Localized exposure targets a smaller area; whole-body exposure cools most of the body in a chamber.", "Temperature and physiological responses differ across modalities.", "Whole-body studies do not validate localized service claims."],
       sections: [
@@ -187,8 +187,8 @@
       displayTitle: "Questions to ask before booking cryotherapy.",
       description: "A saveable checklist for comparing the service, safety process, realistic expectations, total cost, and practical details before booking.",
       readTime: "6 min read",
-      image: "../assets/recovery-knee-consultation.jpg",
-      imageAlt: "Client and practitioner discussing a planned localized service",
+      image: "../assets/guides/guide-questions-before-booking.webp",
+      imageAlt: "Client and practitioner reviewing questions before a mobile appointment",
       grade: "Practical preparation; not medical clearance",
       takeaways: ["Define the goal and exact modality before comparing evidence.", "Ask how eligibility, exposure, stop signs, and follow-up are handled.", "Do not use a wellness booking to delay evaluation of concerning symptoms."],
       sections: [
