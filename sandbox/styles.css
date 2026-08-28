@@ -11894,7 +11894,31 @@ body.gallery-page .page-shell {
 }
 
 .gallery-case-third .gallery-case-header h3 {
+  grid-area: title;
+  margin-top: 0;
   font-size: clamp(1.55rem, 2.2vw, 2.15rem);
+}
+
+.gallery-case-third .gallery-case-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "category meta"
+    "title title";
+  column-gap: 22px;
+  row-gap: 5px;
+}
+
+.gallery-case-third .gallery-case-header > div {
+  display: contents;
+}
+
+.gallery-case-third .gallery-case-header span {
+  grid-area: category;
+}
+
+.gallery-case-third .gallery-case-header p {
+  grid-area: meta;
 }
 
 .gallery-case-header p {
