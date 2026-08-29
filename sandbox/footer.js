@@ -26,7 +26,7 @@
           <div class="footer-form-panel">
             <div class="footer-copy">
               <h2>Appointments &amp; Questions</h2>
-              <p>Share the service or goal, your location, and the timing you have in mind.</p>
+              <p>Share the service or goal, your location, and the timing you have in mind. You&rsquo;re also welcome to call or text <a class="footer-call-link" href="tel:+17074139366">(707) 413-9366</a>.</p>
             </div>
             <form class="contact-form" id="contact-form" data-contact-form>
               <div class="form-grid">
@@ -61,7 +61,7 @@
           <div class="footer-payment-methods" aria-label="Accepted payment methods">
             <a class="payment-mark payment-mark-visa" href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer" aria-label="Visa — pay booking deposit">VISA</a><a class="payment-mark payment-mark-mastercard" href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer" aria-label="Mastercard — pay booking deposit"></a><a class="payment-mark payment-mark-amex" href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer" aria-label="American Express — pay booking deposit">AMEX</a><a class="payment-mark payment-mark-discover" href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer" aria-label="Discover — pay booking deposit">DISCOVER</a><a class="payment-mark payment-mark-apple" href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer" aria-label="Apple Pay — pay booking deposit">Apple Pay</a><a class="payment-mark payment-mark-link" href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer" aria-label="Link — pay booking deposit">● link</a><a class="payment-mark payment-mark-klarna" href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer" aria-label="Klarna — pay booking deposit">Klarna</a><a class="payment-mark payment-mark-amazon" href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer" aria-label="Amazon Pay — pay booking deposit">amazon pay</a><a class="payment-mark payment-mark-cash" href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer" aria-label="Cash App Pay — pay booking deposit">$ Cash</a><a class="payment-mark payment-mark-bank" href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer" aria-label="US bank account — pay booking deposit">▥ Bank</a>
           </div>
-          <div class="footer-links"><a href="/about.html">About</a><a href="/sandbox/services.html">Services</a><a href="/sandbox/guides/index.html">Guides</a><a href="/faq.html">FAQ</a><a href="/service-areas.html">Service Areas</a><a href="/expansion-opportunities.html">Expansion</a><a href="/sandbox/privacy.html">Privacy</a><a href="/sandbox/terms.html">Terms</a></div>
+          <div class="footer-links"><a href="/sandbox/about.html">About</a><a href="/sandbox/services.html">Services</a><a href="/sandbox/guides/index.html">Guides</a><a href="/faq.html">FAQ</a><a href="/service-areas.html">Service Areas</a><a href="/expansion-opportunities.html">Expansion</a><a href="/sandbox/privacy.html">Privacy</a><a href="/sandbox/terms.html">Terms</a></div>
         </div>
       </div>
     </div>`;

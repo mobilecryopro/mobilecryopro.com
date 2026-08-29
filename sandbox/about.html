@@ -1,28 +1,31 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-launch-candidate="true">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow, noarchive" />
     <base href="/" />
-    <link rel="canonical" href="https://mobilecryopro.com/services.html" />
-    <title>Services &amp; Pricing | Mobile Cryo Pro</title>
+    <link rel="canonical" href="https://mobilecryopro.com/about.html" />
+    <title>About Dan | Mobile Cryo Pro</title>
+    <meta
+      name="description"
+      content="Meet Dan Belben and learn how Mobile Cryo Pro provides localized cryotherapy and CryoSkin services across the North Bay."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles.css?v=176" />
-    <link rel="stylesheet" href="/sandbox/services-preview.css?v=6" />
+    <link rel="stylesheet" href="/sandbox/styles.css?v=210" />
     <link rel="icon" href="/favicon.ico?v=9" sizes="any" />
   </head>
-  <body class="services-page sandbox-services-page sandbox-services-loading">
-    <main class="sandbox-services-loader" id="main-content">
-      <p class="eyebrow">Services &amp; pricing</p>
-      <h1>Loading services</h1>
-      <p>Preparing Mobile Cryo Pro service and pricing details.</p>
+  <body class="about-page sandbox-about-page sandbox-about-loading">
+    <main class="sandbox-about-loader" id="main-content">
+      <p class="eyebrow">About</p>
+      <h1>Loading the About page</h1>
     </main>
+
     <script>
       (() => {
         "use strict";
@@ -38,14 +41,26 @@
 
           document.querySelectorAll("a[href]").forEach((link) => {
             const href = link.getAttribute("href");
-            if (href?.startsWith("#")) {
-              link.href = `/sandbox/services.html${href}`;
-              return;
-            }
-
             const sandboxHref = redirects.get(href);
-            if (sandboxHref) link.href = sandboxHref;
+            if (sandboxHref) {
+              link.href = sandboxHref;
+              if (href === "blog.html") link.textContent = "Guides";
+            }
           });
+
+          const aboutLink = document.querySelector('.site-nav a[href="/sandbox/about.html"]');
+          if (aboutLink) aboutLink.setAttribute("aria-current", "page");
+
+          const servicesLink = document.querySelector('.site-nav a[href="/sandbox/services.html"]');
+          if (servicesLink && !document.querySelector('.site-nav a[href="/sandbox/gallery.html"]')) {
+            const galleryLink = document.createElement("a");
+            galleryLink.href = "/sandbox/gallery.html";
+            galleryLink.textContent = "Gallery";
+            servicesLink.after(galleryLink);
+          }
+
+          const navigationCta = document.querySelector(".site-nav .nav-cta");
+          if (navigationCta) navigationCta.textContent = "Check Availability";
 
           const footerLinks = document.querySelector(".footer-links");
           if (footerLinks && !footerLinks.querySelector('a[href="/sandbox/privacy.html"]')) {
@@ -70,36 +85,43 @@
         };
 
         const showError = () => {
-          document.body.classList.remove("sandbox-services-loading");
+          document.body.classList.remove("sandbox-about-loading");
           document.body.innerHTML =
-            '<main class="sandbox-services-loader" id="main-content"><p class="eyebrow">Services &amp; pricing</p><h1>Services are temporarily unavailable</h1><p>Please <a href="tel:+17074139366">call or text (707) 413-9366</a> for current options and pricing.</p></main>';
+            '<main class="sandbox-about-loader" id="main-content"><p class="eyebrow">About</p><h1>The About page is temporarily unavailable</h1><p>Please <a href="/sandbox/index.html">return to the homepage</a> or <a href="tel:+17074139366">call or text (707) 413-9366</a>.</p></main>';
         };
 
-        fetch("/services.html", { cache: "no-cache" })
+        fetch("/about.html", { cache: "no-cache" })
           .then((response) => {
-            if (!response.ok) throw new Error(`Services page returned ${response.status}`);
+            if (!response.ok) throw new Error(`About page returned ${response.status}`);
             return response.text();
           })
           .then((html) => {
             const source = new DOMParser().parseFromString(html, "text/html");
             const pageShell = source.querySelector(".page-shell");
-            if (!pageShell) throw new Error("Services page shell was not found");
+            if (!pageShell) throw new Error("About page shell was not found");
 
-            document.body.className = "services-page sandbox-services-page";
+            document.body.className = "about-page sandbox-about-page";
             document.body.innerHTML =
               '<a class="skip-link" href="#main-content">Skip to content</a>' +
-              source.querySelector(".icon-sprite").outerHTML +
               pageShell.outerHTML;
+
+            const heroMedia = document.querySelector(".about-hero-media");
+            if (heroMedia) {
+              heroMedia.style.setProperty(
+                "--about-hero-image",
+                "url('/assets/recovery-shoulder-assessment-1280.webp')"
+              );
+            }
 
             rewriteSandboxLinks();
 
             const siteScript = document.createElement("script");
-            siteScript.src = "/script.js?v=32";
+            siteScript.src = "/script.js?v=34";
             siteScript.addEventListener("load", rewriteSandboxLinks);
             document.body.append(siteScript);
           })
           .catch((error) => {
-            console.error("Services preview failed", error);
+            console.error("About preview failed", error);
             showError();
           });
       })();
