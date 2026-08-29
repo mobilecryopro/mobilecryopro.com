@@ -6501,7 +6501,7 @@ body:not(.home-page):not(.services-page):not(.about-page):not(.faq-page) .hero-s
 }
 
 .faq-page .faq-hero-copy h1 {
-  max-width: 12.5ch;
+  max-width: none;
   color: #071426;
   font-family: "Barlow Condensed", sans-serif;
   font-size: clamp(3.1rem, 4.6vw, 5.25rem);
@@ -6728,7 +6728,7 @@ body:not(.services-page).about-page .about-hero-media {
   }
 
   .faq-page .faq-hero-copy h1 {
-    max-width: 12ch;
+    max-width: none;
     font-size: clamp(2.45rem, 9.7vw, 2.95rem);
   }
 
