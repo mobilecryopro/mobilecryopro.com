@@ -62,6 +62,11 @@
           const navigationCta = document.querySelector(".site-nav .nav-cta");
           if (navigationCta) navigationCta.textContent = "Check Availability";
 
+          const contactCopy = document.querySelector(".footer-form-panel .footer-copy p");
+          if (contactCopy) {
+            contactCopy.innerHTML = 'Share the service or goal, your location, and the timing you have in mind. You&rsquo;re also welcome to call or text <a class="footer-call-link" href="tel:+17074139366">(707) 413-9366</a>.';
+          }
+
           const footerLinks = document.querySelector(".footer-links");
           if (footerLinks && !footerLinks.querySelector('a[href="/sandbox/privacy.html"]')) {
             const privacyLink = document.createElement("a");
@@ -116,7 +121,7 @@
             rewriteSandboxLinks();
 
             const siteScript = document.createElement("script");
-            siteScript.src = "/script.js?v=34";
+            siteScript.src = "/script.js?v=33";
             siteScript.addEventListener("load", rewriteSandboxLinks);
             document.body.append(siteScript);
           })
