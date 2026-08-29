@@ -134,6 +134,67 @@ navLinks.forEach((link) => {
   });
 });
 
+const getFixedHeaderBottom = () => {
+  if (!header || window.getComputedStyle(header).position !== "fixed") {
+    return 0;
+  }
+
+  return Math.ceil(header.getBoundingClientRect().bottom);
+};
+
+const scrollToServiceArea = ({ behavior = "smooth" } = {}) => {
+  const serviceArea = document.querySelector("#service-area");
+  const serviceAreaHeading = serviceArea?.querySelector(".footer-section-heading");
+  const scrollTarget = serviceAreaHeading || serviceArea;
+
+  if (!scrollTarget) {
+    return;
+  }
+
+  const fixedHeaderBottom = getFixedHeaderBottom();
+  const viewportGap = fixedHeaderBottom ? 24 : 18;
+  const targetTop =
+    window.scrollY +
+    scrollTarget.getBoundingClientRect().top -
+    fixedHeaderBottom -
+    viewportGap;
+
+  window.scrollTo({
+    top: Math.max(0, targetTop),
+    behavior: reducedMotionQuery.matches ? "auto" : behavior,
+  });
+};
+
+document.querySelectorAll('a[href*="#service-area"]').forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const destination = new URL(link.href, window.location.href);
+    const serviceArea = document.querySelector("#service-area");
+
+    if (destination.origin !== window.location.origin || !serviceArea) {
+      return;
+    }
+
+    event.preventDefault();
+    window.history.pushState(null, "", "#service-area");
+    window.requestAnimationFrame(() => scrollToServiceArea());
+  });
+});
+
+if (window.location.hash === "#service-area") {
+  const correctInitialServiceAreaPosition = () =>
+    window.requestAnimationFrame(() =>
+      scrollToServiceArea({ behavior: "auto" }),
+    );
+
+  correctInitialServiceAreaPosition();
+
+  if (document.readyState !== "complete") {
+    window.addEventListener("load", correctInitialServiceAreaPosition, {
+      once: true,
+    });
+  }
+}
+
 if (slides.length && dots.length) {
   let activeIndex = 0;
   let sliderTimer = null;
