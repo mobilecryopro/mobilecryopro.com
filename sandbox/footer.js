@@ -76,13 +76,13 @@
       window.initServiceMaps(footer);
       return;
     }
-    var existing = document.querySelector('script[src$="map.js?v=6"]');
+    var existing = document.querySelector('script[src$="map.js?v=7"]');
     if (existing) {
       existing.addEventListener("load", function () { window.initServiceMaps && window.initServiceMaps(footer); }, { once: true });
       return;
     }
     var script = document.createElement("script");
-    script.src = "/map.js?v=6";
+    script.src = "/map.js?v=7";
     script.addEventListener("load", function () { window.initServiceMaps && window.initServiceMaps(footer); }, { once: true });
     document.body.append(script);
   };

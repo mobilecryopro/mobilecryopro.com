@@ -254,7 +254,7 @@ const initializeFooterMap = () => {
     }
 
     const mapScript = document.createElement("script");
-    mapScript.src = "map.js?v=5";
+    mapScript.src = "map.js?v=7";
     mapScript.addEventListener("load", () => window.initServiceMaps?.(document), { once: true });
     document.body.append(mapScript);
   };
