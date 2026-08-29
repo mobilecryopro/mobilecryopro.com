@@ -416,6 +416,90 @@ if (slides.length && dots.length) {
   });
 }
 
+const reviewCarousel = document.querySelector("[data-review-carousel]");
+const reviewTrack = document.querySelector("[data-review-track]");
+const reviewPreviousButton = document.querySelector("[data-review-previous]");
+const reviewNextButton = document.querySelector("[data-review-next]");
+const reviewStatus = document.querySelector("[data-review-status]");
+const reviewCards = reviewTrack
+  ? Array.from(reviewTrack.querySelectorAll(".review-card"))
+  : [];
+
+if (
+  reviewCarousel &&
+  reviewTrack &&
+  reviewPreviousButton &&
+  reviewNextButton &&
+  reviewCards.length
+) {
+  const getReviewStep = () => {
+    const trackStyles = window.getComputedStyle(reviewTrack);
+    const gap = Number.parseFloat(trackStyles.columnGap || trackStyles.gap) || 0;
+
+    return reviewCards[0].getBoundingClientRect().width + gap;
+  };
+  const getActiveReviewIndex = () => {
+    const step = getReviewStep();
+
+    return step
+      ? Math.min(
+          reviewCards.length - 1,
+          Math.max(0, Math.round(reviewCarousel.scrollLeft / step)),
+        )
+      : 0;
+  };
+  const updateReviewControls = () => {
+    const maxScrollLeft = reviewCarousel.scrollWidth - reviewCarousel.clientWidth;
+    const activeIndex = getActiveReviewIndex();
+
+    reviewPreviousButton.disabled = activeIndex === 0;
+    reviewNextButton.disabled = reviewCarousel.scrollLeft >= maxScrollLeft - 2;
+    if (reviewStatus) {
+      reviewStatus.textContent = `Review ${activeIndex + 1} of ${reviewCards.length}`;
+    }
+  };
+  const showReview = (index) => {
+    const safeIndex = Math.min(reviewCards.length - 1, Math.max(0, index));
+
+    reviewCarousel.scrollTo({
+      left: safeIndex * getReviewStep(),
+      behavior: reducedMotionQuery.matches ? "auto" : "smooth",
+    });
+  };
+
+  reviewPreviousButton.addEventListener("click", () =>
+    showReview(getActiveReviewIndex() - 1),
+  );
+  reviewNextButton.addEventListener("click", () =>
+    showReview(getActiveReviewIndex() + 1),
+  );
+  reviewCarousel.addEventListener("scroll", updateReviewControls, {
+    passive: true,
+  });
+  reviewCarousel.addEventListener("keydown", (event) => {
+    const keyboardActions = {
+      ArrowLeft: () => showReview(getActiveReviewIndex() - 1),
+      ArrowRight: () => showReview(getActiveReviewIndex() + 1),
+      Home: () => showReview(0),
+      End: () => showReview(reviewCards.length - 1),
+    };
+    const action = keyboardActions[event.key];
+
+    if (action) {
+      event.preventDefault();
+      action();
+    }
+  });
+
+  if ("ResizeObserver" in window) {
+    new ResizeObserver(updateReviewControls).observe(reviewCarousel);
+  } else {
+    window.addEventListener("resize", updateReviewControls, { passive: true });
+  }
+
+  updateReviewControls();
+}
+
 contactForms.forEach((contactForm) => {
   const status = contactForm.querySelector(".contact-form-note");
   const submitButton = contactForm.querySelector('button[type="submit"]');
