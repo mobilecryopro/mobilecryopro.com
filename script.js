@@ -45,8 +45,7 @@ const trackAnalyticsEvent = (eventName, parameters = {}) => {
     },
   };
 
-  // This local event makes the instrumentation testable without sending
-  // sandbox or localhost activity to the production Analytics property.
+  // Keep the launch candidate testable without polluting production GA4.
   window.dispatchEvent(
     new CustomEvent("mobilecryopro:analytics", { detail: eventDetail }),
   );
@@ -100,129 +99,6 @@ document.addEventListener("click", (event) => {
   }
 });
 
-const installUnifiedSiteFooter = () => {
-  const pageShell = document.querySelector(".page-shell");
-
-  if (!pageShell) {
-    return;
-  }
-
-  const existingFooter = pageShell.querySelector(".site-footer");
-  const existingHomepageServiceArea = pageShell.querySelector("main #service-area");
-  const footer = existingFooter || document.createElement("footer");
-
-  existingHomepageServiceArea?.remove();
-  footer.className = "site-footer site-footer-unified";
-  footer.innerHTML = `
-    <section class="footer-map-contact" id="service-area" aria-labelledby="footer-service-title">
-      <div class="footer-shell">
-        <div class="footer-section-heading">
-          <p class="eyebrow">Mobile across the North Bay</p>
-          <h2 id="footer-service-title">Cryotherapy at your location</h2>
-          <p>Sonoma and Marin are home base. Napa, Solano, and San Francisco are available by request.</p>
-        </div>
-
-        <div class="footer-map-contact-layout">
-          <figure class="service-map-card footer-service-map-card">
-            <div
-              class="service-map"
-              role="region"
-              aria-label="Interactive map of Mobile Cryo Pro's North Bay service area"
-            >
-              <p class="map-fallback">North Bay service area map.</p>
-            </div>
-          </figure>
-
-          <div class="footer-form-panel">
-            <div class="footer-copy">
-              <h2>Appointments &amp; Questions</h2>
-              <p>Share the service or goal, your location, and the timing you have in mind.</p>
-            </div>
-
-            <form class="contact-form" id="contact-form" data-contact-form>
-              <div class="form-grid">
-                <label class="form-field">
-                  <span>Name</span>
-                  <input type="text" name="name" autocomplete="name" required />
-                </label>
-                <label class="form-field">
-                  <span>Email</span>
-                  <input type="email" name="email" autocomplete="email" spellcheck="false" required />
-                </label>
-                <label class="form-field form-field-full">
-                  <span>Phone <em>(optional)</em></span>
-                  <input type="tel" name="phone" autocomplete="tel" inputmode="tel" />
-                </label>
-                <label class="form-field form-field-full">
-                  <span>Message</span>
-                  <textarea name="message" placeholder="Service or goal, location, and preferred date or time." required></textarea>
-                </label>
-              </div>
-              <button class="button button-primary" type="submit">Send Message</button>
-              <p class="contact-form-note" aria-live="polite" hidden></p>
-              <p class="booking-deposit-link">Already scheduled? <a href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer">Pay the $50 booking deposit</a></p>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="footer-secondary">
-      <div class="footer-shell">
-        <div class="footer-contact footer-contact-compact">
-          <a class="footer-brand" href="index.html" aria-label="Mobile Cryo Pro home">
-            <img class="footer-logo" src="assets/mobile-cryo-pro-logo-640.webp" alt="Mobile Cryo Pro" width="639" height="209" loading="lazy" decoding="async" />
-          </a>
-          <div class="footer-contact-list">
-            <div class="footer-contact-item">
-              <span>Call or text</span>
-              <a href="tel:+17074139366">(707) 413-9366</a>
-            </div>
-            <div class="footer-contact-item">
-              <span>Email</span>
-              <a href="mailto:info@mobilecryopro.com">info@mobilecryopro.com</a>
-            </div>
-            <div class="footer-contact-item">
-              <span>Service area</span>
-              <p>Sonoma, Marin, and the wider North Bay. SF and Napa by request.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="footer-bar">
-          <p>&copy; Mobile Cryo Pro &middot; Mobile cryotherapy across the North Bay</p>
-          <div class="footer-payment-methods" aria-label="Payment methods available through Stripe">
-            <a class="payment-mark payment-mark-visa" href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer" aria-label="Visa — pay booking deposit">VISA</a>
-            <a class="payment-mark payment-mark-mastercard" href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer" aria-label="Mastercard — pay booking deposit"></a>
-            <a class="payment-mark payment-mark-amex" href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer" aria-label="American Express — pay booking deposit">AMEX</a>
-            <a class="payment-mark payment-mark-discover" href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer" aria-label="Discover — pay booking deposit">DISCOVER</a>
-            <a class="payment-mark payment-mark-apple" href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer" aria-label="Apple Pay — pay booking deposit">Apple Pay</a>
-            <a class="payment-mark payment-mark-link" href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer" aria-label="Link — pay booking deposit">● link</a>
-            <a class="payment-mark payment-mark-klarna" href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer" aria-label="Klarna — pay booking deposit">Klarna</a>
-            <a class="payment-mark payment-mark-amazon" href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer" aria-label="Amazon Pay — pay booking deposit">amazon pay</a>
-            <a class="payment-mark payment-mark-cash" href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer" aria-label="Cash App Pay — pay booking deposit">$ Cash</a>
-            <a class="payment-mark payment-mark-bank" href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer" aria-label="US bank account — pay booking deposit">▥ Bank</a>
-          </div>
-          <div class="footer-links">
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="blog.html">Blog</a>
-            <a href="faq.html">FAQ</a>
-            <a href="service-areas.html">Service Areas</a>
-            <a href="expansion-opportunities.html">Expansion</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-
-  if (!existingFooter) {
-    pageShell.append(footer);
-  }
-};
-
-installUnifiedSiteFooter();
-
 const header = document.querySelector(".site-header");
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelectorAll(".site-nav a");
@@ -233,99 +109,7 @@ const contactForms = document.querySelectorAll("[data-contact-form]");
 const formspreeEndpoint = "https://formspree.io/f/mnjeppkn";
 const bookingDepositPage = "https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00";
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-const initializeFooterMap = () => {
-  const mapElements = Array.from(document.querySelectorAll(".service-map"));
-
-  if (!mapElements.length) {
-    return;
-  }
-
-  const loadMapScript = () => {
-    if (typeof window.initServiceMaps === "function") {
-      window.initServiceMaps(document);
-      return;
-    }
-
-    const existingMapScript = document.querySelector('script[src^="map.js"]');
-    if (existingMapScript) {
-      existingMapScript.addEventListener("load", () => window.initServiceMaps?.(document), { once: true });
-      return;
-    }
-
-    const mapScript = document.createElement("script");
-    mapScript.src = "map.js?v=7";
-    mapScript.addEventListener("load", () => window.initServiceMaps?.(document), { once: true });
-    document.body.append(mapScript);
-  };
-
-  const loadLeaflet = () => {
-    const loadLeafletScript = () => {
-      if (window.L) {
-        loadMapScript();
-        return;
-      }
-
-      const existingLeafletScript = document.querySelector('script[src*="leaflet.js"]');
-      if (existingLeafletScript) {
-        existingLeafletScript.addEventListener("load", loadMapScript, { once: true });
-        return;
-      }
-
-      const leafletScript = document.createElement("script");
-      leafletScript.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
-      leafletScript.integrity = "sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=";
-      leafletScript.crossOrigin = "";
-      leafletScript.addEventListener("load", loadMapScript, { once: true });
-      document.body.append(leafletScript);
-    };
-
-    const existingLeafletStyles = document.querySelector('link[href*="leaflet.css"]');
-    const leafletStyles = existingLeafletStyles || document.createElement("link");
-
-    if (leafletStyles.sheet) {
-      loadLeafletScript();
-      return;
-    }
-
-    leafletStyles.addEventListener("load", loadLeafletScript, { once: true });
-    leafletStyles.addEventListener("error", () => {
-      mapElements.forEach((mapElement) => {
-        mapElement.classList.add("service-map-load-error");
-        mapElement.innerHTML = '<p class="map-fallback">The service-area map is temporarily unavailable. Please include your city or ZIP code with your message.</p>';
-      });
-    }, { once: true });
-
-    if (!existingLeafletStyles) {
-      leafletStyles.rel = "stylesheet";
-      leafletStyles.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
-      leafletStyles.integrity = "sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=";
-      leafletStyles.crossOrigin = "";
-      document.head.append(leafletStyles);
-    }
-  };
-
-  if (!("IntersectionObserver" in window)) {
-    loadLeaflet();
-    return;
-  }
-
-  const mapObserver = new IntersectionObserver(
-    (entries) => {
-      if (!entries.some((entry) => entry.isIntersecting)) {
-        return;
-      }
-
-      mapObserver.disconnect();
-      loadLeaflet();
-    },
-    { rootMargin: "600px 0px" },
-  );
-
-  mapElements.forEach((mapElement) => mapObserver.observe(mapElement));
-};
-
-initializeFooterMap();
+const homepageProofContent = window.mobileCryoContent || {};
 
 if (header) {
   const updateScrolledHeader = () => {
@@ -349,6 +133,67 @@ navLinks.forEach((link) => {
     navToggle?.setAttribute("aria-expanded", "false");
   });
 });
+
+const getFixedHeaderBottom = () => {
+  if (!header || window.getComputedStyle(header).position !== "fixed") {
+    return 0;
+  }
+
+  return Math.ceil(header.getBoundingClientRect().bottom);
+};
+
+const scrollToServiceArea = ({ behavior = "smooth" } = {}) => {
+  const serviceArea = document.querySelector("#service-area");
+  const serviceAreaHeading = serviceArea?.querySelector(".footer-section-heading");
+  const scrollTarget = serviceAreaHeading || serviceArea;
+
+  if (!scrollTarget) {
+    return;
+  }
+
+  const fixedHeaderBottom = getFixedHeaderBottom();
+  const viewportGap = fixedHeaderBottom ? 24 : 18;
+  const targetTop =
+    window.scrollY +
+    scrollTarget.getBoundingClientRect().top -
+    fixedHeaderBottom -
+    viewportGap;
+
+  window.scrollTo({
+    top: Math.max(0, targetTop),
+    behavior: reducedMotionQuery.matches ? "auto" : behavior,
+  });
+};
+
+document.querySelectorAll('a[href*="#service-area"]').forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const destination = new URL(link.href, window.location.href);
+    const serviceArea = document.querySelector("#service-area");
+
+    if (destination.origin !== window.location.origin || !serviceArea) {
+      return;
+    }
+
+    event.preventDefault();
+    window.history.pushState(null, "", "#service-area");
+    window.requestAnimationFrame(() => scrollToServiceArea());
+  });
+});
+
+if (window.location.hash === "#service-area") {
+  const correctInitialServiceAreaPosition = () =>
+    window.requestAnimationFrame(() =>
+      scrollToServiceArea({ behavior: "auto" }),
+    );
+
+  correctInitialServiceAreaPosition();
+
+  if (document.readyState !== "complete") {
+    window.addEventListener("load", correctInitialServiceAreaPosition, {
+      once: true,
+    });
+  }
+}
 
 if (slides.length && dots.length) {
   let activeIndex = 0;
@@ -416,43 +261,160 @@ if (slides.length && dots.length) {
   });
 }
 
+const isSecureWebUrl = (value) => {
+  try {
+    return new URL(value, window.location.href).protocol === "https:";
+  } catch {
+    return false;
+  }
+};
+
+const isGoogleUrl = (value) => {
+  try {
+    const url = new URL(value);
+    const hostname = url.hostname.toLowerCase();
+
+    return (
+      url.protocol === "https:" &&
+      (hostname === "google.com" ||
+        hostname.endsWith(".google.com") ||
+        hostname === "goo.gl" ||
+        hostname.endsWith(".goo.gl") ||
+        hostname === "g.page" ||
+        hostname.endsWith(".g.page"))
+    );
+  } catch {
+    return false;
+  }
+};
+
+const isApprovedImageUrl = (value) => {
+  try {
+    const url = new URL(value, window.location.href);
+    return url.protocol === "https:" || url.origin === window.location.origin;
+  } catch {
+    return false;
+  }
+};
+
+const googleBusinessProfileUrl = isGoogleUrl(homepageProofContent.googleBusinessProfileUrl)
+  ? homepageProofContent.googleBusinessProfileUrl
+  : "";
+
+const approvedGoogleReviews = Array.isArray(homepageProofContent.googleReviews)
+  ? homepageProofContent.googleReviews.filter((review) => {
+      const rating = Number(review?.rating);
+
+      return (
+        review?.approved === true &&
+        String(review?.reviewerName || "").trim() &&
+        String(review?.reviewText || "").trim() &&
+        Number.isInteger(rating) &&
+        rating >= 1 &&
+        rating <= 5 &&
+        isGoogleUrl(review?.sourceUrl)
+      );
+    })
+  : [];
+
+const googleReviewsSection = document.querySelector("[data-google-reviews]");
 const reviewCarousel = document.querySelector("[data-review-carousel]");
 const reviewTrack = document.querySelector("[data-review-track]");
 const reviewPreviousButton = document.querySelector("[data-review-previous]");
 const reviewNextButton = document.querySelector("[data-review-next]");
 const reviewStatus = document.querySelector("[data-review-status]");
-const reviewCards = reviewTrack
+const googleProfileLink = document.querySelector("[data-google-profile-link]");
+const reviewCardTemplate = document.querySelector("#google-review-card-template");
+const existingReviewCards = reviewTrack
   ? Array.from(reviewTrack.querySelectorAll(".review-card"))
   : [];
+const canRenderReviewCards = Boolean(
+  approvedGoogleReviews.length &&
+  googleBusinessProfileUrl &&
+  reviewCardTemplate,
+);
 
 if (
+  googleReviewsSection &&
   reviewCarousel &&
   reviewTrack &&
   reviewPreviousButton &&
   reviewNextButton &&
-  reviewCards.length
+  (canRenderReviewCards || existingReviewCards.length)
 ) {
+  const reviewCards = canRenderReviewCards
+    ? approvedGoogleReviews.map((review, index) => {
+        const card = reviewCardTemplate.content.firstElementChild.cloneNode(true);
+        const isPreviewSlot = review.previewPlaceholder === true;
+        const rating = Number(review.rating);
+        const reviewerName = String(review.reviewerName).trim();
+        const reviewDate = String(review.reviewDate || "").trim();
+        const localGuideLabel = String(review.localGuideLabel || "").trim();
+        const initial = String(review.reviewerInitial || reviewerName.charAt(0)).trim();
+        const ratingElement = card.querySelector("[data-review-rating]");
+        const dateElement = card.querySelector("[data-review-date]");
+        const localGuideElement = card.querySelector("[data-review-local-guide]");
+
+        card.setAttribute(
+          "aria-label",
+          isPreviewSlot
+            ? `Preview review content slot ${index + 1} of ${approvedGoogleReviews.length}`
+            : `Review ${index + 1} of ${approvedGoogleReviews.length}`,
+        );
+        card.querySelector("[data-review-text]").textContent = String(review.reviewText).trim();
+        card.querySelector("[data-reviewer-name]").textContent = reviewerName;
+        card.querySelector("[data-review-initial]").textContent = isPreviewSlot
+          ? String(review.slotNumber)
+          : initial.slice(0, 1).toUpperCase();
+
+        if (isPreviewSlot) {
+          ratingElement.textContent = "Rating pending approval";
+          ratingElement.setAttribute("aria-label", "Rating pending approval");
+          card.querySelector("[data-review-source]").remove();
+          card.classList.add("is-sandbox-placeholder");
+        } else {
+          card.querySelector("[data-review-source]").href = review.sourceUrl;
+          ratingElement.textContent = "★".repeat(rating);
+          ratingElement.setAttribute("aria-label", `${rating} out of 5 stars`);
+        }
+
+        if (reviewDate) {
+          dateElement.textContent = reviewDate;
+          if (review.dateTime) {
+            dateElement.dateTime = String(review.dateTime);
+          }
+        } else {
+          dateElement.remove();
+        }
+
+        if (localGuideLabel && !isPreviewSlot) {
+          localGuideElement.textContent = localGuideLabel;
+        } else {
+          localGuideElement.remove();
+        }
+
+        reviewTrack.append(card);
+        return card;
+      })
+    : existingReviewCards;
+
+  const scrollBehavior = () => (reducedMotionQuery.matches ? "auto" : "smooth");
   const getReviewStep = () => {
+    const firstCard = reviewCards[0];
     const trackStyles = window.getComputedStyle(reviewTrack);
     const gap = Number.parseFloat(trackStyles.columnGap || trackStyles.gap) || 0;
 
-    return reviewCards[0].getBoundingClientRect().width + gap;
+    return firstCard.getBoundingClientRect().width + gap;
   };
   const getActiveReviewIndex = () => {
     const step = getReviewStep();
-
-    return step
-      ? Math.min(
-          reviewCards.length - 1,
-          Math.max(0, Math.round(reviewCarousel.scrollLeft / step)),
-        )
-      : 0;
+    return step ? Math.min(reviewCards.length - 1, Math.max(0, Math.round(reviewCarousel.scrollLeft / step))) : 0;
   };
   const updateReviewControls = () => {
     const maxScrollLeft = reviewCarousel.scrollWidth - reviewCarousel.clientWidth;
     const activeIndex = getActiveReviewIndex();
 
-    reviewPreviousButton.disabled = activeIndex === 0;
+    reviewPreviousButton.disabled = reviewCarousel.scrollLeft <= 2;
     reviewNextButton.disabled = reviewCarousel.scrollLeft >= maxScrollLeft - 2;
     if (reviewStatus) {
       reviewStatus.textContent = `Review ${activeIndex + 1} of ${reviewCards.length}`;
@@ -460,22 +422,15 @@ if (
   };
   const showReview = (index) => {
     const safeIndex = Math.min(reviewCards.length - 1, Math.max(0, index));
-
     reviewCarousel.scrollTo({
       left: safeIndex * getReviewStep(),
-      behavior: reducedMotionQuery.matches ? "auto" : "smooth",
+      behavior: scrollBehavior(),
     });
   };
 
-  reviewPreviousButton.addEventListener("click", () =>
-    showReview(getActiveReviewIndex() - 1),
-  );
-  reviewNextButton.addEventListener("click", () =>
-    showReview(getActiveReviewIndex() + 1),
-  );
-  reviewCarousel.addEventListener("scroll", updateReviewControls, {
-    passive: true,
-  });
+  reviewPreviousButton.addEventListener("click", () => showReview(getActiveReviewIndex() - 1));
+  reviewNextButton.addEventListener("click", () => showReview(getActiveReviewIndex() + 1));
+  reviewCarousel.addEventListener("scroll", updateReviewControls, { passive: true });
   reviewCarousel.addEventListener("keydown", (event) => {
     const keyboardActions = {
       ArrowLeft: () => showReview(getActiveReviewIndex() - 1),
@@ -497,19 +452,249 @@ if (
     window.addEventListener("resize", updateReviewControls, { passive: true });
   }
 
+  if (googleProfileLink && googleBusinessProfileUrl) {
+    googleProfileLink.href = googleBusinessProfileUrl;
+    googleProfileLink.hidden = false;
+  }
+
+  googleReviewsSection.hidden = false;
   updateReviewControls();
+}
+
+const getBeforeAfterPairs = (caseStudy) => {
+  if (Array.isArray(caseStudy?.pairs) && caseStudy.pairs.length) {
+    return caseStudy.pairs;
+  }
+
+  if (caseStudy?.before && caseStudy?.after) {
+    return [{ before: caseStudy.before, after: caseStudy.after }];
+  }
+
+  return [];
+};
+
+const hasValidBeforeAfterPairs = (caseStudy, requireCaptions = false) => {
+  const pairs = getBeforeAfterPairs(caseStudy);
+
+  return (
+    pairs.length > 0 &&
+    pairs.every((pair) => {
+      const hasRequiredMedia = (
+        isApprovedImageUrl(pair?.before?.imageUrl) &&
+        String(pair?.before?.alt || "").trim() &&
+        isApprovedImageUrl(pair?.after?.imageUrl) &&
+        String(pair?.after?.alt || "").trim()
+      );
+
+      if (!hasRequiredMedia || !requireCaptions) return hasRequiredMedia;
+
+      return (
+        String(pair?.before?.caption || "").trim() &&
+        String(pair?.after?.caption || "").trim()
+      );
+    })
+  );
+};
+
+const approvedBeforeAfterCases = Array.isArray(homepageProofContent.beforeAfterCases)
+  ? homepageProofContent.beforeAfterCases.filter((caseStudy) => {
+      return (
+        caseStudy?.approvedForWebsite === true &&
+        caseStudy?.consentConfirmed === true &&
+        String(caseStudy?.title || "").trim() &&
+        String(caseStudy?.service || "").trim() &&
+        String(caseStudy?.sessions || "").trim() &&
+        String(caseStudy?.caption || "").trim() &&
+        hasValidBeforeAfterPairs(caseStudy)
+      );
+    })
+  : [];
+
+const beforeAfterSection = document.querySelector("[data-before-after-gallery]");
+const beforeAfterGrid = document.querySelector("[data-before-after-grid]");
+const beforeAfterTemplate = document.querySelector("#before-after-card-template");
+const beforeAfterViewTemplate = document.querySelector("#before-after-view-template");
+
+if (
+  approvedBeforeAfterCases.length &&
+  beforeAfterSection &&
+  beforeAfterGrid &&
+  beforeAfterTemplate &&
+  beforeAfterViewTemplate
+) {
+  approvedBeforeAfterCases.forEach((caseStudy) => {
+    const card = beforeAfterTemplate.content.firstElementChild.cloneNode(true);
+    const isPreviewSlot = caseStudy.previewPlaceholder === true;
+    const layoutClass = String(caseStudy.layoutClass || "").trim();
+    const pairs = getBeforeAfterPairs(caseStudy);
+    const views = card.querySelector("[data-case-views]");
+    const metadata = card.querySelector("[data-case-metadata]");
+    const metadataItems = [
+      ["Sessions", caseStudy.sessions],
+      ["Timeframe", caseStudy.timeframe],
+    ].filter(([, value]) => String(value || "").trim());
+
+    card.querySelector("[data-case-service]").textContent = String(caseStudy.service).trim();
+    card.querySelector("[data-case-title]").textContent = String(caseStudy.title).trim();
+    if (/^[a-z0-9_-]+$/i.test(layoutClass)) card.classList.add(layoutClass);
+    const caseCaption = String(caseStudy.caption || "").trim();
+
+    if (caseCaption) {
+      card.querySelector("[data-case-caption]").textContent = caseCaption;
+    } else {
+      card.querySelector("[data-case-caption]").remove();
+    }
+    const caseDisclaimer = String(caseStudy.disclaimer || "").trim();
+
+    if (caseDisclaimer) {
+      card.querySelector("[data-case-disclaimer]").textContent = caseDisclaimer;
+    } else {
+      card.querySelector("[data-case-disclaimer]").remove();
+    }
+
+    pairs.forEach((pair) => {
+      const view = beforeAfterViewTemplate.content.firstElementChild.cloneNode(true);
+      const beforeImage = document.createElement(isPreviewSlot ? "div" : "img");
+      const afterImage = document.createElement(isPreviewSlot ? "div" : "img");
+      const beforeLabel = String(pair.before.label || "Before").trim();
+      const afterLabel = String(pair.after.label || "After").trim();
+      const viewTitle = String(pair.title || "").trim();
+      const beforeCaption = String(pair.before.caption || "").trim();
+      const afterCaption = String(pair.after.caption || "").trim();
+
+      if (viewTitle) {
+        view.querySelector("[data-view-title]").textContent = viewTitle;
+      } else {
+        view.querySelector("[data-view-title]").remove();
+      }
+
+      if (isPreviewSlot) {
+        beforeImage.className = "sandbox-image-placeholder";
+        beforeImage.setAttribute("role", "img");
+        beforeImage.setAttribute("aria-label", pair.before.alt);
+        beforeImage.textContent = "Approved before image";
+        afterImage.className = "sandbox-image-placeholder";
+        afterImage.setAttribute("role", "img");
+        afterImage.setAttribute("aria-label", pair.after.alt);
+        afterImage.textContent = "Approved after image";
+        card.classList.add("is-sandbox-placeholder");
+      } else {
+        beforeImage.src = pair.before.imageUrl;
+        beforeImage.alt = pair.before.alt;
+        beforeImage.width = Number(pair.before.width) || 800;
+        beforeImage.height = Number(pair.before.height) || 1000;
+        beforeImage.loading = "lazy";
+        beforeImage.decoding = "async";
+        afterImage.src = pair.after.imageUrl;
+        afterImage.alt = pair.after.alt;
+        afterImage.width = Number(pair.after.width) || 800;
+        afterImage.height = Number(pair.after.height) || 1000;
+        afterImage.loading = "lazy";
+        afterImage.decoding = "async";
+      }
+
+      view.querySelector("[data-before-image-slot]").replaceWith(beforeImage);
+      view.querySelector("[data-after-image-slot]").replaceWith(afterImage);
+      view.querySelector("[data-before-label]").textContent = beforeLabel;
+      view.querySelector("[data-after-label]").textContent = afterLabel;
+
+      if (beforeCaption) {
+        view.querySelector("[data-before-caption]").textContent = beforeCaption;
+      } else {
+        view.querySelector("[data-before-caption]").remove();
+      }
+
+      if (afterCaption) {
+        view.querySelector("[data-after-caption]").textContent = afterCaption;
+      } else {
+        view.querySelector("[data-after-caption]").remove();
+      }
+
+      views.append(view);
+    });
+
+    if (pairs.length > 1) {
+      card.classList.add("is-multi-view");
+      views.classList.add("is-multi-view");
+    }
+
+    metadataItems.forEach(([term, value]) => {
+      const item = document.createElement("div");
+      const label = document.createElement("dt");
+      const description = document.createElement("dd");
+
+      label.textContent = term;
+      description.textContent = String(value).trim();
+      item.append(label, description);
+      metadata.append(item);
+    });
+
+    if (!metadataItems.length) {
+      metadata.remove();
+    }
+
+    beforeAfterGrid.append(card);
+  });
+
+  beforeAfterSection.hidden = false;
+}
+
+// Build the launch-candidate homepage sequence.
+const homepageMain = document.querySelector("main");
+const homepageHero = document.querySelector(".home-flagship-hero");
+const servicesPricingSection = document.querySelector(".home-services-pricing-band");
+const appointmentProcessSection = document.querySelector(".home-story-band");
+const testimonialVideoSection = document.querySelector(".home-video-band");
+const serviceAreaSection = document.querySelector("#service-area");
+const serviceAreaLayout = serviceAreaSection?.querySelector(".home-map-layout");
+const serviceAreaMap = serviceAreaSection?.querySelector(".home-service-map-card");
+const footerContact = document.querySelector(".footer-contact");
+const footerCopy = footerContact?.querySelector(".footer-copy");
+const footerGrid = document.querySelector(".footer-grid");
+const siteFooter = document.querySelector(".site-footer");
+const homepageContactForm = document.querySelector("#contact-form");
+
+if (serviceAreaLayout && serviceAreaMap && footerCopy && homepageContactForm) {
+  const contactPanel = document.createElement("div");
+
+  contactPanel.className = "home-map-contact-panel";
+  contactPanel.append(footerCopy, homepageContactForm);
+  serviceAreaLayout.classList.add("home-map-contact-layout");
+  serviceAreaLayout.replaceChildren(serviceAreaMap, contactPanel);
+  footerGrid?.classList.add("sandbox-footer-compact");
+}
+
+if (homepageMain) {
+  [
+    homepageHero,
+    servicesPricingSection,
+    appointmentProcessSection,
+    testimonialVideoSection,
+    beforeAfterSection,
+    googleReviewsSection,
+  ].forEach((section) => {
+    if (section) {
+      homepageMain.append(section);
+    }
+  });
+}
+
+// The service-area map and contact form form one continuous footer region.
+if (serviceAreaSection) {
+  if (siteFooter) {
+    siteFooter.prepend(serviceAreaSection);
+  } else {
+    homepageMain?.append(serviceAreaSection);
+  }
 }
 
 contactForms.forEach((contactForm) => {
   const status = contactForm.querySelector(".contact-form-note");
   const submitButton = contactForm.querySelector('button[type="submit"]');
   const isExpansionForm = contactForm.id === "interest-form";
-  const isUnifiedFooterForm = Boolean(contactForm.closest(".site-footer-unified"));
   const readyMessage = isExpansionForm
     ? "Send an expansion inquiry to Mobile Cryo Pro. This is an expression of interest, not an offer or commitment."
-    : isUnifiedFooterForm
-      ? ""
-      : "Send the form and Dan will reply as soon as possible.";
+    : "Send the form and Dan will reply as soon as possible.";
 
   contactForm.action = formspreeEndpoint;
   contactForm.method = "POST";
@@ -517,7 +702,6 @@ contactForms.forEach((contactForm) => {
   if (status) {
     status.textContent = readyMessage;
     status.setAttribute("aria-live", "polite");
-    status.hidden = !readyMessage;
   }
 
   if (!isExpansionForm && !contactForm.querySelector(".booking-deposit-link")) {
@@ -553,7 +737,6 @@ contactForms.forEach((contactForm) => {
       submitButton.disabled = true;
     }
     if (status) {
-      status.hidden = false;
       status.textContent = "Sending…";
     }
 
@@ -592,3 +775,172 @@ contactForms.forEach((contactForm) => {
     }
   });
 });
+
+const galleryDirectory = document.querySelector("[data-gallery-directory]");
+
+if (galleryDirectory && "IntersectionObserver" in window) {
+  const directoryLinks = Array.from(galleryDirectory.querySelectorAll('a[href^="#"]'));
+  const directorySections = directoryLinks
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+  const setCurrentGallerySection = (sectionId) => {
+    directoryLinks.forEach((link) => {
+      if (link.getAttribute("href") === `#${sectionId}`) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  };
+
+  const gallerySectionObserver = new IntersectionObserver(
+    (entries) => {
+      const visibleSections = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((first, second) => second.intersectionRatio - first.intersectionRatio);
+
+      if (visibleSections[0]) {
+        setCurrentGallerySection(visibleSections[0].target.id);
+      }
+    },
+    {
+      rootMargin: "-30% 0px -55% 0px",
+      threshold: [0, 0.1, 0.35],
+    },
+  );
+
+  directorySections.forEach((section) => gallerySectionObserver.observe(section));
+}
+
+const galleryLightbox = document.querySelector("[data-gallery-lightbox]");
+const galleryOpenButtons = Array.from(document.querySelectorAll("[data-gallery-open]"));
+
+if (galleryLightbox && galleryOpenButtons.length) {
+  const lightboxImage = galleryLightbox.querySelector("[data-gallery-lightbox-image]");
+  const lightboxTitle = galleryLightbox.querySelector("[data-gallery-lightbox-title]");
+  const lightboxMeta = galleryLightbox.querySelector("[data-gallery-lightbox-meta]");
+  const lightboxCurrent = galleryLightbox.querySelector("[data-gallery-lightbox-current]");
+  const lightboxTotal = galleryLightbox.querySelector("[data-gallery-lightbox-total]");
+  const lightboxThumbs = galleryLightbox.querySelector("[data-gallery-thumbs]");
+  const closeButton = galleryLightbox.querySelector("[data-gallery-close]");
+  const previousButton = galleryLightbox.querySelector("[data-gallery-prev]");
+  const nextButton = galleryLightbox.querySelector("[data-gallery-next]");
+  let currentGalleryIndex = 0;
+  let thumbnailButtons = [];
+  const adjacentPreloads = new Map();
+
+  const getFullGallerySource = (image) => {
+    const sourceCandidates = (image.getAttribute("srcset") || "")
+      .split(",")
+      .map((candidate) => {
+        const [source, descriptor = "0w"] = candidate.trim().split(/\s+/);
+        return { source, width: Number.parseInt(descriptor, 10) || 0 };
+      })
+      .filter((candidate) => candidate.source)
+      .sort((first, second) => second.width - first.width);
+
+    const fallbackSource = image.getAttribute("src") || image.src;
+    return sourceCandidates[0]?.source || fallbackSource.replace(/-card(?=\.[^./?#]+(?:[?#].*)?$)/, "");
+  };
+
+  const getGalleryThumbnailSource = (image) =>
+    getFullGallerySource(image).replace(/(\.[^./?#]+)([?#].*)?$/, "-thumb.webp$2");
+
+  const preloadAdjacentGalleryImage = (index) => {
+    const normalizedIndex = (index + galleryOpenButtons.length) % galleryOpenButtons.length;
+    const sourceImage = galleryOpenButtons[normalizedIndex].querySelector("img");
+    const fullSource = getFullGallerySource(sourceImage);
+
+    if (!fullSource || adjacentPreloads.has(fullSource)) return;
+
+    const preload = new Image();
+    preload.decoding = "async";
+    preload.src = fullSource;
+    adjacentPreloads.set(fullSource, preload);
+  };
+
+  const showGalleryImage = (index) => {
+    currentGalleryIndex = (index + galleryOpenButtons.length) % galleryOpenButtons.length;
+    const selectedButton = galleryOpenButtons[currentGalleryIndex];
+    const selectedImage = selectedButton.querySelector("img");
+
+    lightboxImage.src = getFullGallerySource(selectedImage);
+    lightboxImage.alt = selectedImage.alt;
+    lightboxTitle.textContent = selectedButton.dataset.galleryTitle || selectedImage.alt;
+    lightboxMeta.textContent = selectedButton.dataset.galleryMeta || "Mobile Cryo Pro gallery";
+    lightboxCurrent.textContent = String(currentGalleryIndex + 1);
+    lightboxTotal.textContent = String(galleryOpenButtons.length);
+
+    thumbnailButtons.forEach((thumbnail, thumbnailIndex) => {
+      if (thumbnailIndex === currentGalleryIndex) {
+        thumbnail.setAttribute("aria-current", "true");
+      } else {
+        thumbnail.removeAttribute("aria-current");
+      }
+    });
+
+    thumbnailButtons[currentGalleryIndex]?.scrollIntoView({ block: "nearest", inline: "center" });
+    window.setTimeout(() => {
+      preloadAdjacentGalleryImage(currentGalleryIndex - 1);
+      preloadAdjacentGalleryImage(currentGalleryIndex + 1);
+    }, 0);
+  };
+
+  const ensureThumbnailButtons = () => {
+    if (thumbnailButtons.length) return;
+
+    thumbnailButtons = galleryOpenButtons.map((button, index) => {
+      const sourceImage = button.querySelector("img");
+      const thumbnail = document.createElement("button");
+      const thumbnailImage = document.createElement("img");
+
+      thumbnail.type = "button";
+      thumbnail.className = "gallery-lightbox-thumb";
+      thumbnail.setAttribute("aria-label", `View image ${index + 1}: ${button.dataset.galleryTitle || sourceImage.alt}`);
+      thumbnailImage.src = getGalleryThumbnailSource(sourceImage);
+      thumbnailImage.alt = "";
+      thumbnailImage.width = 240;
+      thumbnailImage.height = 192;
+      thumbnailImage.loading = "lazy";
+      thumbnailImage.decoding = "async";
+      thumbnail.append(thumbnailImage);
+      thumbnail.addEventListener("click", () => showGalleryImage(index));
+      lightboxThumbs.append(thumbnail);
+      return thumbnail;
+    });
+  };
+
+  const openGalleryLightbox = (index) => {
+    ensureThumbnailButtons();
+    showGalleryImage(index);
+    document.body.classList.add("gallery-lightbox-open");
+    galleryLightbox.showModal();
+    closeButton.focus();
+  };
+
+  galleryOpenButtons.forEach((button, index) => {
+    button.addEventListener("click", () => openGalleryLightbox(index));
+  });
+
+  closeButton.addEventListener("click", () => galleryLightbox.close());
+  previousButton.addEventListener("click", () => showGalleryImage(currentGalleryIndex - 1));
+  nextButton.addEventListener("click", () => showGalleryImage(currentGalleryIndex + 1));
+
+  galleryLightbox.addEventListener("close", () => {
+    document.body.classList.remove("gallery-lightbox-open");
+    galleryOpenButtons[currentGalleryIndex]?.focus();
+  });
+
+  galleryLightbox.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      showGalleryImage(currentGalleryIndex - 1);
+    }
+
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      showGalleryImage(currentGalleryIndex + 1);
+    }
+  });
+}

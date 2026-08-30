@@ -17,20 +17,22 @@
     <link
       rel="preload"
       as="image"
-      href="assets/recovery-shoulder-cryo-home-1280.webp"
-      type="image/webp"
-      fetchpriority="high"
+      href="assets/recovery-shoulder-cryo-home.jpg"
     />
+    <link rel="preload" as="image" href="assets/recovery-knee-assessment-home.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap"
       rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
     />
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" /></noscript>
-    <link rel="stylesheet" href="styles.css?v=177" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="/styles.css?v=211" />
     <link rel="icon" href="favicon.ico?v=9" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/mobile-cryo-pro-favicon-32.png?v=9" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/mobile-cryo-pro-apple-touch-icon.png?v=9" />
@@ -100,9 +102,10 @@
         <a class="brand" href="index.html" aria-label="Mobile Cryo Pro home">
           <img
             class="brand-logo"
-            src="assets/mobile-cryo-pro-logo-640.webp"
+            src="assets/mobile-cryo-pro-logo.png?v=9"
             alt="Mobile Cryo Pro"
-            width="639" height="209"
+            width="1100"
+            height="360"
             fetchpriority="high"
           />
         </a>
@@ -120,13 +123,14 @@
 
         <nav class="site-nav" id="site-nav">
           <a href="index.html" aria-current="page">Home</a>
-          <a href="about.html">About</a>
+          <a href="/about.html">About</a>
           <a href="services.html">Services</a>
+          <a href="gallery.html">Gallery</a>
           <a href="index.html#service-area">Service Area</a>
-          <a href="blog.html">Blog</a>
+          <a href="guides/index.html">Guides</a>
           <a href="faq.html">FAQ</a>
           <a class="nav-call" href="tel:+17074139366">(707) 413-9366</a>
-          <a class="nav-cta" href="#contact-form">Request a Visit</a>
+          <a class="nav-cta" href="#contact-form">Check Availability</a>
         </nav>
       </header>
 
@@ -150,23 +154,19 @@
             <div class="services-hero-actions">
               <a class="button button-primary" href="#contact-form">
                 <span class="button-icon button-icon-calendar" aria-hidden="true"></span>
-                Request a Visit
-              </a>
-              <a class="button button-neutral" href="services.html">
-                <span class="button-icon button-icon-play" aria-hidden="true"></span>
-                View Services
+                Check Availability
               </a>
             </div>
             <div class="hero-trust-row" aria-label="Private mobile appointments for individuals, teams, and events">
               <div class="hero-avatar-stack" aria-hidden="true">
                 <span class="hero-avatar hero-avatar-woman">
-                  <img src="assets/testimonial-client-woman-96.webp" alt="" width="96" height="96" decoding="async" />
+                  <img src="assets/testimonial-client-woman.jpg" alt="" width="512" height="512" decoding="async" />
                 </span>
                 <span class="hero-avatar hero-avatar-man">
-                  <img src="assets/testimonial-client-man-96.webp" alt="" width="96" height="96" decoding="async" />
+                  <img src="assets/testimonial-client-man.jpg" alt="" width="512" height="512" decoding="async" />
                 </span>
                 <span class="hero-avatar hero-avatar-young-man">
-                  <img src="assets/testimonial-client-young-man-96.webp" alt="" width="96" height="96" decoding="async" />
+                  <img src="assets/testimonial-client-young-man.jpg" alt="" width="512" height="512" decoding="async" />
                 </span>
               </div>
               <div class="hero-rating">
@@ -183,63 +183,25 @@
           >
             <span
               class="home-hero-media-slide"
-              style="--hero-slide-image: url('assets/recovery-shoulder-cryo-home-1280.webp');"
+              style="--hero-slide-image: url('assets/recovery-shoulder-cryo-home.jpg');"
               aria-hidden="true"
             ></span>
             <span
               class="home-hero-media-slide"
-              style="--hero-slide-image: url('assets/recovery-knee-assessment-home-1280.webp');"
+              style="--hero-slide-image: url('assets/recovery-knee-assessment-home.jpg');"
               aria-hidden="true"
             ></span>
           </div>
         </section>
 
-        <section class="services-proof-panel home-proof-panel" aria-label="Mobile Cryo Pro highlights">
-          <article>
-            <span class="proof-icon proof-icon-snow" aria-hidden="true">
-              <svg class="proof-icon-svg"><use href="#icon-cryo-snow"></use></svg>
-            </span>
-            <h2>Localized Cryotherapy</h2>
-            <p>Focused cold therapy applied to specific muscles and joints.</p>
-          </article>
-          <article>
-            <span class="proof-icon proof-icon-wave" aria-hidden="true">
-              <svg class="proof-icon-svg"><use href="#icon-cryo-waves"></use></svg>
-            </span>
-            <h2>Body Contouring</h2>
-            <p>CryoSkin 3.0 and contouring options for body-focused aesthetic goals.</p>
-          </article>
-          <article>
-            <span class="proof-icon proof-icon-glow" aria-hidden="true">
-              <svg class="proof-icon-svg"><use href="#icon-cryo-glow"></use></svg>
-            </span>
-            <h2>CryoSkin &amp; Cryofacials</h2>
-            <p>Face-focused CryoSkin and localized cryofacial appointments.</p>
-          </article>
-          <article>
-            <span class="proof-icon proof-icon-home" aria-hidden="true">
-              <svg class="proof-icon-svg"><use href="#icon-cryo-home"></use></svg>
-            </span>
-            <h2>Mobile Appointments</h2>
-            <p>Available at homes, hotels, gyms, offices, and private venues.</p>
-          </article>
-          <article>
-            <span class="proof-icon proof-icon-shield" aria-hidden="true">
-              <svg class="proof-icon-svg"><use href="#icon-cryo-shield"></use></svg>
-            </span>
-            <h2>Personal Service</h2>
-            <p>Dan handles the consultation, setup, and treatment at every visit.</p>
-          </article>
-        </section>
-
         <section class="section-band home-story-band">
           <div class="section-grid section-grid-lead home-story-grid">
             <div>
-              <p class="eyebrow">Why mobile</p>
-              <h2>Private appointments at your location</h2>
+              <p class="eyebrow">How appointments work</p>
+              <h2>A private mobile appointment, explained before treatment begins</h2>
               <p>
-                Book a private appointment at home, work, a hotel, or your
-                training facility.
+                Mobile Cryo Pro is for clients who prefer a private appointment
+                at home, at work, at a hotel, or at their training facility.
               </p>
               <p>
                 Dan brings the equipment, reviews your goals and relevant health
@@ -249,14 +211,10 @@
             <div class="home-story-side">
               <p class="panel-label">What to expect</p>
               <ul class="check-list">
-                <li>Equipment cleaned between appointments</li>
+                <li>Professional equipment cleaned between appointments</li>
                 <li>A brief intake and review of the requested service</li>
                 <li>Dan handles setup and treatment personally</li>
               </ul>
-              <div class="cta-actions">
-                <a class="button button-primary" href="#contact-form">Request a Visit</a>
-                <a class="button button-neutral" href="services.html">View Services</a>
-              </div>
             </div>
           </div>
         </section>
@@ -264,7 +222,7 @@
         <section class="section-band bio-video-section home-video-band" id="intro-video">
           <div class="section-heading">
             <p class="eyebrow">Client story</p>
-            <h2 id="client-story-title">Hear from a Mobile Cryo Pro client</h2>
+            <h2>Hear from a Mobile Cryo Pro client</h2>
             <p>
               This short testimonial describes the client&rsquo;s experience with
               Mobile Cryo Pro.
@@ -273,13 +231,12 @@
 
           <div
             class="bio-video-frame has-video"
-            role="group"
-            aria-labelledby="client-story-title"
+            aria-label="Mobile Cryo Pro client testimonial video"
           >
             <video
               class="bio-video-player"
               controls
-              preload="none"
+              preload="metadata"
               playsinline
               poster="assets/dan-belben-intro-poster.jpg?v=146"
             >
@@ -289,6 +246,90 @@
             </video>
           </div>
         </section>
+
+        <section
+          class="section-band home-reviews-band"
+          id="google-reviews"
+          aria-labelledby="google-reviews-title"
+          data-google-reviews
+          hidden
+        >
+          <div class="proof-section-heading">
+            <div class="section-heading narrow">
+              <p class="eyebrow">Client feedback</p>
+              <h2 id="google-reviews-title">What people are saying</h2>
+            </div>
+            <div class="proof-section-actions" role="group" aria-label="Review carousel controls">
+              <button
+                class="proof-scroll-button"
+                type="button"
+                aria-label="Show previous review"
+                data-review-previous
+                disabled
+              >
+                <span aria-hidden="true">&larr;</span>
+              </button>
+              <button
+                class="proof-scroll-button"
+                type="button"
+                aria-label="Show next review"
+                data-review-next
+                disabled
+              >
+                <span aria-hidden="true">&rarr;</span>
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="review-carousel"
+            role="group"
+            aria-roledescription="carousel"
+            aria-label="Google client reviews"
+            tabindex="0"
+            data-review-carousel
+          >
+            <div class="review-carousel-track" data-review-track></div>
+          </div>
+
+          <div class="proof-section-footer">
+            <p class="review-carousel-status" aria-live="polite" data-review-status></p>
+            <a
+              class="review-profile-link"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-google-profile-link
+              hidden
+            >Read all reviews on Google</a>
+          </div>
+        </section>
+
+        <template id="google-review-card-template">
+          <article class="review-card" role="group">
+            <div class="review-card-rating" data-review-rating></div>
+            <blockquote class="review-card-quote">
+              <p data-review-text></p>
+            </blockquote>
+            <footer class="review-card-footer">
+              <span class="review-card-avatar" aria-hidden="true" data-review-initial></span>
+              <div>
+                <cite data-reviewer-name></cite>
+                <p class="review-card-meta">
+                  <time data-review-date></time>
+                  <span data-review-local-guide></span>
+                </p>
+              </div>
+            </footer>
+            <a
+              class="review-source-link"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-review-source
+            >Read on Google</a>
+          </article>
+        </template>
 
         <section class="section-band home-services-pricing-band" id="services">
           <div class="section-heading narrow">
@@ -341,17 +382,60 @@
             </article>
           </div>
 
-          <aside class="home-inline-cta">
-            <div>
-              <p class="eyebrow">Not sure where to start?</p>
-              <h3>We&rsquo;re here to help you understand your options. All questions are welcome.</h3>
-            </div>
-            <div class="cta-actions">
-              <a class="button button-primary" href="services.html">View All Services</a>
-              <a class="button button-neutral" href="#contact-form">Ask Dan</a>
-            </div>
-          </aside>
         </section>
+
+        <section
+          class="section-band home-results-band"
+          id="before-after-gallery"
+          aria-labelledby="before-after-title"
+          data-before-after-gallery
+          hidden
+        >
+          <div class="proof-section-heading home-results-heading">
+            <div class="home-results-heading-copy">
+              <p class="eyebrow">Featured results</p>
+              <h2 id="before-after-title">See the difference</h2>
+              <p>Two standout comparisons from the Mobile Cryo Pro treatment gallery.</p>
+            </div>
+            <a class="button button-primary" href="gallery.html#body-results">View All Results</a>
+          </div>
+          <div class="before-after-grid" data-before-after-grid></div>
+        </section>
+
+        <template id="before-after-card-template">
+          <article class="before-after-card">
+            <header class="before-after-card-header">
+              <p class="panel-label" data-case-service></p>
+              <h3 data-case-title><span class="sr-only">Approved client case study</span></h3>
+            </header>
+            <div class="before-after-views" data-case-views></div>
+            <dl class="before-after-metadata" data-case-metadata></dl>
+            <p class="before-after-caption" data-case-caption></p>
+            <p class="before-after-disclaimer" data-case-disclaimer></p>
+          </article>
+        </template>
+
+        <template id="before-after-view-template">
+          <section class="before-after-view">
+            <h4 class="before-after-view-title" data-view-title></h4>
+            <div class="before-after-pair">
+              <figure class="before-after-frame">
+                <div class="before-after-image-wrap">
+                  <span data-before-image-slot></span>
+                  <span class="before-after-label" data-before-label></span>
+                </div>
+                <figcaption data-before-caption></figcaption>
+              </figure>
+              <figure class="before-after-frame">
+                <div class="before-after-image-wrap">
+                  <span data-after-image-slot></span>
+                  <span class="before-after-label" data-after-label></span>
+                </div>
+                <figcaption data-after-caption></figcaption>
+              </figure>
+            </div>
+          </section>
+        </template>
 
         <section class="section-band home-context-band" id="service-area">
           <div class="section-heading narrow">
@@ -415,24 +499,6 @@
             </figure>
           </div>
 
-          <div class="cta-actions">
-            <a class="button button-primary" href="service-areas.html"
-              >View Service Areas</a
-            >
-            <a class="button button-neutral" href="faq.html">Read FAQs</a>
-          </div>
-        </section>
-
-        <section class="cta-band">
-          <p class="eyebrow">Future expansion</p>
-          <h2>Interested in bringing Mobile Cryo Pro to your community?</h2>
-          <p>
-            Mobile Cryo Pro is considering future territories and local
-            operating partnerships.
-          </p>
-          <div class="cta-actions">
-            <a class="button button-primary" href="expansion-opportunities.html">Explore Opportunities</a>
-          </div>
         </section>
       </main>
 
@@ -443,9 +509,10 @@
               <a class="footer-brand" href="index.html" aria-label="Mobile Cryo Pro home">
                 <img
                   class="footer-logo"
-                  src="assets/mobile-cryo-pro-logo-640.webp"
+                  src="assets/mobile-cryo-pro-logo.png?v=9"
                   alt="Mobile Cryo Pro"
-                  width="639" height="209"
+                  width="1100"
+                  height="360"
                   loading="lazy"
                 />
               </a>
@@ -514,18 +581,28 @@
               <a class="payment-mark payment-mark-bank" href="https://book.stripe.com/eVqbJ18NNgCR2ofdR63VC00" target="_blank" rel="noopener noreferrer" aria-label="US bank account — pay booking deposit">▥ Bank</a>
             </div>
             <div class="footer-links">
-              <a href="about.html">About</a>
+              <a href="/about.html">About</a>
               <a href="services.html">Services</a>
-              <a href="blog.html">Blog</a>
+              <a href="guides/index.html">Guides</a>
               <a href="faq.html">FAQ</a>
               <a href="index.html#service-area">Service Area</a>
               <a href="expansion-opportunities.html">Expansion</a>
+              <a href="privacy.html">Privacy</a>
+              <a href="terms.html">Terms</a>
             </div>
           </div>
         </div>
       </footer>
     </div>
 
-    <script src="script.js?v=34"></script>
+    <script src="/content-data.js?v=23"></script>
+    <script src="/footer.js?v=15"></script>
+    <script src="/script.js?v=39"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="map.js?v=7"></script>
   </body>
 </html>
