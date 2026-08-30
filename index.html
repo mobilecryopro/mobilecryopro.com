@@ -37,7 +37,7 @@
         rel="stylesheet"
       />
     </noscript>
-    <link rel="stylesheet" href="/styles.css?v=212" />
+    <link rel="stylesheet" href="/styles.css?v=213" />
     <link rel="icon" href="favicon.ico?v=9" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/mobile-cryo-pro-favicon-32.png?v=9" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/mobile-cryo-pro-apple-touch-icon.png?v=9" />
@@ -194,8 +194,8 @@
               alt="Mobile recovery client receiving localized cryotherapy"
               width="1280"
               height="720"
+              loading="eager"
               fetchpriority="high"
-              decoding="async"
             />
             <img
               class="home-hero-media-slide"
@@ -244,12 +244,10 @@
             </p>
           </div>
 
-          <div
-            class="bio-video-frame has-video"
-            aria-label="Mobile Cryo Pro client testimonial video"
-          >
+          <div class="bio-video-frame has-video">
             <video
               class="bio-video-player"
+              aria-label="Mobile Cryo Pro client testimonial video"
               controls
               preload="none"
               playsinline
@@ -321,7 +319,7 @@
         </section>
 
         <template id="google-review-card-template">
-          <article class="review-card" role="group">
+          <article class="review-card">
             <div class="review-card-rating" data-review-rating></div>
             <blockquote class="review-card-quote">
               <p data-review-text></p>

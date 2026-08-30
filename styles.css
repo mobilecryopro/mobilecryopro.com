@@ -8302,18 +8302,10 @@ body.home-page .site-header.is-scrolled,
     var(--hero-slide-image);
   background-position: center center, center center, 50% 34%;
   background-size: cover;
-  opacity: 0;
-  animation: homeHeroPhotoFade 12s infinite ease-in-out;
 }
 
 .home-hero-media-slide:nth-child(1) {
-  opacity: 1;
-  animation-delay: 0s;
   background-position: center center, center center, 50% 25%;
-}
-
-.home-hero-media-slide:nth-child(2) {
-  animation-delay: 6s;
 }
 
 @keyframes homeHeroPhotoFade {
@@ -8419,19 +8411,6 @@ body:not(.services-page).about-page .bio-video-frame.has-video::before {
   .nav-cta::before {
     position: relative;
     z-index: 1;
-  }
-
-  body.home-page .home-hero-media-slide {
-    will-change: opacity;
-    animation: homeHeroPhotoFade 12s infinite ease-in-out;
-  }
-
-  body.home-page .home-hero-media-slide:nth-child(1) {
-    animation-delay: 0s;
-  }
-
-  body.home-page .home-hero-media-slide:nth-child(2) {
-    animation-delay: 6s;
   }
 
   body.home-page .hero-divider-ice::after,
@@ -10145,6 +10124,9 @@ body:not(.services-page) .footer-section-heading .eyebrow {
 
 @media (max-width: 760px) {
   .home-page .home-flagship-hero .home-hero-media-slide:first-child {
+    opacity: 1 !important;
+    animation: none !important;
+    will-change: auto;
     object-position: 50% 27%;
   }
 
