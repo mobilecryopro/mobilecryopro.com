@@ -102,6 +102,7 @@ window.mobileCryoContent = Object.freeze({
           title: "",
           before: Object.freeze({
             imageUrl: "/assets/gallery/neck-skin-tightening-before-minimal-original-v9.webp",
+            thumbnailUrl: "/assets/optimized/home-neck-before-500.webp",
             alt: "Neck and jawline before skin-tightening cryotherapy",
             label: "Before",
             caption: "",
@@ -110,6 +111,7 @@ window.mobileCryoContent = Object.freeze({
           }),
           after: Object.freeze({
             imageUrl: "/assets/gallery/neck-skin-tightening-after-minimal-original-v9.webp",
+            thumbnailUrl: "/assets/optimized/home-neck-after-500.webp",
             alt: "Neck and jawline after skin-tightening cryotherapy",
             label: "After",
             caption: "",
@@ -133,6 +135,7 @@ window.mobileCryoContent = Object.freeze({
           title: "",
           before: Object.freeze({
             imageUrl: "/assets/gallery/homepage-abdominal-contouring-before-portrait.webp",
+            thumbnailUrl: "/assets/optimized/home-abdominal-before-500.webp",
             alt: "Abdomen before a three-session body-sculpting series",
             label: "Before",
             caption: "",
@@ -141,6 +144,7 @@ window.mobileCryoContent = Object.freeze({
           }),
           after: Object.freeze({
             imageUrl: "/assets/gallery/homepage-abdominal-contouring-after-portrait.webp",
+            thumbnailUrl: "/assets/optimized/home-abdominal-after-500.webp",
             alt: "Abdomen after a three-session body-sculpting series",
             label: "After",
             caption: "",

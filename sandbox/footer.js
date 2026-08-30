@@ -48,7 +48,7 @@
       <div class="footer-shell">
         <div class="footer-contact footer-contact-compact">
           <a class="footer-brand" href="/sandbox/index.html" aria-label="Mobile Cryo Pro home">
-            <img class="footer-logo" src="/assets/mobile-cryo-pro-logo.png?v=9" alt="Mobile Cryo Pro" width="1100" height="360" loading="lazy" />
+            <img class="footer-logo" src="/assets/optimized/mobile-cryo-pro-logo-360.webp" srcset="/assets/optimized/mobile-cryo-pro-logo-360.webp 360w, /assets/optimized/mobile-cryo-pro-logo-600.webp 600w" sizes="(max-width: 760px) 292px, 220px" alt="Mobile Cryo Pro" width="600" height="196" loading="lazy" decoding="async" />
           </a>
           <div class="footer-contact-list">
             <div class="footer-contact-item"><span>Call or text</span><a href="tel:+17074139366">(707) 413-9366</a></div>

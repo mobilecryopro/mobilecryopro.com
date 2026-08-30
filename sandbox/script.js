@@ -571,13 +571,21 @@ if (
         afterImage.textContent = "Approved after image";
         card.classList.add("is-sandbox-placeholder");
       } else {
-        beforeImage.src = pair.before.imageUrl;
+        beforeImage.src = pair.before.thumbnailUrl || pair.before.imageUrl;
+        if (pair.before.thumbnailUrl) {
+          beforeImage.srcset = `${pair.before.thumbnailUrl} 500w, ${pair.before.imageUrl} 1000w`;
+          beforeImage.sizes = "(max-width: 760px) 50vw, 25vw";
+        }
         beforeImage.alt = pair.before.alt;
         beforeImage.width = Number(pair.before.width) || 800;
         beforeImage.height = Number(pair.before.height) || 1000;
         beforeImage.loading = "lazy";
         beforeImage.decoding = "async";
-        afterImage.src = pair.after.imageUrl;
+        afterImage.src = pair.after.thumbnailUrl || pair.after.imageUrl;
+        if (pair.after.thumbnailUrl) {
+          afterImage.srcset = `${pair.after.thumbnailUrl} 500w, ${pair.after.imageUrl} 1000w`;
+          afterImage.sizes = "(max-width: 760px) 50vw, 25vw";
+        }
         afterImage.alt = pair.after.alt;
         afterImage.width = Number(pair.after.width) || 800;
         afterImage.height = Number(pair.after.height) || 1000;
@@ -646,6 +654,43 @@ const footerGrid = document.querySelector(".footer-grid");
 const siteFooter = document.querySelector(".site-footer");
 const homepageContactForm = document.querySelector("#contact-form");
 
+// Keep the mobile LCP image stable. The secondary desktop hero image is loaded
+// only after the initial page has finished and the browser has idle time.
+const secondaryHeroImage = document.querySelector(
+  ".home-hero-media-slide[data-src]",
+);
+
+if (secondaryHeroImage) {
+  const desktopHeroQuery = window.matchMedia("(min-width: 761px)");
+
+  const loadSecondaryHeroImage = () => {
+    if (!desktopHeroQuery.matches || secondaryHeroImage.src) return;
+
+    secondaryHeroImage.addEventListener(
+      "load",
+      () => homepageHero?.classList.add("hero-slides-ready"),
+      { once: true },
+    );
+    secondaryHeroImage.src = secondaryHeroImage.dataset.src;
+  };
+
+  const scheduleSecondaryHeroImage = () => {
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(loadSecondaryHeroImage, { timeout: 2000 });
+    } else {
+      window.setTimeout(loadSecondaryHeroImage, 750);
+    }
+  };
+
+  if (document.readyState === "complete") {
+    scheduleSecondaryHeroImage();
+  } else {
+    window.addEventListener("load", scheduleSecondaryHeroImage, { once: true });
+  }
+
+  desktopHeroQuery.addEventListener?.("change", loadSecondaryHeroImage);
+}
+
 if (serviceAreaLayout && serviceAreaMap && footerCopy && homepageContactForm) {
   const contactPanel = document.createElement("div");
 
@@ -658,7 +703,6 @@ if (serviceAreaLayout && serviceAreaMap && footerCopy && homepageContactForm) {
 
 if (homepageMain) {
   [
-    homepageHero,
     servicesPricingSection,
     appointmentProcessSection,
     testimonialVideoSection,
