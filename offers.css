@@ -1,0 +1,109 @@
+.offer-page main {
+  width: min(calc(100% - 48px), 1440px);
+  margin-inline: auto;
+}
+
+.first-visit-offer {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+  padding: clamp(24px, 5vw, 64px) 0;
+}
+
+.offer-copy h1 {
+  font-size: clamp(3rem, 5.5vw, 5.6rem);
+  line-height: .98;
+  margin: 12px 0 24px;
+}
+
+.offer-copy > p {
+  line-height: 1.65;
+  margin-block: 16px;
+}
+
+.offer-copy [data-offer-active] > p:not(.offer-price) {
+  margin-block: 14px;
+}
+
+.offer-price {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 24px 0 8px;
+}
+
+.offer-price span {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.offer-saving {
+  font-weight: 700;
+  color: #176158;
+}
+
+.offer-dates {
+  font-weight: 700;
+  margin: 20px 0;
+}
+
+.offer-artwork {
+  margin: 0;
+}
+
+.offer-artwork img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+
+.offer-booking-note {
+  font-size: .9rem;
+  margin-top: 18px;
+}
+
+.offer-terms {
+  max-width: 900px;
+  padding: 24px 0 48px;
+  line-height: 1.7;
+}
+
+.offer-terms h2 {
+  font-size: 2rem;
+}
+
+.offer-terms ul {
+  padding-left: 24px;
+}
+
+.offer-terms li + li {
+  margin-top: 10px;
+}
+
+.offer-ended {
+  padding: 18px;
+  background: #fff3d8;
+  border-radius: 12px;
+}
+
+.offer-page [hidden] {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .offer-page main {
+    width: calc(100% - 32px);
+  }
+
+  .first-visit-offer {
+    grid-template-columns: 1fr;
+  }
+
+  .offer-artwork {
+    grid-row: 1;
+  }
+}
