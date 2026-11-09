@@ -17,9 +17,9 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&amp;family=Inter:wght@400;500;600;700;800&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/styles.css?v=211" />
-    <link rel="stylesheet" href="/offers.css?v=1" />
+    <link rel="stylesheet" href="/offers.css?v=2" />
     <link rel="icon" href="/favicon.ico?v=9" sizes="any" />
   </head>
   <body class="seo-page offer-page">
@@ -44,37 +44,49 @@
       </header>
       <main id="main-content" tabindex="-1">
         <section class="first-visit-offer" id="first-visit" aria-labelledby="offer-heading">
-          <div class="offer-copy">
-            <p class="eyebrow">First-visit offer</p>
-            <h1 id="offer-heading">Your first visit.<br />$20 less.</h1>
-            <p>Try localized cryotherapy at your home or another approved private location across Sonoma, Marin, and the North Bay.</p>
-            <div data-offer-active>
-              <p class="offer-price">$50 <span>for one treatment area</span></p>
-              <p class="offer-saving">Save $20 on the regular $70 single session.</p>
-              <p><strong>Any travel fee is quoted before booking.</strong> Additional treatment areas are $25 each.</p>
-              <p class="offer-dates">Book November 9–December 8, 2026, Pacific time.</p>
-            </div>
-            <p class="offer-ended" data-offer-ended hidden>This first-visit offer ended December 8, 2026. <a href="/services.html#recovery">See current services and prices.</a></p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="#contact-form" data-offer-cta>Check Availability</a>
-              <a class="button button-secondary" href="tel:+17074139366">Call Dan</a>
-            </div>
-            <p class="offer-booking-note">Send your location and preferred timing. Dan will confirm availability and the total price before you book.</p>
+          <div class="offer-intro">
+            <p class="offer-kicker">First-visit offer</p>
+            <h1 id="offer-heading">Cryotherapy,<br /><em>at home.</em></h1>
+            <p class="offer-intro-text">Dan brings localized cryotherapy to your door in Sonoma, Marin, and across the North Bay.</p>
           </div>
-          <figure class="offer-artwork" data-offer-active>
-            <img src="/assets/offers/first-visit-at-home.jpg" width="1448" height="1086" alt="Illustrated at-home cryotherapy coupon. $20 off your first localized session. $50 for one area, regularly $70. Any travel fee quoted before booking." fetchpriority="high" />
+          <figure class="offer-print" data-offer-active>
+            <div class="offer-mount">
+              <img src="/assets/offers/first-visit-at-home.jpg" width="1448" height="1086" alt="Illustrated home visit. Save $20 on your first localized cryotherapy session, $50 for one area. Any travel fee is quoted before booking." fetchpriority="high" />
+            </div>
+            <figcaption><span>Booking window</span><time datetime="2026-11-09">Nov 9</time> – <time datetime="2026-12-08">Dec 8, 2026</time></figcaption>
           </figure>
+          <div class="offer-reserve">
+            <div class="offer-price" data-offer-active>
+              <strong>$50</strong>
+              <div><b>One treatment area</b><span>Regularly <s>$70</s> · Save $20</span></div>
+            </div>
+            <p class="offer-ended" data-offer-ended hidden>This offer ended December 8, 2026. <a href="/services.html#recovery">See current prices.</a></p>
+            <p class="offer-quote">Dan quotes any travel fee before you book.</p>
+            <div class="offer-actions">
+              <a class="offer-book" href="#contact-form">Check availability <span aria-hidden="true">→</span></a>
+              <a class="offer-call" href="tel:+17074139366">Call Dan</a>
+            </div>
+          </div>
         </section>
         <section class="offer-terms" aria-labelledby="terms-heading">
-          <h2 id="terms-heading">Offer details</h2>
-          <ul>
-            <li>For new Mobile Cryo Pro clients. One discounted localized cryotherapy session per person, with one treatment area included.</li>
-            <li>Book November 9 through December 8, 2026, by 11:59 p.m. Pacific time. Appointments are subject to location, availability, and screening.</li>
-            <li>The $50 service price excludes any travel fee. Dan quotes travel fees before booking. Additional treatment areas are $25 each.</li>
-            <li>Cannot be combined with packages or other offers. Excludes CryoSkin, body contouring, facials, and equine services.</li>
-            <li>Mention the first-visit offer when calling or texting. Requests through the form on this page include the offer automatically.</li>
-          </ul>
-          <p>See our <a href="/terms.html">booking terms</a> and <a href="/services.html#recovery">full service menu</a>.</p>
+          <div class="offer-terms-heading">
+            <h2 id="terms-heading">Before you book</h2>
+            <a href="/services.html#recovery">View service menu <span aria-hidden="true">↗</span></a>
+          </div>
+          <dl class="offer-details">
+            <div>
+              <dt>Your first session</dt>
+              <dd>New clients can use the offer once for one localized treatment area. Each additional area is $25. Packages, other offers, CryoSkin, contouring, facials, and equine services are excluded.</dd>
+            </div>
+            <div>
+              <dt>Booking dates</dt>
+              <dd>Book between November 9 and December 8, 2026, by 11:59 p.m. Pacific on the final day. Dan confirms your location, availability, and suitability before your visit.</dd>
+            </div>
+            <div>
+              <dt>How to redeem</dt>
+              <dd>Use the availability form and the offer is included automatically during the booking window. If you call or text, mention the first-visit offer. <a href="/terms.html">Booking terms</a></dd>
+            </div>
+          </dl>
         </section>
       </main>
     </div>
